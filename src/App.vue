@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire" light>
+  <v-app light>
     <v-navigation-drawer
       v-model="drawer"
       disable-resize-watcher
@@ -9,6 +9,7 @@
       mobile-break-point="0"
     >
       <v-list>
+        <v-subheader>Flugrouten</v-subheader>
         <v-list-group
           v-for="item in items"
           :key="item.title"
@@ -35,6 +36,7 @@
             </v-list-tile-action>
           </v-list-tile>
         </v-list-group>
+        <v-subheader>Wer ist wer?</v-subheader>
       </v-list>
     </v-navigation-drawer>
     <v-toolbar app absolute clipped-right color="#0068b4" dark>
@@ -44,7 +46,7 @@
       <v-toolbar-side-icon v-on:click.stop="drawer = !drawer"></v-toolbar-side-icon>
     </v-toolbar>
     <v-content>
-      <Map></Map>
+      <Map :items=items></Map>
     </v-content>
     <!--v-footer app fixed>
       <span>&copy; 2019</span>
