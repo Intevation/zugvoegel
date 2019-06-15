@@ -1,5 +1,5 @@
 <template>
-    <div id="map"></div>
+  <div id="map"></div>
 </template>
 
 <script>
@@ -7,14 +7,23 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
 export default {
-  props:{
+  props: {
     items: Array
   },
   data: () => ({
     map: {}
   }),
+  watch: {
+    items: {
+      handler: function(newVal, oldVal) {
+        // watch it
+        // eslint-disable-next-line
+        console.log("Prop changed: ", newVal, " | was: ", oldVal);
+      },
+      deep: true
+    }
+  },
   mounted() {
-
     let map = L.map("map", {
       attributionControl: false,
       center: [50.15, 10.66],
@@ -40,15 +49,14 @@ export default {
       }
     ).addTo(map);
 
-    this.map=map;
-
+    this.map = map;
   }
 };
 </script>
 
 <style>
 #map {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 </style>
