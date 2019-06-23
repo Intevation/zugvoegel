@@ -9,13 +9,21 @@
       mobile-break-point="0"
     >
       <v-list v-model="phrases">
-        <v-subheader>{{phrases.routes}}</v-subheader>
+        <v-list-group>
+          <template v-slot:activator>
+            <v-list-tile>
+              <v-list-tile-content>
+                <v-list-tile-title>{{phrases.routes}}</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </template>
         <v-list-group
           v-for="season in seasons"
           :key="season.title"
           v-model="season.active"
           :prepend-icon="season.action"
           no-action
+          sub-group="true"
         >
           <template v-slot:activator>
             <v-list-tile>
@@ -34,6 +42,7 @@
               <v-checkbox v-model="turtledove.active"></v-checkbox>
             </v-list-tile-action>
           </v-list-tile>
+        </v-list-group>
         </v-list-group>
         <v-list-group>
           <template v-slot:activator>
