@@ -35,7 +35,32 @@
             </v-list-tile-action>
           </v-list-tile>
         </v-list-group>
-        <v-subheader>{{phrases.who}}</v-subheader>
+        <v-list-group>
+          <template v-slot:activator>
+            <v-list-tile>
+              <v-list-tile-content>
+                <v-list-tile-title>{{phrases.who}}</v-list-tile-title>
+              </v-list-tile-content>
+            </v-list-tile>
+          </template>
+          <v-list>
+            <v-list-tile v-for="td in turtledoves" :key="td.title" avatar>
+              <v-list-tile-avatar>
+                <img :src="td.avatar">
+              </v-list-tile-avatar>
+
+              <v-list-tile-content>
+                <v-list-tile-title v-html="td.title"></v-list-tile-title>
+              </v-list-tile-content>
+
+              <v-list-tile-action>
+                <v-btn icon :href="td.blog" target="_blank">
+                  <v-icon :color="td.active ? 'teal' : 'grey'">link</v-icon>
+                </v-btn>
+              </v-list-tile-action>
+            </v-list-tile>
+          </v-list>
+        </v-list-group>
         <v-list-group>
           <template v-slot:activator>
             <v-list-tile>
@@ -44,18 +69,18 @@
               </v-list-tile-content>
             </v-list-tile>
           </template>
-              <v-radio-group v-model="radios" column>
-          <v-list-tile>
-            <v-list-tile-action @click="phrases=phrasesEN">
-                <v-radio :label=phrases.en value="radio-en" ></v-radio>
-            </v-list-tile-action>
-          </v-list-tile>
-          <v-list-tile>
-            <v-list-tile-action @click="phrases=phrasesDE">
-                <v-radio :label=phrases.de value="radio-de" ></v-radio>
-            </v-list-tile-action>
-          </v-list-tile>
-              </v-radio-group>
+          <v-radio-group v-model="radios" column>
+            <v-list-tile>
+              <v-list-tile-action @click="phrases=phrasesEN">
+                <v-radio :label="phrases.en" value="radio-en"></v-radio>
+              </v-list-tile-action>
+            </v-list-tile>
+            <v-list-tile>
+              <v-list-tile-action @click="phrases=phrasesDE">
+                <v-radio :label="phrases.de" value="radio-de"></v-radio>
+              </v-list-tile-action>
+            </v-list-tile>
+          </v-radio-group>
         </v-list-group>
       </v-list>
     </v-navigation-drawer>
@@ -141,6 +166,30 @@ export default {
         active: false,
         turtledoves: [{ name: "Nicola", active: false }]
       }
+    ],
+    turtledoves: [
+      {
+        active: true,
+        title: "Dana",
+        avatar: "images/dana.jpg",
+        blog: "https://blogs.nabu.de/zugvoegel/tag/dana/"
+      },
+      {
+        active: true,
+        title: "Francesco",
+        avatar: "images/francesco.jpg",
+        blog: "https://blogs.nabu.de/zugvoegel/tag/francesco/"
+      },
+      {
+        title: "Jan",
+        avatar: "images/jan.jpg",
+        blog: "https://blogs.nabu.de/zugvoegel/tag/jan/"
+      },
+      {
+        title: "Nicola",
+        avatar: "images/nicola.jpg",
+        blog: "https://blogs.nabu.de/zugvoegel/tag/nicola/"
+      }
     ]
   }),
   created: function() {
@@ -154,7 +203,7 @@ export default {
       de: this.phrasesDE,
       en: this.phrasesEN
     }[this.locale === "de" ? "de" : "en"];
-    this.radios ="radio-"+this.locale;
+    this.radios = "radio-" + this.locale;
   }
 };
 </script>
