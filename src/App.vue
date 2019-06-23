@@ -44,7 +44,7 @@
               </v-list-tile-content>
             </v-list-tile>
           </template>
-              <v-radio-group column>
+              <v-radio-group v-model="radios" column>
           <v-list-tile>
             <v-list-tile-action @click="phrases=phrasesEN">
                 <v-radio :label=phrases.en value="radio-en" ></v-radio>
@@ -82,7 +82,6 @@ export default {
   components: { Map },
   data: () => ({
     drawer: null,
-    radios: "radio-en",
     locale: "",
     language: "",
     phrasesDE: {
@@ -118,6 +117,7 @@ export default {
       janFail: "Transmitter was not operational anymore since September 2017."
     },
     phrases: {},
+    radios: "",
     seasons: [
       {
         action: "gps_fixed",
@@ -154,6 +154,7 @@ export default {
       de: this.phrasesDE,
       en: this.phrasesEN
     }[this.locale === "de" ? "de" : "en"];
+    this.radios ="radio-"+this.locale;
   }
 };
 </script>
