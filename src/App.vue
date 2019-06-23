@@ -76,7 +76,6 @@
 
 <script>
 import Map from "./components/Map";
-import Polyglot from "node-polyglot";
 
 export default {
   name: "App",
@@ -119,7 +118,6 @@ export default {
       janFail: "Transmitter was not operational anymore since September 2017."
     },
     phrases: {},
-    polyglot: {},
     seasons: [
       {
         action: "gps_fixed",
@@ -156,10 +154,6 @@ export default {
       de: this.phrasesDE,
       en: this.phrasesEN
     }[this.locale === "de" ? "de" : "en"];
-    this.polyglot = new Polyglot({
-      locale: this.locale,
-      phrases: this.phrases
-    });
   }
 };
 </script>
