@@ -17,32 +17,32 @@
               </v-list-tile-content>
             </v-list-tile>
           </template>
-        <v-list-group
-          v-for="season in seasons"
-          :key="season.title"
-          v-model="season.active"
-          :prepend-icon="season.action"
-          no-action
-          sub-group="true"
-        >
-          <template v-slot:activator>
-            <v-list-tile>
+          <v-list-group
+            v-for="season in seasons"
+            :key="season.title"
+            v-model="season.active"
+            :prepend-icon="season.action"
+            no-action
+            sub-group
+          >
+            <template v-slot:activator>
+              <v-list-tile>
+                <v-list-tile-content>
+                  <v-list-tile-title>{{phrases.journey}} {{ season.title }}</v-list-tile-title>
+                </v-list-tile-content>
+              </v-list-tile>
+            </template>
+
+            <v-list-tile v-for="turtledove in season.turtledoves" :key="turtledove.name">
               <v-list-tile-content>
-                <v-list-tile-title>{{phrases.journey}} {{ season.title }}</v-list-tile-title>
+                <v-list-tile-title>{{ turtledove.name}}</v-list-tile-title>
               </v-list-tile-content>
+
+              <v-list-tile-action>
+                <v-checkbox v-model="turtledove.active"></v-checkbox>
+              </v-list-tile-action>
             </v-list-tile>
-          </template>
-
-          <v-list-tile v-for="turtledove in season.turtledoves" :key="turtledove.name">
-            <v-list-tile-content>
-              <v-list-tile-title>{{ turtledove.name}}</v-list-tile-title>
-            </v-list-tile-content>
-
-            <v-list-tile-action>
-              <v-checkbox v-model="turtledove.active"></v-checkbox>
-            </v-list-tile-action>
-          </v-list-tile>
-        </v-list-group>
+          </v-list-group>
         </v-list-group>
         <v-list-group>
           <template v-slot:activator>
@@ -53,13 +53,13 @@
             </v-list-tile>
           </template>
           <v-list>
-            <v-list-tile v-for="td in turtledoves" :key="td.title" avatar>
+            <v-list-tile v-for="td in turtledoves" :key="td.name" avatar>
               <v-list-tile-avatar>
                 <img :src="td.avatar">
               </v-list-tile-avatar>
 
               <v-list-tile-content>
-                <v-list-tile-title v-html="td.title"></v-list-tile-title>
+                <v-list-tile-title v-html="td.name"></v-list-tile-title>
               </v-list-tile-content>
 
               <v-list-tile-action>
@@ -100,7 +100,7 @@
       <v-toolbar-side-icon v-on:click.stop="drawer = !drawer"></v-toolbar-side-icon>
     </v-toolbar>
     <v-content>
-      <Map :seasons="seasons"></Map>
+      <Map :seasons="seasons" :turtledoves="turtledoves" :phrases="phrases"></Map>
     </v-content>
     <!--v-footer app fixed>
       <span>&copy; 2019</span>
@@ -157,52 +157,67 @@ export default {
         action: "gps_fixed",
         title: "2018 / 2019",
         active: false,
-        turtledoves: [{ name: "Francesco", active: false }]
+        turtledoves: [
+          {
+            name: "Francesco",
+            active: false,
+            data: "data/francesco2018_2019.csv"
+          }
+        ]
       },
       {
         action: "gps_fixed",
         title: "2017 / 2018",
         active: false,
         turtledoves: [
-          { name: "Dana", active: false },
-          { name: "Francesco", active: false },
-          { name: "Nicola", active: false }
+          { name: "Dana", active: false, data: "data/dana2017_2018.csv" },
+          {
+            name: "Francesco",
+            active: false,
+            data: "data/francesco2017_2018.csv"
+          },
+          { name: "Nicola", active: false, data: "data/nicola2017_2018.csv" }
         ]
       },
       {
         action: "gps_fixed",
         title: "2016 / 2017",
         active: false,
-        turtledoves: [{ name: "Nicola", active: false }]
+        turtledoves: [
+          { name: "Nicola", active: false, data: "data/nicola2016_2017.csv" }
+        ]
       }
     ],
     turtledoves: [
       {
         active: true,
-        title: "Dana",
+        name: "Dana",
+        color: "#daa97e",
         avatar: "images/dana.jpg",
         blog: "https://blogs.nabu.de/zugvoegel/tag/dana/"
       },
       {
         active: true,
-        title: "Francesco",
+        name: "Francesco",
+        color: "#aaa57b",
         avatar: "images/francesco.jpg",
         blog: "https://blogs.nabu.de/zugvoegel/tag/francesco/"
       },
       {
-        title: "Jan",
+        name: "Jan",
+        color: "#6b7a1f",
         avatar: "images/jan.jpg",
         blog: "https://blogs.nabu.de/zugvoegel/tag/jan/"
       },
       {
-        title: "Nicola",
+        name: "Nicola",
+        color: "#6b7a1f",
         avatar: "images/nicola.jpg",
         blog: "https://blogs.nabu.de/zugvoegel/tag/nicola/"
       }
     ]
   }),
   created: function() {
-    //this.polyglot= new Polyglot();
     this.language =
       (navigator.languages && navigator.languages[0]) ||
       navigator.language ||
@@ -213,6 +228,19 @@ export default {
       en: this.phrasesEN
     }[this.locale === "de" ? "de" : "en"];
     this.radios = "radio-" + this.locale;
+  },
+  watch: {
+    phrases: function(newVal, oldVal) {
+      //console.log("newVal:" + newVal.janFail, "oldVal:" + oldVal.janFail);
+      let jan = this.turtledoves.filter(function(td) {
+        return td.name == "Jan";
+      })[0];
+      jan.note = this.phrases.janFail;
+      let nicola = this.turtledoves.filter(function(td) {
+        return td.name == "Nicola";
+      })[0];
+      nicola.note = this.phrases.nicolaFail;
+    }
   }
 };
 </script>
