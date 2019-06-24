@@ -6,31 +6,56 @@
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
+// delete L.Icon.Default.prototype._getIconUrl;
+//https://github.com/KoRiGaN/Vue2Leaflet/issues/28
+
+delete L.Icon.Default.prototype._getIconUrl;
+
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
+  iconUrl: require("leaflet/dist/images/marker-icon.png"),
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png")
+});
+
 export default {
   props: {
-    items: Array
+    seasons: Array,
+    turtledoves: Array,
+    phrases: Object
   },
   data: () => ({
-    map: {}
+    map: {},
   }),
+  computed: {
+    season2019_2020() {
+      return this.seasons[0].turtledoves;
+    },
+    season2018_2019() {
+      return this.seasons[1].turtledoves;
+    }
+  },
   watch: {
-    items: {
+    season2018_2019: {
+      // because of array
       handler: function(newVal, oldVal) {
-        // watch it
         // eslint-disable-next-line
-        console.log("Prop changed: ", newVal, " | was: ", oldVal);
+        console.log("newVal:" + newVal, "oldVal:" + oldVal);
+        this.nicola.addTo(this.map);
       },
-      deep: true
+      // because of array
+      deep: true,
+      //On "Startup"
+      immediate: true
     }
   },
   mounted() {
     let map = L.map("map", {
       attributionControl: false,
-      center: [50.15, 10.66],
+      center: [28, 14],
       zoom: 5,
       maxZoom: 18,
       minZoom: 5,
-      maxBounds: [[42, -46], [58, 67]],
+      //maxBounds: [[42, -46], [58, 67]],
       fadeAnimation: false,
       zoomControl: false
       // renderer: L.canvas()
@@ -49,6 +74,27 @@ export default {
       }
     ).addTo(map);
 
+    let nicola = L.geoJson(null, {
+      onEachFeature: function(feature, layer) {
+        layer.bindTooltip(
+          String("<b>" + feature.properties["timestamp"] + "</b>"),
+          {}
+        );
+      }
+    });
+    fetch("data/2016/nicola.geojson")
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(json) {
+        nicola.addData(json);
+      })
+      .catch(function(error) {
+        // eslint-disable-next-line
+        console.log(error);
+      });
+
+    this.nicola = nicola;
     this.map = map;
   }
 };
