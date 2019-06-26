@@ -8,8 +8,12 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@turf/distance": "^6.0.1",
+    "@turf/helpers": "^6.1.4",
     "core-js": "^2.6.5",
+    "csv2geojson": "^5.1.1",
     "leaflet": "^1.5.1",
+    "leaflet-polylinedecorator": "^1.6.0",
     "vue": "^2.6.10",
     "vuetify": "^1.5.5"
   },

@@ -158,6 +158,7 @@ export default {
         title: "2018 / 2019",
         active: false,
         turtledoves: [
+          { name: "Dana", active: false, data: "data/dana2018_2019.csv" },
           {
             name: "Francesco",
             active: false,
@@ -176,6 +177,7 @@ export default {
             active: false,
             data: "data/francesco2017_2018.csv"
           },
+          { name: "Jan", active: false, data: "data/jan2017_2018.csv" },
           { name: "Nicola", active: false, data: "data/nicola2017_2018.csv" }
         ]
       },

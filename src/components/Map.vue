@@ -5,8 +5,12 @@
 <script>
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import csv2geojson from "csv2geojson";
+import "leaflet-polylinedecorator";
+import turfDistance from "@turf/distance";
 
-// delete L.Icon.Default.prototype._getIconUrl;
+const turfHelpers = require("@turf/helpers");
+
 //https://github.com/KoRiGaN/Vue2Leaflet/issues/28
 
 delete L.Icon.Default.prototype._getIconUrl;
@@ -25,13 +29,17 @@ export default {
   },
   data: () => ({
     map: {},
+    urlTemplate: {}
   }),
   computed: {
-    season2019_2020() {
+    season2018_2019() {
       return this.seasons[0].turtledoves;
     },
-    season2018_2019() {
+    season2017_2018() {
       return this.seasons[1].turtledoves;
+    },
+    season2016_2017() {
+      return this.seasons[2].turtledoves;
     }
   },
   watch: {
@@ -40,7 +48,6 @@ export default {
       handler: function(newVal, oldVal) {
         // eslint-disable-next-line
         console.log("newVal:" + newVal, "oldVal:" + oldVal);
-        this.nicola.addTo(this.map);
       },
       // because of array
       deep: true,
@@ -73,29 +80,132 @@ export default {
         noWrap: true
       }
     ).addTo(map);
-
-    let nicola = L.geoJson(null, {
-      onEachFeature: function(feature, layer) {
-        layer.bindTooltip(
-          String("<b>" + feature.properties["timestamp"] + "</b>"),
-          {}
-        );
-      }
-    });
-    fetch("data/2016/nicola.geojson")
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(json) {
-        nicola.addData(json);
-      })
-      .catch(function(error) {
-        // eslint-disable-next-line
-        console.log(error);
-      });
-
-    this.nicola = nicola;
     this.map = map;
+
+    for (const bird of this.season2017_2018) {
+      this.paintBird(bird);
+    }
+  },
+  methods: {
+    paintBird(sbird) {
+      let bird = this.turtledoves.filter(function(td) {
+        return td.name == sbird.name;
+      })[0];
+
+      bird.data = sbird.data;
+
+      const geojsonMarkerOptions = {
+        radius: 5,
+        fillColor: bird.color,
+        color: "#000",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.8
+      };
+
+      let me = this;
+      fetch(bird.data)
+        .then(function(response) {
+          return response.text();
+        })
+        .then(function(csv) {
+          me.makeGeojson(csv, geojsonMarkerOptions, bird);
+        })
+        .catch(function(error) {
+          // eslint-disable-next-line
+          console.log(error);
+        });
+    },
+    makeGeojson(csvData, geojsonMarkerOptions, bird) {
+      csv2geojson.csv2geojson(
+        csvData,
+        {
+          latfield: "location_lat",
+          lonfield: "location_long",
+          delimiter: ","
+        },
+        (err, data) => {
+          if (err) {
+            // eslint-disable-next-line
+            console.log(err);
+          } else {
+            var dummy = [];
+            const coords = []; // define an array to store coordinates
+            // removeEmpty(data);
+
+            // points
+            var points = L.geoJSON(data, {
+              onEachFeature: function(feature, layer) {
+                coords.push(
+                  new L.LatLng(
+                    feature.geometry.coordinates[1],
+                    feature.geometry.coordinates[0]
+                  )
+                );
+                var from;
+                if (typeof dummy[0] !== "undefined" && dummy[0] !== null) {
+                  from = turfHelpers.point(dummy[0]);
+                } else {
+                  from = turfHelpers.point([
+                    Number(feature.geometry.coordinates[1]),
+                    Number(feature.geometry.coordinates[0])
+                  ]);
+                }
+                var to = turfHelpers.point([
+                  Number(feature.geometry.coordinates[1]),
+                  Number(feature.geometry.coordinates[0])
+                ]);
+                var distance = turfDistance(from, to, "kilometers");
+                feature.properties["image"] = bird.image;
+                feature.properties["name"] = bird.name;
+                feature.properties["distance"] = Number(
+                  Math.round(distance + "e2") + "e-2"
+                );
+                dummy[0] = [
+                  feature.geometry.coordinates[1],
+                  feature.geometry.coordinates[0]
+                ];
+              },
+              pointToLayer: function(feature, latlng) {
+                if (feature === data.features[data.features.length - 1]) {
+                  // Image for endpoint
+                  return L.marker(latlng, {
+                    icon: L.icon({
+                      iconSize: [38, 38],
+                      iconUrl: bird.avatar
+                    })
+                  });
+                } else {
+                  return L.circleMarker(latlng, geojsonMarkerOptions);
+                }
+              }
+            });
+
+            // route/line
+            var polyline = L.polyline(coords, { color: bird.color });
+            var decorator = L.polylineDecorator(polyline, {
+              patterns: [
+                {
+                  offset: 25,
+                  repeat: 75,
+                  symbol: L.Symbol.arrowHead({
+                    pixelSize: 10,
+                    pathOptions: {
+                      color: bird.color,
+                      fillOpacity: 1,
+                      weight: 0
+                    }
+                  })
+                }
+              ]
+            });
+            var group = L.layerGroup([points, polyline, decorator]);
+            group.addTo(this.map);
+            // L.geoJSON(csv2geojson.toLine(data)).addTo(map);
+          }
+        }
+      );
+    }
   }
 };
 </script>
