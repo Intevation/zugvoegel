@@ -97,6 +97,20 @@ export default {
 
       bird.data = sbird.data;
 
+      let me = this;
+      fetch(bird.data)
+        .then(function(response) {
+          return response.text();
+        })
+        .then(function(csv) {
+          me.makeGeojson(csv, bird);
+        })
+        .catch(function(error) {
+          // eslint-disable-next-line
+          console.log(error);
+        });
+    },
+    makeGeojson(csvData, bird) {
       const geojsonMarkerOptions = {
         radius: 5,
         fillColor: bird.color,
@@ -105,21 +119,6 @@ export default {
         opacity: 1,
         fillOpacity: 0.8
       };
-
-      let me = this;
-      fetch(bird.data)
-        .then(function(response) {
-          return response.text();
-        })
-        .then(function(csv) {
-          me.makeGeojson(csv, geojsonMarkerOptions, bird);
-        })
-        .catch(function(error) {
-          // eslint-disable-next-line
-          console.log(error);
-        });
-    },
-    makeGeojson(csvData, geojsonMarkerOptions, bird) {
       csv2geojson.csv2geojson(
         csvData,
         {
@@ -132,7 +131,7 @@ export default {
             // eslint-disable-next-line
             console.log(err);
           } else {
-            var dummy = [];
+            var previousPoint=[];
             const coords = []; // define an array to store coordinates
             // removeEmpty(data);
 
@@ -146,9 +145,10 @@ export default {
                   )
                 );
                 var from;
-                if (typeof dummy[0] !== "undefined" && dummy[0] !== null) {
-                  from = turfHelpers.point(dummy[0]);
+                if (typeof previousPoint[0] !== "undefined" && previousPoint[0] !== null) {
+                  from = turfHelpers.point(previousPoint[0]);
                 } else {
+                  // First / Start point
                   from = turfHelpers.point([
                     Number(feature.geometry.coordinates[1]),
                     Number(feature.geometry.coordinates[0])
@@ -164,10 +164,15 @@ export default {
                 feature.properties["distance"] = Number(
                   Math.round(distance + "e2") + "e-2"
                 );
-                dummy[0] = [
+                previousPoint[0] = [
                   feature.geometry.coordinates[1],
                   feature.geometry.coordinates[0]
                 ];
+                layer.bindTooltip(
+                  String("<b>" + feature.properties["distance"] + " km</b>"),
+                  {
+                  }
+                );
               },
               pointToLayer: function(feature, latlng) {
                 if (feature === data.features[data.features.length - 1]) {
@@ -185,7 +190,11 @@ export default {
             });
 
             // route/line
+            // Adding a polyline. Define an array of Latlng objects (points
+            // along the line) then use it to make a polyline
             var polyline = L.polyline(coords, { color: bird.color });
+
+            // create a decorator
             var decorator = L.polylineDecorator(polyline, {
               patterns: [
                 {
@@ -202,8 +211,10 @@ export default {
                 }
               ]
             });
+
             var group = L.layerGroup([points, polyline, decorator]);
             group.addTo(this.map);
+
             this.layerGroups.push({ data: bird.data, group: group });
 
             // L.geoJSON(csv2geojson.toLine(data)).addTo(map);
