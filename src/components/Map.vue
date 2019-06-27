@@ -32,39 +32,26 @@ export default {
     urlTemplate: {},
     layerGroups: []
   }),
-  computed: {
-    season2018_2019() {
-      return this.seasons[0].turtledoves;
-    },
-    season2017_2018() {
-      return this.seasons[1].turtledoves;
-    },
-    season2016_2017() {
-      return this.seasons[2].turtledoves;
-    }
-  },
   watch: {
-    season2018_2019: {
-      // because of array
-      handler: function(newVal, oldVal) {
-        // eslint-disable-next-line
-        console.log("newVal:" + newVal, "oldVal:" + oldVal);
-        for (const bird of this.season2018_2019) {
-            var layerGroupObject = this.layerGroups.filter(e => e.data === bird.data);
-          if (
-            bird.active &&
-            layerGroupObject.length == 0
-          ) {
-            this.paintBird(bird);
-          } else if (
-            !bird.active &&
-            layerGroupObject.length > 0
-          ) {
-            var lg = this.layerGroups.filter(function(td) {
-              return td.data == bird.data;
-            })[0];
-            lg.group.removeFrom(this.map);
-            this.layerGroups = this.layerGroups.filter(item => item !== layerGroupObject[0]);
+    // Layertree logic
+    seasons: {
+      handler: function() {
+        for (const season of this.seasons) {
+          for (const bird of season.turtledoves) {
+            var layerGroupObject = this.layerGroups.filter(
+              e => e.data === bird.data
+            );
+            if (bird.active && layerGroupObject.length == 0) {
+              this.paintBird(bird);
+            } else if (!bird.active && layerGroupObject.length > 0) {
+              var lg = this.layerGroups.filter(function(td) {
+                return td.data == bird.data;
+              })[0];
+              lg.group.removeFrom(this.map);
+              this.layerGroups = this.layerGroups.filter(
+                item => item !== layerGroupObject[0]
+              );
+            }
           }
         }
       },
