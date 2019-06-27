@@ -65,11 +65,12 @@ export default {
   mounted() {
     let map = L.map("map", {
       attributionControl: false,
-      center: [28, 14],
-      zoom: 3,
+      center: [25.99, 32.25],
+      zoom: 4,
       maxZoom: 18,
-      minZoom: 3,
+      minZoom: 4,
       //maxBounds: [[42, -46], [58, 67]],
+      //maxBounds: [[0, -180], [0, 180]],
       fadeAnimation: false,
       zoomControl: false
       // renderer: L.canvas()
@@ -171,7 +172,7 @@ export default {
                   feature.geometry.coordinates[0]
                 ];
                 layer.bindTooltip(
-                  String("<b>" + feature.properties["distance"] + " km</b>"),
+                  String(feature.properties["timestamp"]+"<br><b>" + feature.properties["distance"] + " km</b>"),
                   {
                   }
                 );
