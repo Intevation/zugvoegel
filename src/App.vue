@@ -53,7 +53,9 @@
             </v-list-tile>
           </template>
           <v-list>
-            <v-list-tile v-for="td in turtledoves" :key="td.name" @click="openLink(td.blog)" avatar>
+            <template v-for="(td,index) in turtledoves">
+             <v-divider v-if="td.divider" :key="index" :inset="td.inset" ></v-divider>
+            <v-list-tile v-else :key="td.name" @click="openLink(td.blog)" avatar>
               <v-list-tile-avatar>
                 <img :src="td.avatar">
               </v-list-tile-avatar>
@@ -64,10 +66,12 @@
 
               <v-list-tile-action>
                 <v-btn icon>
-                  <v-icon :color="td.active ? 'teal' : 'grey'">link</v-icon>
+                  <v-icon :color="td.active ? 'teal' : 'black'">link</v-icon>
                 </v-btn>
               </v-list-tile-action>
             </v-list-tile>
+            </template>
+
           </v-list>
         </v-list-group>
         <v-list-group>
@@ -192,31 +196,32 @@ export default {
     ],
     turtledoves: [
       {
-        active: false,
-        name: "Dana",
-        color: "#daa97e",
-        avatar: "images/dana.jpg",
-        blog: "https://blogs.nabu.de/zugvoegel/tag/dana/"
-      },
-      {
         active: true,
         name: "Francesco",
         color: "#aaa57b",
         avatar: "images/francesco.jpg",
         blog: "https://blogs.nabu.de/zugvoegel/tag/francesco/"
       },
+      { divider: true },
+      {
+        active: false,
+        name: "Dana",
+        color: "#daa97e",
+        avatar: "images/dana_flor.jpg",
+        blog: "https://blogs.nabu.de/zugvoegel/tag/dana/"
+      },
       {
         active: false,
         name: "Jan",
         color: "#6b7a1f",
-        avatar: "images/jan.jpg",
+        avatar: "images/jan_flor.jpg",
         blog: "https://blogs.nabu.de/zugvoegel/tag/jan/"
       },
       {
         active: false,
         name: "Nicola",
         color: "#303028",
-        avatar: "images/nicola.jpg",
+        avatar: "images/nicola_flor.jpg",
         blog: "https://blogs.nabu.de/zugvoegel/tag/nicola/"
       }
     ]
