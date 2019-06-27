@@ -9,7 +9,7 @@
       mobile-break-point="0"
     >
       <v-list v-model="phrases">
-        <v-list-group>
+        <v-list-group value="true">
           <template v-slot:activator>
             <v-list-tile>
               <v-list-tile-content>
@@ -44,7 +44,7 @@
             </v-list-tile>
           </v-list-group>
         </v-list-group>
-        <v-list-group>
+        <v-list-group value="true">
           <template v-slot:activator>
             <v-list-tile>
               <v-list-tile-content>
