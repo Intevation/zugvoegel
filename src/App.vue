@@ -53,7 +53,7 @@
             </v-list-tile>
           </template>
           <v-list>
-            <v-list-tile v-for="td in turtledoves" :key="td.name" avatar>
+            <v-list-tile v-for="td in turtledoves" :key="td.name" @click="openLink(td.blog)" avatar>
               <v-list-tile-avatar>
                 <img :src="td.avatar">
               </v-list-tile-avatar>
@@ -63,7 +63,7 @@
               </v-list-tile-content>
 
               <v-list-tile-action>
-                <v-btn icon :href="td.blog" target="_blank">
+                <v-btn icon>
                   <v-icon :color="td.active ? 'teal' : 'grey'">link</v-icon>
                 </v-btn>
               </v-list-tile-action>
@@ -192,7 +192,7 @@ export default {
     ],
     turtledoves: [
       {
-        active: true,
+        active: false,
         name: "Dana",
         color: "#daa97e",
         avatar: "images/dana.jpg",
@@ -206,12 +206,14 @@ export default {
         blog: "https://blogs.nabu.de/zugvoegel/tag/francesco/"
       },
       {
+        active: false,
         name: "Jan",
         color: "#6b7a1f",
         avatar: "images/jan.jpg",
         blog: "https://blogs.nabu.de/zugvoegel/tag/jan/"
       },
       {
+        active: false,
         name: "Nicola",
         color: "#6b7a1f",
         avatar: "images/nicola.jpg",
@@ -242,6 +244,11 @@ export default {
         return td.name == "Nicola";
       })[0];
       nicola.note = this.phrases.nicolaFail;
+    }
+  },
+  methods: {
+    openLink(link){
+       window.open(link, "_blank");
     }
   }
 };
