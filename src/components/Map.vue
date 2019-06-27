@@ -48,6 +48,7 @@ export default {
                 return td.data == bird.data;
               })[0];
               lg.group.removeFrom(this.map);
+              lg.group.clearLayers();
               this.layerGroups = this.layerGroups.filter(
                 item => item !== layerGroupObject[0]
               );
@@ -65,9 +66,9 @@ export default {
     let map = L.map("map", {
       attributionControl: false,
       center: [28, 14],
-      zoom: 5,
+      zoom: 3,
       maxZoom: 18,
-      minZoom: 5,
+      minZoom: 3,
       //maxBounds: [[42, -46], [58, 67]],
       fadeAnimation: false,
       zoomControl: false
