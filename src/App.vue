@@ -156,12 +156,12 @@ export default {
       {
         action: "gps_fixed",
         title: "2018 / 2019",
-        active: false,
+        active: true,
         turtledoves: [
           { name: "Dana", active: false, data: "data/dana2018_2019.csv" },
           {
             name: "Francesco",
-            active: false,
+            active: true,
             data: "data/francesco2018_2019.csv"
           }
         ]
