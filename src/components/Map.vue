@@ -42,7 +42,7 @@ export default {
               e => e.data === bird.data
             );
             if (bird.active && layerGroupObject.length == 0) {
-              this.paintBird(bird);
+              this.processBird(bird);
             } else if (!bird.active && layerGroupObject.length > 0) {
               var lg = this.layerGroups.filter(function(td) {
                 return td.data == bird.data;
@@ -90,11 +90,13 @@ export default {
     this.map = map;
   },
   methods: {
-    paintBird(sbird) {
+    processBird(sbird) {
+      // Get metadata
       let bird = this.turtledoves.filter(function(td) {
         return td.name == sbird.name;
       })[0];
 
+      // Add data url to metadata
       bird.data = sbird.data;
 
       let me = this;
@@ -103,14 +105,14 @@ export default {
           return response.text();
         })
         .then(function(csv) {
-          me.makeGeojson(csv, bird);
+          me.paintBird(csv, bird);
         })
         .catch(function(error) {
           // eslint-disable-next-line
           console.log(error);
         });
     },
-    makeGeojson(csvData, bird) {
+    paintBird(csvData, bird) {
       const geojsonMarkerOptions = {
         radius: 5,
         fillColor: bird.color,
@@ -180,7 +182,8 @@ export default {
                   return L.marker(latlng, {
                     icon: L.icon({
                       iconSize: [38, 38],
-                      iconUrl: bird.avatar
+                      iconUrl: bird.avatar,
+                      className: "endpoint"
                     })
                   });
                 } else {
@@ -230,5 +233,8 @@ export default {
 #map {
   height: 100%;
   width: 100%;
+}
+.endpoint {
+  border-radius: 50%
 }
 </style>
