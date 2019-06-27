@@ -215,7 +215,7 @@ export default {
       {
         active: false,
         name: "Nicola",
-        color: "#6b7a1f",
+        color: "#303028",
         avatar: "images/nicola.jpg",
         blog: "https://blogs.nabu.de/zugvoegel/tag/nicola/"
       }
