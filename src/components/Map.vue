@@ -1,5 +1,7 @@
 <template>
-  <div id="map"></div>
+  <div id="map">
+    <Popup :dialog="dialog"></Popup>
+  </div>
 </template>
 
 <script>
@@ -8,6 +10,7 @@ import L from "leaflet";
 import csv2geojson from "csv2geojson";
 import "leaflet-polylinedecorator";
 import turfDistance from "@turf/distance";
+import Popup from "./Popup";
 
 const turfHelpers = require("@turf/helpers");
 
@@ -22,6 +25,7 @@ L.Icon.Default.mergeOptions({
 });
 
 export default {
+  components: { Popup },
   props: {
     seasons: Array,
     turtledoves: Array,
@@ -30,7 +34,8 @@ export default {
   data: () => ({
     map: {},
     urlTemplate: {},
-    layerGroups: []
+    layerGroups: [],
+    dialog: false
   }),
   watch: {
     // Layertree logic
@@ -134,7 +139,7 @@ export default {
             // eslint-disable-next-line
             console.log(err);
           } else {
-            var previousPoint=[];
+            var previousPoint = [];
             const coords = []; // define an array to store coordinates
             // removeEmpty(data);
 
@@ -148,7 +153,10 @@ export default {
                   )
                 );
                 var from;
-                if (typeof previousPoint[0] !== "undefined" && previousPoint[0] !== null) {
+                if (
+                  typeof previousPoint[0] !== "undefined" &&
+                  previousPoint[0] !== null
+                ) {
                   from = turfHelpers.point(previousPoint[0]);
                 } else {
                   // First / Start point
@@ -172,9 +180,13 @@ export default {
                   feature.geometry.coordinates[0]
                 ];
                 layer.bindTooltip(
-                  String(feature.properties["timestamp"]+"<br><b>" + feature.properties["distance"] + " km</b>"),
-                  {
-                  }
+                  String(
+                    feature.properties["timestamp"] +
+                      "<br><b>" +
+                      feature.properties["distance"] +
+                      " km</b>"
+                  ),
+                  {}
                 );
               },
               pointToLayer: function(feature, latlng) {
@@ -236,6 +248,6 @@ export default {
   width: 100%;
 }
 .endpoint {
-  border-radius: 50%
+  border-radius: 50%;
 }
 </style>
