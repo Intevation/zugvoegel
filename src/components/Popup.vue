@@ -36,5 +36,7 @@ export default {
 </script>
 
 <style>
-* {z-index: 999}
+div.v-dialog__content.v-dialog__content--active {
+	z-index: 900 !important;
+}
 </style>

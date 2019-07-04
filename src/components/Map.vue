@@ -1,5 +1,6 @@
 <template>
   <div id="map">
+    <Popup :dialog="dialog"></Popup>
   </div>
 </template>
 
@@ -9,6 +10,7 @@ import L from "leaflet";
 import csv2geojson from "csv2geojson";
 import "leaflet-polylinedecorator";
 import turfDistance from "@turf/distance";
+import Popup from "./Popup";
 
 const turfHelpers = require("@turf/helpers");
 
@@ -23,6 +25,7 @@ L.Icon.Default.mergeOptions({
 });
 
 export default {
+  components: { Popup },
   props: {
     seasons: Array,
     turtledoves: Array,
