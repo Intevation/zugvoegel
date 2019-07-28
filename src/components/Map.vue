@@ -70,7 +70,7 @@ export default {
   mounted() {
     let map = L.map("map", {
       attributionControl: false,
-      center: [37.27, 49.75],
+      center: [35.5322, 21.09375],
       zoom: 4,
       maxZoom: 18,
       minZoom: 4,
@@ -94,6 +94,9 @@ export default {
       }
     ).addTo(map);
     this.map = map;
+    // map.on("moveend", function() {
+    //   console.log(map.getCenter());
+    // });
   },
   methods: {
     processBird(sbird) {
