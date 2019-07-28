@@ -70,7 +70,7 @@ export default {
   mounted() {
     let map = L.map("map", {
       attributionControl: false,
-      center: [25.99, 32.25],
+      center: [37.27, 49.75],
       zoom: 4,
       maxZoom: 18,
       minZoom: 4,
