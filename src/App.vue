@@ -162,11 +162,12 @@ export default {
         title: "2018 / 2019",
         active: true,
         turtledoves: [
-          { name: "Dana", active: false, data: "data/dana2018_2019.csv" },
+          { name: "Dana", active: false, data: "data/dana2018_2019.csv" , opacity: 1},
           {
             name: "Francesco",
             active: true,
-            data: "data/francesco2018_2019.csv"
+            data: "data/francesco2018_2019.csv",
+            opacity: 1
           }
         ]
       },
@@ -175,14 +176,15 @@ export default {
         title: "2017 / 2018",
         active: false,
         turtledoves: [
-          { name: "Dana", active: false, data: "data/dana2017_2018.csv" },
+          { name: "Dana", active: false, data: "data/dana2017_2018.csv" , opacity: 0.5},
           {
             name: "Francesco",
             active: false,
-            data: "data/francesco2017_2018.csv"
+            data: "data/francesco2017_2018.csv",
+            opacity: 0.5
           },
           { name: "Jan", active: false, data: "data/jan2017_2018.csv" },
-          { name: "Nicola", active: false, data: "data/nicola2017_2018.csv" }
+          { name: "Nicola", active: false, data: "data/nicola2017_2018.csv" , opacity: 1}
         ]
       },
       {
@@ -190,7 +192,7 @@ export default {
         title: "2016 / 2017",
         active: false,
         turtledoves: [
-          { name: "Nicola", active: false, data: "data/nicola2016_2017.csv" }
+          { name: "Nicola", active: false, data: "data/nicola2016_2017.csv" , opacity: 0.5 }
         ]
       }
     ],

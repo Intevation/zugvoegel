@@ -104,6 +104,7 @@ export default {
 
       // Add data url to metadata
       bird.data = sbird.data;
+      bird.opacity = sbird.opacity;
 
       let me = this;
       fetch(bird.data)
@@ -125,7 +126,7 @@ export default {
         color: "#000",
         weight: 1,
         opacity: 1,
-        fillOpacity: 0.8
+        fillOpacity: bird.opacity
       };
       csv2geojson.csv2geojson(
         csvData,
@@ -208,7 +209,7 @@ export default {
             // route/line
             // Adding a polyline. Define an array of Latlng objects (points
             // along the line) then use it to make a polyline
-            var polyline = L.polyline(coords, { color: bird.color });
+            var polyline = L.polyline(coords, { color: bird.color , opacity: bird.opacity});
 
             // create a decorator
             var decorator = L.polylineDecorator(polyline, {
