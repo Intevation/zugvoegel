@@ -98,9 +98,8 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar app absolute clipped-right color="#0068b4" dark>
-      <v-toolbar-title right>{{phrases.title}}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-title right>{{phrases.turtledoves}}</v-toolbar-title>
+      <v-toolbar-title right>{{phrases.legend}}</v-toolbar-title>
       <v-toolbar-side-icon v-on:click.stop="drawer = !drawer"></v-toolbar-side-icon>
     </v-toolbar>
     <v-content>
@@ -127,6 +126,7 @@ export default {
       map: "Karte",
       title: "Zugvögel auf Reisen",
       turtledoves: "Turteltauben",
+      legend: "Legende",
       routes: "Flugrouten",
       journey: "Reise",
       who: "Wer ist wer?",
@@ -142,6 +142,7 @@ export default {
       hello: "Hello",
       title: "Migratory birds travelling",
       turtledoves: "Turteldoves",
+      legend: "Legend",
       routes: "Flight routes",
       journey: "Journey",
       who: "Who is who?",
