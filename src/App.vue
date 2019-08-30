@@ -160,13 +160,26 @@ export default {
     seasons: [
       {
         action: "gps_fixed",
-        title: "2018 / 2019",
+        title: "2019 / 2020",
         active: true,
+        turtledoves: [
+          { name: "Melanie", active: true, data: "data/melanie2019_2020.csv" , opacity: 1},
+          { name: "Luciano", active: true, data: "data/luciano2019_2020.csv", opacity: 1 },
+          { name: "Cyril", active: true, data: "data/cyril2019_2020.csv", opacity: 1 },
+          { name: "Jenny", active: true, data: "data/jenny2019_2020.csv", opacity: 1 },
+          { name: "Francesco", active: true, data: "data/francesco2019_2020.csv", opacity: 1
+          }
+        ]
+      },
+      {
+        action: "gps_fixed",
+        title: "2018 / 2019",
+        active: false,
         turtledoves: [
           { name: "Dana", active: false, data: "data/dana2018_2019.csv" , opacity: 1},
           {
             name: "Francesco",
-            active: true,
+            active: false,
             data: "data/francesco2018_2019.csv",
             opacity: 1
           }
@@ -200,8 +213,36 @@ export default {
     turtledoves: [
       {
         active: true,
+        name: "Melanie",
+        color: "#87d5fb",
+        avatar: "images/melanie.jpg",
+        blog: "https://blogs.nabu.de/zugvoegel/tag/melanie/"
+      },
+      {
+        active: true,
+        name: "Luciano",
+        color: "#ffff01",
+        avatar: "images/luciano.jpg",
+        blog: "https://blogs.nabu.de/zugvoegel/tag/luciano/"
+      },
+      {
+        active: true,
+        name: "Cyril",
+        color: "#8102b3",
+        avatar: "images/cyril.jpg",
+        blog: "https://blogs.nabu.de/zugvoegel/tag/cyril/"
+      },
+      {
+        active: true,
+        name: "Jenny",
+        color: "#05ab03",
+        avatar: "images/jenny.jpg",
+        blog: "https://blogs.nabu.de/zugvoegel/tag/jenny/"
+      },
+      {
+        active: false,
         name: "Francesco",
-        color: "#aaa57b",
+        color: "#0b7ac1",
         avatar: "images/francesco.jpg",
         blog: "https://blogs.nabu.de/zugvoegel/tag/francesco/"
       },
