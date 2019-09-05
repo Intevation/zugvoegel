@@ -1,18 +1,6 @@
 <template>
   <v-app light>
-      <v-btn
-      dark
-      absolute
-      fab
-      bottom
-      medium
-      left
-      color="#0068b4"
-      v-on:click.stop="drawer = !drawer"
-      id="hamburger"
-      >
-      <v-icon>menu</v-icon>
-      </v-btn>
+    <Menu @clicked="onMenuClick"> </Menu>
     <v-navigation-drawer
       v-model="drawer"
       disable-resize-watcher
@@ -121,11 +109,12 @@
 </template>
 
 <script>
+import Menu from "./components/Menu";
 import Map from "./components/Map";
 
 export default {
   name: "App",
-  components: { Map },
+  components: { Menu, Map },
   data: () => ({
     drawer: false,
     locale: "",
@@ -307,23 +296,11 @@ export default {
   methods: {
     openLink(link){
        window.open(link, "_blank");
-    }
+    },
+  // Triggered when `onMenuClick` event is emitted by the child.
+  onMenuClick(value) {
+  this.drawer= value
+  }
   }
 };
 </script>
-
-<style>
-
-#hamburger {
-	bottom: 10px;
-	z-index: 9999;
-}
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
-#hamburger {
-	bottom: 10vh;
-	z-index: 9999;
-}
-}
-
-</style>
