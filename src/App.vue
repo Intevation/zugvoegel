@@ -1,5 +1,18 @@
 <template>
   <v-app light>
+      <v-btn
+      dark
+      absolute
+      fab
+      bottom
+      medium
+      left
+      color="#0068b4"
+      v-on:click.stop="drawer = !drawer"
+      id="hamburger"
+      >
+      <v-icon>menu</v-icon>
+      </v-btn>
     <v-navigation-drawer
       v-model="drawer"
       disable-resize-watcher
@@ -98,19 +111,6 @@
       </v-list>
     </v-navigation-drawer>
     <v-content>
-      <v-btn
-      dark
-      absolute
-      fab
-      bottom
-      medium
-      left
-      color="#0068b4"
-      v-on:click.stop="drawer = !drawer"
-      id="hamburger"
-      >
-      <v-icon>menu</v-icon>
-      </v-btn>
       <Map :seasons="seasons" :turtledoves="turtledoves" :phrases="phrases">
       </Map>
     </v-content>
@@ -127,7 +127,7 @@ export default {
   name: "App",
   components: { Map },
   data: () => ({
-    drawer: null,
+    drawer: false,
     locale: "",
     language: "",
     phrasesDE: {
@@ -317,6 +317,13 @@ export default {
 #hamburger {
 	bottom: 10px;
 	z-index: 9999;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
+#hamburger {
+	bottom: 10vh;
+	z-index: 9999;
+}
 }
 
 </style>
