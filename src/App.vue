@@ -97,13 +97,22 @@
         </v-list-group>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar app absolute clipped-right color="#0068b4" dark>
-      <v-spacer></v-spacer>
-      <v-toolbar-title right>{{phrases.legend}}</v-toolbar-title>
-      <v-toolbar-side-icon v-on:click.stop="drawer = !drawer"></v-toolbar-side-icon>
-    </v-toolbar>
     <v-content>
-      <Map :seasons="seasons" :turtledoves="turtledoves" :phrases="phrases"></Map>
+      <v-btn
+      dark
+      absolute
+      fab
+      bottom
+      medium
+      left
+      color="#0068b4"
+      v-on:click.stop="drawer = !drawer"
+      id="hamburger"
+      >
+      <v-icon>menu</v-icon>
+      </v-btn>
+      <Map :seasons="seasons" :turtledoves="turtledoves" :phrases="phrases">
+      </Map>
     </v-content>
     <!--v-footer app fixed>
       <span>&copy; 2019</span>
@@ -302,3 +311,12 @@ export default {
   }
 };
 </script>
+
+<style>
+
+#hamburger {
+	bottom: 10px;
+	z-index: 9999;
+}
+
+</style>
