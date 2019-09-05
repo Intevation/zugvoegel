@@ -1,5 +1,5 @@
 <template>
-  <v-app light>
+  <v-app>
     <Menu @clicked="onMenuClick"> </Menu>
     <v-navigation-drawer
       v-model="drawer"
@@ -12,11 +12,9 @@
       <v-list v-model="phrases">
         <v-list-group value="true">
           <template v-slot:activator>
-            <v-list-tile>
-              <v-list-tile-content>
-                <v-list-tile-title>{{phrases.routes}}</v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
+              <v-list-item-content>
+                <v-list-item-title>{{phrases.routes}}</v-list-item-title>
+              </v-list-item-content>
           </template>
           <v-list-group
             v-for="season in seasons"
@@ -27,73 +25,66 @@
             sub-group
           >
             <template v-slot:activator>
-              <v-list-tile>
-                <v-list-tile-content>
-                  <v-list-tile-title>{{phrases.journey}} {{ season.title }}</v-list-tile-title>
-                </v-list-tile-content>
-              </v-list-tile>
+                <v-list-item-content>
+                  <v-list-item-title>{{phrases.journey}} {{ season.title }}</v-list-item-title>
+                </v-list-item-content>
             </template>
 
-            <v-list-tile v-for="turtledove in season.turtledoves" :key="turtledove.name">
-              <v-list-tile-content>
-                <v-list-tile-title>{{ turtledove.name}}</v-list-tile-title>
-              </v-list-tile-content>
-
-              <v-list-tile-action>
+            <v-list-item v-for="turtledove in season.turtledoves" :key="turtledove.name">
+              <v-list-item-content>
+                <v-list-item-title>{{ turtledove.name}}</v-list-item-title>
+              </v-list-item-content>
+              <v-list-item-action>
                 <v-checkbox v-model="turtledove.active"></v-checkbox>
-              </v-list-tile-action>
-            </v-list-tile>
+              </v-list-item-action>
+            </v-list-item>
           </v-list-group>
         </v-list-group>
         <v-list-group value="true">
           <template v-slot:activator>
-            <v-list-tile>
-              <v-list-tile-content>
-                <v-list-tile-title>{{phrases.who}}</v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
+              <v-list-item-content>
+                <v-list-item-title>{{phrases.who}}</v-list-item-title>
+              </v-list-item-content>
           </template>
           <v-list>
             <template v-for="(td,index) in turtledoves">
              <v-divider v-if="td.divider" :key="index" :inset="td.inset" ></v-divider>
-            <v-list-tile v-else :key="td.name" @click="openLink(td.blog)" avatar>
-              <v-list-tile-avatar>
+            <v-list-item v-else :key="td.name" @click="openLink(td.blog)">
+              <v-list-item-avatar>
                 <img :src="td.avatar">
-              </v-list-tile-avatar>
+              </v-list-item-avatar>
 
-              <v-list-tile-content>
-                <v-list-tile-title v-html="td.name"></v-list-tile-title>
-              </v-list-tile-content>
+              <v-list-item-content>
+                <v-list-item-title v-html="td.name"></v-list-item-title>
+              </v-list-item-content>
 
-              <v-list-tile-action>
+              <v-list-item-action>
                 <v-btn icon>
-                  <v-icon :color="td.active ? 'teal' : 'black'">link</v-icon>
+                  <v-icon :color="td.active ? 'teal' : 'black'">mdi-link</v-icon>
                 </v-btn>
-              </v-list-tile-action>
-            </v-list-tile>
+              </v-list-item-action>
+            </v-list-item>
             </template>
 
           </v-list>
         </v-list-group>
         <v-list-group>
           <template v-slot:activator>
-            <v-list-tile>
-              <v-list-tile-content>
-                <v-list-tile-title>{{phrases.language}}</v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
+              <v-list-item-content>
+                <v-list-item-title>{{phrases.language}}</v-list-item-title>
+              </v-list-item-content>
           </template>
           <v-radio-group v-model="radios" column>
-            <v-list-tile>
-              <v-list-tile-action @click="phrases=phrasesEN">
+            <v-list-item-content>
+              <v-list-item-action @click="phrases=phrasesEN">
                 <v-radio :label="phrases.en" value="radio-en"></v-radio>
-              </v-list-tile-action>
-            </v-list-tile>
-            <v-list-tile>
-              <v-list-tile-action @click="phrases=phrasesDE">
+              </v-list-item-action>
+            </v-list-item-content>
+            <v-list-item-content>
+              <v-list-item-action @click="phrases=phrasesDE">
                 <v-radio :label="phrases.de" value="radio-de"></v-radio>
-              </v-list-tile-action>
-            </v-list-tile>
+              </v-list-item-action>
+            </v-list-item-content>
           </v-radio-group>
         </v-list-group>
       </v-list>
@@ -111,6 +102,8 @@
 <script>
 import Menu from "./components/Menu";
 import Map from "./components/Map";
+import "@mdi/font/css/materialdesignicons.css";
+
 
 export default {
   name: "App",
@@ -157,7 +150,7 @@ export default {
     radios: "",
     seasons: [
       {
-        action: "gps_fixed",
+        action: "mdi-crosshairs-gps",
         title: "2019 / 2020",
         active: true,
         turtledoves: [
@@ -170,7 +163,7 @@ export default {
         ]
       },
       {
-        action: "gps_fixed",
+        action: "mdi-crosshairs-gps",
         title: "2018 / 2019",
         active: false,
         turtledoves: [
@@ -184,7 +177,7 @@ export default {
         ]
       },
       {
-        action: "gps_fixed",
+        action: "mdi-crosshairs-gps",
         title: "2017 / 2018",
         active: false,
         turtledoves: [
@@ -200,7 +193,7 @@ export default {
         ]
       },
       {
-        action: "gps_fixed",
+        action: "mdi-crosshairs-gps",
         title: "2016 / 2017",
         active: false,
         turtledoves: [

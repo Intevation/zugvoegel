@@ -11,7 +11,7 @@
     v-on:click.stop=onClickButton
     id="hamburger"
   >
-    <v-icon>menu</v-icon>
+    <v-icon>mdi-menu</v-icon>
   </v-btn>
 </template>
 
