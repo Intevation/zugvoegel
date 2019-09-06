@@ -37,6 +37,18 @@ export default {
   }),
   watch: {
     // Layertree logic
+    layerGroups: {
+      handler: function(){
+              if (this.layerGroups.length > 0){
+              var bounds = L.latLngBounds();
+              for (const route of this.layerGroups){
+                bounds.extend(route.group.getBounds());
+              }
+              this.map.fitBounds(bounds);
+            }
+
+      }
+    },
     seasons: {
       handler: function() {
         for (const season of this.seasons) {
@@ -234,7 +246,7 @@ export default {
               ]
             });
 
-            var group = L.layerGroup([points, polyline, decorator]);
+            var group = L.featureGroup([points, polyline, decorator]);
             group.addTo(this.map);
 
             this.layerGroups.push({ data: bird.data, group: group });
