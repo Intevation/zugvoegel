@@ -1,5 +1,5 @@
 <template>
-      <div id="map" v-resize="onResize"></div>
+      <div id="map"></div>
 </template>
 
 <script>
@@ -121,6 +121,7 @@ export default {
         });
     },
     paintBird(csvData, bird) {
+      let ph = this.phrases;
       const geojsonMarkerOptions = {
         radius: 5,
         fillColor: bird.color,
@@ -183,8 +184,11 @@ export default {
                 ];
                 layer.bindTooltip(
                   String(
+                    "<b>"+
+                    feature.properties["name"] +
+                      "</b> (" +
                     feature.properties["timestamp"] +
-                      "<br><b>" +
+                      " )<br>" + ph["flightRoute"] + " <b>" +
                       feature.properties["distance"] +
                       " km</b>"
                   ),
