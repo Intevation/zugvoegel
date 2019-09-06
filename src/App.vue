@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-navigation-drawer
+      class="grey lighten-4"
       app
       mobile-break-point="0"
       expand-on-hover
@@ -75,16 +76,16 @@
             </v-list-item-content>
           </template>
           <v-radio-group v-model="radios" column>
-            <v-list-item-content>
+            <v-list-item>
               <v-list-item-action @click="phrases=phrasesEN">
                 <v-radio :label="phrases.en" value="radio-en"></v-radio>
               </v-list-item-action>
-            </v-list-item-content>
-            <v-list-item-content>
+            </v-list-item>
+            <v-list-item>
               <v-list-item-action @click="phrases=phrasesDE">
                 <v-radio :label="phrases.de" value="radio-de"></v-radio>
               </v-list-item-action>
-            </v-list-item-content>
+            </v-list-item>
           </v-radio-group>
         </v-list-group>
       </v-list>
