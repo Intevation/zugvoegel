@@ -15,7 +15,7 @@
     "leaflet": "^1.5.1",
     "leaflet-polylinedecorator": "^1.6.0",
     "vue": "^2.6.10",
-    "vuetify": "^2.0.0"
+    "vuetify": "^2.0.15"
   },
   "devDependencies": {
     "@mdi/font": "^4.2.95",
