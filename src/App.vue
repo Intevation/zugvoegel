@@ -1,20 +1,19 @@
 <template>
   <v-app>
-    <Menu @clicked="onMenuClick"> </Menu>
     <v-navigation-drawer
-      v-model="drawer"
-      disable-resize-watcher
-      clipped
       app
-      right
       mobile-break-point="0"
+      expand-on-hover
     >
       <v-list v-model="phrases">
         <v-list-group value="true">
           <template v-slot:activator>
-              <v-list-item-content>
-                <v-list-item-title>{{phrases.routes}}</v-list-item-title>
-              </v-list-item-content>
+            <v-list-item-icon>
+            <v-icon>mdi-crosshairs-gps</v-icon>
+          </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>{{phrases.routes}}</v-list-item-title>
+            </v-list-item-content>
           </template>
           <v-list-group
             v-for="season in seasons"
@@ -40,39 +39,40 @@
             </v-list-item>
           </v-list-group>
         </v-list-group>
-        <v-list-group value="true">
+
+        <v-list-group>
           <template v-slot:activator>
-              <v-list-item-content>
-                <v-list-item-title>{{phrases.who}}</v-list-item-title>
-              </v-list-item-content>
+            <v-list-item-icon>
+            <v-icon>mdi-twitter-circle</v-icon>
+          </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>{{phrases.who}}</v-list-item-title>
+            </v-list-item-content>
           </template>
-          <v-list>
-            <template v-for="(td,index) in turtledoves">
-             <v-divider v-if="td.divider" :key="index" :inset="td.inset" ></v-divider>
-            <v-list-item v-else :key="td.name" @click="openLink(td.blog)">
-              <v-list-item-avatar>
-                <img :src="td.avatar">
-              </v-list-item-avatar>
+          <v-list-item v-model="turtledoves" v-for="(td, index) in turtledoves" :key="index">
+            <v-divider v-if="td.divider" :key="index" :inset="td.inset" ></v-divider>
+            <v-list-item-avatar v-if="td.avatar">
+              <v-img :src="td.avatar"></v-img>
+            </v-list-item-avatar>
+            <v-list-item-content v-if="td.name">
+              <v-list-item-title v-html="td.name"></v-list-item-title>
+            </v-list-item-content>
 
-              <v-list-item-content>
-                <v-list-item-title v-html="td.name"></v-list-item-title>
-              </v-list-item-content>
-
-              <v-list-item-action>
-                <v-btn icon>
-                  <v-icon :color="td.active ? 'blue' : 'black'">mdi-link</v-icon>
-                </v-btn>
-              </v-list-item-action>
-            </v-list-item>
-            </template>
-
-          </v-list>
+            <v-list-item-action>
+              <v-btn icon>
+                <v-icon :color="td.active ? 'blue' : 'black'">mdi-link</v-icon>
+              </v-btn>
+            </v-list-item-action>
+          </v-list-item>
         </v-list-group>
         <v-list-group>
           <template v-slot:activator>
-              <v-list-item-content>
-                <v-list-item-title>{{phrases.language}}</v-list-item-title>
-              </v-list-item-content>
+            <v-list-item-icon>
+            <v-icon>mdi-translate</v-icon>
+          </v-list-item-icon>
+            <v-list-item-content>
+              <v-list-item-title>{{phrases.language}}</v-list-item-title>
+            </v-list-item-content>
           </template>
           <v-radio-group v-model="radios" column>
             <v-list-item-content>
@@ -104,12 +104,10 @@ import Menu from "./components/Menu";
 import Map from "./components/Map";
 import "@mdi/font/css/materialdesignicons.css";
 
-
 export default {
   name: "App",
   components: { Menu, Map },
   data: () => ({
-    drawer: false,
     locale: "",
     language: "",
     phrasesDE: {
@@ -121,7 +119,7 @@ export default {
       routes: "Flugrouten",
       journey: "Reise",
       who: "Wer ist wer?",
-      language: "Sprache auswählen",
+      language: "Sprache",
       en: "Englisch",
       de: "Deutsch",
       satellite: "Satellit",
@@ -137,7 +135,7 @@ export default {
       routes: "Flight routes",
       journey: "Journey",
       who: "Who is who?",
-      language: "Select langugage",
+      language: "Language",
       en: "English",
       de: "German",
       map: "Map",
@@ -181,7 +179,6 @@ export default {
         title: "2017 / 2018",
         active: false,
         turtledoves: [
-          { name: "Dana", active: false, data: "data/dana2017_2018.csv" , opacity: 0.5},
           {
             name: "Francesco",
             active: false,
@@ -231,7 +228,7 @@ export default {
         blog: "https://blogs.nabu.de/zugvoegel/tag/jenny/"
       },
       {
-        active: false,
+        active: true,
         name: "Francesco",
         color: "#0b7ac1",
         avatar: "images/francesco.jpg",
@@ -287,13 +284,9 @@ export default {
     }
   },
   methods: {
-    openLink(link){
-       window.open(link, "_blank");
-    },
-  // Triggered when `onMenuClick` event is emitted by the child.
-  onMenuClick(value) {
-  this.drawer= value
-  }
+    openLink(link) {
+      window.open(link, "_blank");
+    }
   }
 };
 </script>

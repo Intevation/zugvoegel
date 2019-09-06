@@ -1,7 +1,5 @@
 <template>
-  <div id="map">
-    <Popup :dialog="dialog"></Popup>
-  </div>
+      <div id="map" v-resize="onResize"></div>
 </template>
 
 <script>
@@ -247,11 +245,13 @@ export default {
 </script>
 
 <style>
-#map {
-  height: 100%;
-  width: 100%;
-}
 .endpoint {
   border-radius: 50%;
+}
+
+#map{
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0;
 }
 </style>
