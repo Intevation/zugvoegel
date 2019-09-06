@@ -60,7 +60,7 @@
 
               <v-list-item-action>
                 <v-btn icon>
-                  <v-icon :color="td.active ? 'teal' : 'black'">mdi-link</v-icon>
+                  <v-icon :color="td.active ? 'blue' : 'black'">mdi-link</v-icon>
                 </v-btn>
               </v-list-item-action>
             </v-list-item>
