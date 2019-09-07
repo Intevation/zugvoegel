@@ -64,8 +64,8 @@
           </template>
           <v-list-item>
           <v-radio-group v-model="radios" column>
-                <v-radio :label="phrases.en" value="radio-en" @click="phrases=phrasesEN"></v-radio>
-                <v-radio :label="phrases.de" value="radio-de" @click="phrases=phrasesDE"></v-radio>
+                <v-radio :label="phrases.en" value="radio-en"></v-radio>
+                <v-radio :label="phrases.de" value="radio-de"></v-radio>
           </v-radio-group>
           </v-list-item>
         </v-list-group>
