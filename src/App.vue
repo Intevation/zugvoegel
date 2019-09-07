@@ -6,7 +6,7 @@
       expand-on-hover
     >
       <v-list v-model="phrases">
-        <v-list-group value="true">
+        <v-list-group value="true" no-action>
           <template v-slot:activator>
             <v-list-item-icon>
             <v-icon>mdi-crosshairs-gps</v-icon>
@@ -24,9 +24,7 @@
             sub-group
           >
             <template v-slot:activator>
-                <v-list-item-content>
                   <v-list-item-title>{{phrases.journey}} {{ season.title }}</v-list-item-title>
-                </v-list-item-content>
             </template>
 
             <v-list-item v-for="turtledove in season.turtledoves" :key="turtledove.name">
@@ -40,14 +38,9 @@
           </v-list-group>
         </v-list-group>
 
-        <v-list-group>
+        <v-list-group prepend-icon="mdi-twitter-circle" no-action>
           <template v-slot:activator>
-            <v-list-item-icon>
-            <v-icon>mdi-twitter-circle</v-icon>
-          </v-list-item-icon>
-            <v-list-item-content>
               <v-list-item-title>{{phrases.who}}</v-list-item-title>
-            </v-list-item-content>
           </template>
           <v-list-item v-model="turtledoves" v-for="(td, index) in turtledoves" :key="index">
             <v-divider v-if="td.divider" :key="index" :inset="td.inset" ></v-divider>
@@ -65,14 +58,9 @@
             </v-list-item-action>
           </v-list-item>
         </v-list-group>
-        <v-list-group>
+        <v-list-group prepend-icon="mdi-translate" no-action>
           <template v-slot:activator>
-            <v-list-item-icon>
-            <v-icon>mdi-translate</v-icon>
-          </v-list-item-icon>
-            <v-list-item-content>
               <v-list-item-title>{{phrases.language}}</v-list-item-title>
-            </v-list-item-content>
           </template>
           <v-radio-group v-model="radios" column>
             <v-list-item>
