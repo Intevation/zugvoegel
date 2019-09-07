@@ -62,18 +62,12 @@
           <template v-slot:activator>
               <v-list-item-title>{{phrases.language}}</v-list-item-title>
           </template>
+          <v-list-item>
           <v-radio-group v-model="radios" column>
-            <v-list-item>
-              <v-list-item-action @click="phrases=phrasesEN">
-                <v-radio :label="phrases.en" value="radio-en"></v-radio>
-              </v-list-item-action>
-            </v-list-item>
-            <v-list-item>
-              <v-list-item-action @click="phrases=phrasesDE">
-                <v-radio :label="phrases.de" value="radio-de"></v-radio>
-              </v-list-item-action>
-            </v-list-item>
+                <v-radio :label="phrases.en" value="radio-en" @click="phrases=phrasesEN"></v-radio>
+                <v-radio :label="phrases.de" value="radio-de" @click="phrases=phrasesDE"></v-radio>
           </v-radio-group>
+          </v-list-item>
         </v-list-group>
       </v-list>
     </v-navigation-drawer>
@@ -258,6 +252,14 @@ export default {
     this.radios = "radio-" + this.locale;
   },
   watch: {
+    radios : function(newVal,oldVal){
+      console.log(newVal);
+      if (newVal === "radio-de"){
+        this.phrases=this.phrasesDE
+      }else{
+        this.phrases=this.phrasesEN
+      }
+    },
     phrases: function(newVal, oldVal) {
       //console.log("newVal:" + newVal.janFail, "oldVal:" + oldVal.janFail);
       let jan = this.turtledoves.filter(function(td) {
