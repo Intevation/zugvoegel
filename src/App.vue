@@ -5,7 +5,7 @@
       app
       expand-on-hover
     >
-      <v-list v-model="phrases">
+      <v-list v-model="phrases" dense>
         <v-list-group value="true" no-action>
           <template v-slot:activator>
             <v-list-item-icon>
@@ -26,7 +26,6 @@
             <template v-slot:activator>
                   <v-list-item-title>{{phrases.journey}} {{ season.title }}</v-list-item-title>
             </template>
-
             <v-list-item v-for="turtledove in season.turtledoves" :key="turtledove.name">
               <v-list-item-content>
                 <v-list-item-title>{{ turtledove.name}}</v-list-item-title>
@@ -42,35 +41,34 @@
           <template v-slot:activator>
               <v-list-item-title>{{phrases.who}}</v-list-item-title>
           </template>
-          <v-list-item v-model="turtledoves" v-for="(td, index) in turtledoves" :key="index">
-            <v-divider v-if="td.divider" :key="index" :inset="td.inset" ></v-divider>
+          <v-list-item v-model="turtledoves" v-for="(td, index) in turtledoves" :key="index" dense inactive ripple @click="openLink(td.blog)">
+            <v-divider v-if="td.divider"></v-divider>
             <v-list-item-avatar v-if="td.avatar">
               <v-img :src="td.avatar"></v-img>
             </v-list-item-avatar>
             <v-list-item-content v-if="td.name">
-              <v-list-item-title v-html="td.name"></v-list-item-title>
+              <v-list-item-title v-text="td.name"></v-list-item-title>
             </v-list-item-content>
-
-            <v-list-item-action>
-              <v-btn icon>
-                <v-icon :color="td.active ? 'blue' : 'black'">mdi-link</v-icon>
-              </v-btn>
-            </v-list-item-action>
           </v-list-item>
+
         </v-list-group>
+
         <v-list-group prepend-icon="mdi-translate" no-action>
           <template v-slot:activator>
               <v-list-item-title>{{phrases.language}}</v-list-item-title>
           </template>
-          <v-list-item>
+          <v-list-item dense>
           <v-radio-group v-model="radios" column>
                 <v-radio :label="phrases.en" value="radio-en"></v-radio>
                 <v-radio :label="phrases.de" value="radio-de"></v-radio>
           </v-radio-group>
           </v-list-item>
         </v-list-group>
+
       </v-list>
+
     </v-navigation-drawer>
+
     <v-content>
       <Map :seasons="seasons" :turtledoves="turtledoves" :phrases="phrases">
       </Map>
