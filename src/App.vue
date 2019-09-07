@@ -5,7 +5,7 @@
       app
       expand-on-hover
     >
-      <v-list v-model="phrases" dense>
+      <v-list v-model="phrases">
         <v-list-group value="true" no-action>
           <template v-slot:activator>
             <v-list-item-icon>
@@ -31,7 +31,7 @@
                 <v-list-item-title>{{ turtledove.name}}</v-list-item-title>
               </v-list-item-content>
               <v-list-item-action>
-                <v-checkbox v-model="turtledove.active"></v-checkbox>
+                <v-switch inset v-model="turtledove.active"></v-switch>
               </v-list-item-action>
             </v-list-item>
           </v-list-group>
@@ -41,7 +41,7 @@
           <template v-slot:activator>
               <v-list-item-title>{{phrases.who}}</v-list-item-title>
           </template>
-          <v-list-item v-model="turtledoves" v-for="(td, index) in turtledoves" :key="index" dense inactive ripple @click="openLink(td.blog)">
+          <v-list-item v-model="turtledoves" v-for="(td, index) in turtledoves" :key="index" inactive ripple @click="openLink(td.blog)">
             <v-divider v-if="td.divider"></v-divider>
             <v-list-item-avatar v-if="td.avatar">
               <v-img :src="td.avatar"></v-img>
@@ -57,7 +57,7 @@
           <template v-slot:activator>
               <v-list-item-title>{{phrases.language}}</v-list-item-title>
           </template>
-          <v-list-item dense>
+          <v-list-item>
           <v-radio-group v-model="radios" column>
                 <v-radio :label="phrases.en" value="radio-en"></v-radio>
                 <v-radio :label="phrases.de" value="radio-de"></v-radio>
