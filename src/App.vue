@@ -1,9 +1,8 @@
 <template>
   <v-app>
     <v-navigation-drawer
-      class="grey lighten-4"
+      class="grey lighten-4 navi"
       app
-      mobile-break-point="0"
       expand-on-hover
     >
       <v-list v-model="phrases">
@@ -101,13 +100,12 @@
 </template>
 
 <script>
-import Menu from "./components/Menu";
 import Map from "./components/Map";
 import "@mdi/font/css/materialdesignicons.css";
 
 export default {
   name: "App",
-  components: { Menu, Map },
+  components: { Map },
   data: () => ({
     locale: "",
     language: "",
@@ -291,3 +289,12 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+
+.navi{
+  transform: none !important;
+  -webkit-transform: none !important;
+}
+
+</style>
