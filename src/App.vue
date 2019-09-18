@@ -3,14 +3,18 @@
     <v-navigation-drawer
       class="grey lighten-4 navi"
       app
-      expand-on-hover
+      permanent
+      :mini-variant.sync="mini"
+      v-model="drawer"
+      @mouseover.native="mini=false"
+      @mouseleave.native="mini=true"
     >
       <v-list v-model="phrases">
         <v-list-group value="true" no-action>
           <template v-slot:activator>
             <v-list-item-icon>
-            <v-icon>mdi-crosshairs-gps</v-icon>
-          </v-list-item-icon>
+              <v-icon>mdi-crosshairs-gps</v-icon>
+            </v-list-item-icon>
             <v-list-item-content>
               <v-list-item-title>{{phrases.routes}}</v-list-item-title>
             </v-list-item-content>
@@ -24,7 +28,7 @@
             sub-group
           >
             <template v-slot:activator>
-                  <v-list-item-title>{{phrases.journey}} {{ season.title }}</v-list-item-title>
+              <v-list-item-title>{{phrases.journey}} {{ season.title }}</v-list-item-title>
             </template>
             <v-list-item v-for="turtledove in season.turtledoves" :key="turtledove.name">
               <v-list-item-content>
@@ -39,9 +43,16 @@
 
         <v-list-group prepend-icon="mdi-twitter-circle" no-action>
           <template v-slot:activator>
-              <v-list-item-title>{{phrases.who}}</v-list-item-title>
+            <v-list-item-title>{{phrases.who}}</v-list-item-title>
           </template>
-          <v-list-item v-model="turtledoves" v-for="(td, index) in turtledoves" :key="index" inactive ripple @click="openLink(td.blog)">
+          <v-list-item
+            v-model="turtledoves"
+            v-for="(td, index) in turtledoves"
+            :key="index"
+            inactive
+            ripple
+            @click="openLink(td.blog)"
+          >
             <v-divider v-if="td.divider"></v-divider>
             <v-list-item-avatar v-if="td.avatar">
               <v-img :src="td.avatar"></v-img>
@@ -50,40 +61,41 @@
               <v-list-item-title v-text="td.name"></v-list-item-title>
             </v-list-item-content>
           </v-list-item>
-
         </v-list-group>
 
         <v-list-group prepend-icon="mdi-layers" no-action>
           <template v-slot:activator>
-              <v-list-item-title>{{phrases.backgroundmap}}</v-list-item-title>
+            <v-list-item-title>{{phrases.backgroundmap}}</v-list-item-title>
           </template>
           <v-list-item>
-          <v-radio-group v-model="backgroundmap" column>
-                <v-radio :label="phrases.satellite" value="satellite"></v-radio>
-                <v-radio :label="phrases.streetmap" value="streetmap"></v-radio>
-          </v-radio-group>
+            <v-radio-group v-model="backgroundmap" column>
+              <v-radio :label="phrases.satellite" value="satellite"></v-radio>
+              <v-radio :label="phrases.streetmap" value="streetmap"></v-radio>
+            </v-radio-group>
           </v-list-item>
         </v-list-group>
 
         <v-list-group prepend-icon="mdi-translate" no-action>
           <template v-slot:activator>
-              <v-list-item-title>{{phrases.language}}</v-list-item-title>
+            <v-list-item-title>{{phrases.language}}</v-list-item-title>
           </template>
           <v-list-item>
-          <v-radio-group v-model="radios" column>
-                <v-radio :label="phrases.en" value="radio-en"></v-radio>
-                <v-radio :label="phrases.de" value="radio-de"></v-radio>
-          </v-radio-group>
+            <v-radio-group v-model="radios" column>
+              <v-radio :label="phrases.en" value="radio-en"></v-radio>
+              <v-radio :label="phrases.de" value="radio-de"></v-radio>
+            </v-radio-group>
           </v-list-item>
         </v-list-group>
-
       </v-list>
-
     </v-navigation-drawer>
 
     <v-content>
-      <Map :seasons="seasons" :turtledoves="turtledoves" :phrases="phrases" :backgroundmap="backgroundmap">
-      </Map>
+      <Map
+        :seasons="seasons"
+        :turtledoves="turtledoves"
+        :phrases="phrases"
+        :backgroundmap="backgroundmap"
+      ></Map>
     </v-content>
     <!--v-footer app fixed>
       <span>&copy; 2019</span>
@@ -99,6 +111,8 @@ export default {
   name: "App",
   components: { Map },
   data: () => ({
+    drawer: true,
+    mini: true,
     locale: "",
     language: "",
     phrasesDE: {
@@ -146,11 +160,35 @@ export default {
         title: "2019 / 2020",
         active: true,
         turtledoves: [
-          { name: "Melanie", active: true, data: "data/melanie2019_2020.csv" , opacity: 1},
-          { name: "Luciano", active: true, data: "data/luciano2019_2020.csv", opacity: 1 },
-          { name: "Cyril", active: true, data: "data/cyril2019_2020.csv", opacity: 1 },
-          { name: "Jenny", active: true, data: "data/jenny2019_2020.csv", opacity: 1 },
-          { name: "Francesco", active: true, data: "data/francesco2019_2020.csv", opacity: 1
+          {
+            name: "Melanie",
+            active: true,
+            data: "data/melanie2019_2020.csv",
+            opacity: 1
+          },
+          {
+            name: "Luciano",
+            active: true,
+            data: "data/luciano2019_2020.csv",
+            opacity: 1
+          },
+          {
+            name: "Cyril",
+            active: true,
+            data: "data/cyril2019_2020.csv",
+            opacity: 1
+          },
+          {
+            name: "Jenny",
+            active: true,
+            data: "data/jenny2019_2020.csv",
+            opacity: 1
+          },
+          {
+            name: "Francesco",
+            active: true,
+            data: "data/francesco2019_2020.csv",
+            opacity: 1
           }
         ]
       },
@@ -159,7 +197,12 @@ export default {
         title: "2018 / 2019",
         active: false,
         turtledoves: [
-          { name: "Dana", active: false, data: "data/dana2018_2019.csv" , opacity: 1},
+          {
+            name: "Dana",
+            active: false,
+            data: "data/dana2018_2019.csv",
+            opacity: 1
+          },
           {
             name: "Francesco",
             active: false,
@@ -180,7 +223,12 @@ export default {
             opacity: 0.5
           },
           { name: "Jan", active: false, data: "data/jan2017_2018.csv" },
-          { name: "Nicola", active: false, data: "data/nicola2017_2018.csv" , opacity: 1}
+          {
+            name: "Nicola",
+            active: false,
+            data: "data/nicola2017_2018.csv",
+            opacity: 1
+          }
         ]
       },
       {
@@ -188,7 +236,12 @@ export default {
         title: "2016 / 2017",
         active: false,
         turtledoves: [
-          { name: "Nicola", active: false, data: "data/nicola2016_2017.csv" , opacity: 0.5 }
+          {
+            name: "Nicola",
+            active: false,
+            data: "data/nicola2016_2017.csv",
+            opacity: 0.5
+          }
         ]
       }
     ],
@@ -265,11 +318,11 @@ export default {
     this.radios = "radio-" + this.locale;
   },
   watch: {
-    radios : function(newVal,oldVal){
-      if (newVal === "radio-de"){
-        this.phrases=this.phrasesDE
-      }else{
-        this.phrases=this.phrasesEN
+    radios: function(newVal, oldVal) {
+      if (newVal === "radio-de") {
+        this.phrases = this.phrasesDE;
+      } else {
+        this.phrases = this.phrasesEN;
       }
     },
     phrases: function(newVal, oldVal) {
@@ -293,10 +346,8 @@ export default {
 </script>
 
 <style scoped>
-
-.navi{
+.navi {
   transform: none !important;
   -webkit-transform: none !important;
 }
-
 </style>

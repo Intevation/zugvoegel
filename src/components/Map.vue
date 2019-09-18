@@ -112,7 +112,7 @@ export default {
       center: [35.5322, 21.09375],
       zoom: 4,
       maxZoom: 18,
-      minZoom: 4,
+      minZoom: 2,
       //maxBounds: [[42, -46], [58, 67]],
       //maxBounds: [[0, -180], [0, 180]],
       fadeAnimation: false,
@@ -129,7 +129,7 @@ export default {
       })
     );
 
-    L.control.scale({position:"bottomright"}).addTo(this.map);
+    L.control.scale({ position: "bottomright" }).addTo(this.map);
 
     this.streetmap.addTo(this.map);
 
