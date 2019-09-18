@@ -128,7 +128,7 @@ export default {
 
     this.streetmap.addTo(this.map);
 
-    if (L.Browser.touch) {
+    if (L.Browser.mobile) {
       map.tap.disable();
       map.on("click", function(e) {
         console.log("klick");
