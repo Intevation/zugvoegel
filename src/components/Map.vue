@@ -91,6 +91,10 @@ export default {
       // renderer: L.canvas()
     });
 
+    L.control.scale().addTo(map);
+
+    // var hash = new L.Hash(map);
+
     L.tileLayer(
       "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
       {
