@@ -1,5 +1,5 @@
 <template>
-      <div id="map"></div>
+  <div id="map"></div>
 </template>
 
 <script>
@@ -27,26 +27,55 @@ export default {
   props: {
     seasons: Array,
     turtledoves: Array,
-    phrases: Object
+    phrases: Object,
+    backgroundmap: String
   },
   data: () => ({
     map: {},
     urlTemplate: {},
     layerGroups: [],
-    dialog: false
+    dialog: false,
+    streetmap: L.tileLayer(
+      "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
+      {
+        attribution:
+          'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: "mapbox.streets",
+        accessToken:
+          "pk.eyJ1IjoiYmpvZXJuc2NoaWxiZXJnIiwiYSI6InRzOVZKeWsifQ.y20mr9o3MolFOUdTQekhUA",
+        noWrap: true
+      }
+    ),
+    satellite: L.tileLayer.wms("https://tiles.maps.eox.at/?", {
+      layers: "s2cloudless_3857",
+      attribution:
+        '<a href="https://s2maps.eu" target="_blank">Sentinel-2 cloudless - https://s2maps.eu</a> by <a href="https://eox.at/" target="_blank">EOX IT Services GmbH</a> (Contains modified Copernicus Sentinel data 2017 & 2018)'
+    })
   }),
   watch: {
+    backgroundmap: {
+      handler: function(newVal, oldVal) {
+        if (newVal === "streetmap") {
+          this.satellite.remove();
+          this.streetmap.addTo(this.map);
+        } else {
+          this.streetmap.remove();
+          this.satellite.addTo(this.map);
+        }
+      },
+      immediate: false
+    },
     // Layertree logic
     layerGroups: {
-      handler: function(){
-              if (this.layerGroups.length > 0){
-              var bounds = L.latLngBounds();
-              for (const route of this.layerGroups){
-                bounds.extend(route.group.getBounds());
-              }
-              this.map.fitBounds(bounds);
-            }
-
+      handler: function() {
+        if (this.layerGroups.length > 0) {
+          var bounds = L.latLngBounds();
+          for (const route of this.layerGroups) {
+            bounds.extend(route.group.getBounds());
+          }
+          this.map.fitBounds(bounds);
+        }
       }
     },
     seasons: {
@@ -91,23 +120,20 @@ export default {
       // renderer: L.canvas()
     });
 
-    L.control.scale().addTo(map);
+    this.map = map;
+
+    this.map.addControl(
+      L.control.attribution({
+        position: "bottomright",
+        prefix: false
+      })
+    );
+
+    L.control.scale({position:"bottomright"}).addTo(this.map);
+
+    this.satellite.addTo(this.map);
 
     // var hash = new L.Hash(map);
-
-    L.tileLayer(
-      "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
-      {
-        attribution:
-          'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        maxZoom: 18,
-        id: "mapbox.streets",
-        accessToken:
-          "pk.eyJ1IjoiYmpvZXJuc2NoaWxiZXJnIiwiYSI6InRzOVZKeWsifQ.y20mr9o3MolFOUdTQekhUA",
-        noWrap: true
-      }
-    ).addTo(map);
-    this.map = map;
     // map.on("moveend", function() {
     //   console.log(map.getCenter());
     // });
@@ -200,11 +226,13 @@ export default {
                 ];
                 layer.bindTooltip(
                   String(
-                    "<b>"+
-                    feature.properties["name"] +
+                    "<b>" +
+                      feature.properties["name"] +
                       "</b> (" +
-                    feature.properties["timestamp"] +
-                      " )<br>" + ph["flightRoute"] + " <b>" +
+                      feature.properties["timestamp"] +
+                      " )<br>" +
+                      ph["flightRoute"] +
+                      " <b>" +
                       feature.properties["distance"] +
                       " km</b>"
                   ),
@@ -230,7 +258,10 @@ export default {
             // route/line
             // Adding a polyline. Define an array of Latlng objects (points
             // along the line) then use it to make a polyline
-            var polyline = L.polyline(coords, { color: bird.color , opacity: bird.opacity});
+            var polyline = L.polyline(coords, {
+              color: bird.color,
+              opacity: bird.opacity
+            });
 
             // create a decorator
             var decorator = L.polylineDecorator(polyline, {
@@ -269,7 +300,7 @@ export default {
   border-radius: 50%;
 }
 
-#map{
+#map {
   width: 100% !important;
   height: 100% !important;
   z-index: 0;

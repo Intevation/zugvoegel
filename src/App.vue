@@ -53,6 +53,18 @@
 
         </v-list-group>
 
+        <v-list-group prepend-icon="mdi-layers" no-action>
+          <template v-slot:activator>
+              <v-list-item-title>{{phrases.backgroundmap}}</v-list-item-title>
+          </template>
+          <v-list-item>
+          <v-radio-group v-model="backgroundmap" column>
+                <v-radio :label="phrases.satellite" value="satellite"></v-radio>
+                <v-radio :label="phrases.streetmap" value="streetmap"></v-radio>
+          </v-radio-group>
+          </v-list-item>
+        </v-list-group>
+
         <v-list-group prepend-icon="mdi-translate" no-action>
           <template v-slot:activator>
               <v-list-item-title>{{phrases.language}}</v-list-item-title>
@@ -70,7 +82,7 @@
     </v-navigation-drawer>
 
     <v-content>
-      <Map :seasons="seasons" :turtledoves="turtledoves" :phrases="phrases">
+      <Map :seasons="seasons" :turtledoves="turtledoves" :phrases="phrases" :backgroundmap="backgroundmap">
       </Map>
     </v-content>
     <!--v-footer app fixed>
@@ -90,8 +102,9 @@ export default {
     locale: "",
     language: "",
     phrasesDE: {
+      backgroundmap: "Hintergrundkarte",
       hello: "Hallo",
-      map: "Karte",
+      streetmap: "Karte",
       title: "Zugvögel auf Reisen",
       turtledoves: "Turteltauben",
       legend: "Legende",
@@ -107,6 +120,7 @@ export default {
       janFail: "Sender ist im September 2017 ausgefallen."
     },
     phrasesEN: {
+      backgroundmap: "Background map",
       hello: "Hello",
       title: "Migratory birds travelling",
       turtledoves: "Turteldoves",
@@ -117,7 +131,7 @@ export default {
       language: "Language",
       en: "English",
       de: "German",
-      map: "Map",
+      streetmap: "Map",
       satellite: "Satellite",
       flightRoute: "Distance from last location:",
       nicolaFail: "Transmitter was not operational anymore since August 2017.",
@@ -125,6 +139,7 @@ export default {
     },
     phrases: {},
     radios: "",
+    backgroundmap: "satellite",
     seasons: [
       {
         action: "mdi-crosshairs-gps",
@@ -251,7 +266,6 @@ export default {
   },
   watch: {
     radios : function(newVal,oldVal){
-      console.log(newVal);
       if (newVal === "radio-de"){
         this.phrases=this.phrasesDE
       }else{
