@@ -134,6 +134,12 @@ export default {
         console.log("klick");
         this.mini = true;
       });
+
+    //// Debugging
+    //map.on("move", function(e) {
+    //  console.log(map.getZoom());
+    //  console.log(map.getCenter());
+    //});
     }
 
     // var hash = new L.Hash(map);
@@ -154,6 +160,12 @@ export default {
         this.map.invalidateSize(true);
         this.map.fitBounds(bounds);
         //this.map.setMaxBounds(bounds);
+      } else {
+        if (L.Browser.mobile) {
+          this.map.setView([37.7185, 13.18359], 3);
+        } else {
+          this.map.setView([35.5322, 21.09375], 4);
+        }
       }
     },
     onResize() {
