@@ -1,5 +1,5 @@
 <template>
-  <div id="map"></div>
+  <div v-resize="onResize" id="map"></div>
 </template>
 
 <script>
@@ -68,14 +68,8 @@ export default {
     },
     // Layertree logic
     layerGroups: {
-      handler: function() {
-        if (this.layerGroups.length > 0) {
-          var bounds = L.latLngBounds();
-          for (const route of this.layerGroups) {
-            bounds.extend(route.group.getBounds());
-          }
-          this.map.fitBounds(bounds);
-        }
+      handler: function(newVal, oldVal) {
+        this.fitMapBounds(newVal);
       }
     },
     seasons: {
@@ -139,6 +133,26 @@ export default {
     // });
   },
   methods: {
+    fitMapBounds(newBounds) {
+      if (newBounds.length > 0) {
+        var bounds = L.latLngBounds();
+        for (const route of newBounds) {
+          bounds.extend(route.group.getBounds());
+        }
+        // For debugging of bounding boxes.
+        //var latlngs = L.rectangle(bounds).getLatLngs();
+        //L.polyline(latlngs[0].concat(latlngs[0][0])).addTo(this.map);
+        this.map.invalidateSize(true);
+        this.map.fitBounds(bounds);
+        //this.map.setMaxBounds(bounds);
+      }
+    },
+    onResize() {
+      if (this.map instanceof L.Map) {
+        this.map.invalidateSize(true);
+        this.fitMapBounds(this.layerGroups);
+      }
+    },
     processBird(sbird) {
       // Get metadata
       let bird = this.turtledoves.filter(function(td) {
