@@ -1,14 +1,14 @@
 <template>
   <v-btn
-    v-model="drawer"
+    v-model="mini"
     dark
     absolute
     fab
-    bottom
+    top
     medium
-    left
+    right
     color="#0068b4"
-    v-on:click.stop=onClickButton
+    v-on:click="toggle()"
     id="hamburger"
   >
     <v-icon>mdi-menu</v-icon>
@@ -17,12 +17,13 @@
 
 <script>
 export default {
-  data: () => ({
-    drawer: true
-  }),
+  props: {
+    mini: Boolean
+  },
   methods: {
-    onClickButton (event) {
-      this.$emit('clicked', this.drawer=!this.drawer)
+    toggle() {
+      this.mini = !this.mini;
+      this.$emit("update:mini", this.mini);
     }
   }
 };
@@ -30,14 +31,7 @@ export default {
 
 <style>
 #hamburger {
-  bottom: 10px;
+  top: calc(var(--vh, 1vh) * 1);
   z-index: 9999;
-}
-
-@media only screen and (min-device-width: 320px) and (max-device-width: 640px) {
-  #hamburger {
-    bottom: 10vh;
-    z-index: 9999;
-  }
 }
 </style>

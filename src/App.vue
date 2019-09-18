@@ -89,6 +89,7 @@
       </v-list>
     </v-navigation-drawer>
 
+    <Menu :mini.sync="mini"></Menu>
     <v-content>
       <Map
         :seasons="seasons"
@@ -107,10 +108,11 @@
 <script>
 import Map from "./components/Map";
 import "@mdi/font/css/materialdesignicons.css";
+import Menu from "./components/Menu";
 
 export default {
   name: "App",
-  components: { Map },
+  components: { Menu, Map },
   data: () => ({
     drawer: true,
     mini: true,
