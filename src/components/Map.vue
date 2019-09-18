@@ -131,7 +131,7 @@ export default {
 
     L.control.scale({position:"bottomright"}).addTo(this.map);
 
-    this.satellite.addTo(this.map);
+    this.streetmap.addTo(this.map);
 
     // var hash = new L.Hash(map);
     // map.on("moveend", function() {

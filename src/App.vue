@@ -139,7 +139,7 @@ export default {
     },
     phrases: {},
     radios: "",
-    backgroundmap: "satellite",
+    backgroundmap: "streetmap",
     seasons: [
       {
         action: "mdi-crosshairs-gps",
