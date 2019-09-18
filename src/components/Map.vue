@@ -28,7 +28,8 @@ export default {
     seasons: Array,
     turtledoves: Array,
     phrases: Object,
-    backgroundmap: String
+    backgroundmap: String,
+    mini: Boolean
   },
   data: () => ({
     map: {},
@@ -126,6 +127,14 @@ export default {
     L.control.scale({ position: "bottomright" }).addTo(this.map);
 
     this.streetmap.addTo(this.map);
+
+    if (L.Browser.touch) {
+      map.tap.disable();
+      map.on("click", function(e) {
+        console.log("klick");
+        this.mini = true;
+      });
+    }
 
     // var hash = new L.Hash(map);
     // map.on("moveend", function() {

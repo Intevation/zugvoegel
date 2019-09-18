@@ -95,6 +95,7 @@
         :turtledoves="turtledoves"
         :phrases="phrases"
         :backgroundmap="backgroundmap"
+        :mini="mini"
       ></Map>
     </v-content>
     <!--v-footer app fixed>
