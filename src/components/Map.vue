@@ -170,8 +170,8 @@ export default {
     },
     onResize() {
       if (this.map instanceof L.Map) {
-        this.map.invalidateSize(true);
-        this.fitMapBounds(this.layerGroups);
+        this.map.invalidateSize({"pan":false});
+        //this.fitMapBounds(this.layerGroups);
       }
     },
     processBird(sbird) {
