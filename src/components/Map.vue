@@ -131,15 +131,14 @@ export default {
     if (L.Browser.mobile) {
       map.tap.disable();
       map.on("click", function(e) {
-        console.log("klick");
-        this.mini = true;
+        this.$emit("update:mini", !this.mini);
       });
 
-    //// Debugging
-    //map.on("move", function(e) {
-    //  console.log(map.getZoom());
-    //  console.log(map.getCenter());
-    //});
+      //// Debugging
+      //map.on("move", function(e) {
+      //  console.log(map.getZoom());
+      //  console.log(map.getCenter());
+      //});
     }
 
     // var hash = new L.Hash(map);
@@ -170,7 +169,7 @@ export default {
     },
     onResize() {
       if (this.map instanceof L.Map) {
-        this.map.invalidateSize({"pan":false});
+        this.map.invalidateSize({ pan: false });
         //this.fitMapBounds(this.layerGroups);
       }
     },

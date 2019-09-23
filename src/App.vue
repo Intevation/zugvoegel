@@ -5,7 +5,6 @@
       app
       permanent
       :mini-variant.sync="mini"
-      v-model="drawer"
       @mouseover.native="mini=false"
       @mouseleave.native="mini=true"
     >
@@ -96,8 +95,9 @@
         :turtledoves="turtledoves"
         :phrases="phrases"
         :backgroundmap="backgroundmap"
-        :mini="mini"
-      ></Map>
+        :mini.sync="mini"
+      >
+      </Map>
     </v-content>
     <!--v-footer app fixed>
       <span>&copy; 2019</span>
@@ -114,7 +114,6 @@ export default {
   name: "App",
   components: { Menu, Map },
   data: () => ({
-    drawer: true,
     mini: true,
     locale: "",
     language: "",

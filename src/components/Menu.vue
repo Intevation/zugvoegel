@@ -1,13 +1,12 @@
 <template>
   <v-btn
-    v-model="mini"
-    dark
+    v-model="btn"
     absolute
     fab
     top
+    color="primary"
     medium
     right
-    color="#0068b4"
     v-on:click="toggle()"
     id="hamburger"
   >
@@ -17,13 +16,17 @@
 
 <script>
 export default {
+  computed:{
+    btn: function (){
+      return !this.mini
+    }
+  },
   props: {
     mini: Boolean
   },
   methods: {
     toggle() {
-      this.mini = !this.mini;
-      this.$emit("update:mini", this.mini);
+      this.$emit("update:mini", !this.mini);
     }
   }
 };
