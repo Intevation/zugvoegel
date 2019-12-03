@@ -259,7 +259,7 @@ export default {
         active: true,
         name: "Luciano",
         color: "#ffff01",
-        avatar: "images/luciano.jpg",
+        avatar: "images/luciano_flor.jpg",
         blog: "https://blogs.nabu.de/zugvoegel/tag/luciano/"
       },
       {
@@ -273,7 +273,7 @@ export default {
         active: true,
         name: "Jenny",
         color: "#05ab03",
-        avatar: "images/jenny.jpg",
+        avatar: "images/jenny_flor.jpg",
         blog: "https://blogs.nabu.de/zugvoegel/tag/jenny/"
       },
       {
