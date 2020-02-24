@@ -106,8 +106,10 @@
 </template>
 
 <script>
-import seasons from "./seasons.json";
-import turtledoves from "./turtledoves.json";
+import seasons from "./config/seasons.json";
+import turtledoves from "./config/turtledoves.json";
+import phrasesEN from "./config/phrasesEN.json";
+import phrasesDE from "./config/phrasesDE.json";
 import Map from "./components/Map";
 import "@mdi/font/css/materialdesignicons.css";
 import Menu from "./components/Menu";
@@ -119,42 +121,8 @@ export default {
     mini: true,
     locale: "",
     language: "",
-    phrasesDE: {
-      backgroundmap: "Hintergrundkarte",
-      hello: "Hallo",
-      streetmap: "Karte",
-      title: "Zugvögel auf Reisen",
-      turtledoves: "Turteltauben",
-      legend: "Legende",
-      routes: "Flugrouten",
-      journey: "Reise",
-      who: "Wer ist wer?",
-      language: "Sprache",
-      en: "Englisch",
-      de: "Deutsch",
-      satellite: "Satellit",
-      flightRoute: "Flugstrecke seit letzter Ortung:",
-      nicolaFail: "Sender ist im August 2017 ausgefallen.",
-      janFail: "Sender ist im September 2017 ausgefallen."
-    },
-    phrasesEN: {
-      backgroundmap: "Background map",
-      hello: "Hello",
-      title: "Migratory birds travelling",
-      turtledoves: "Turteldoves",
-      legend: "Legend",
-      routes: "Flight routes",
-      journey: "Journey",
-      who: "Who is who?",
-      language: "Language",
-      en: "English",
-      de: "German",
-      streetmap: "Map",
-      satellite: "Satellite",
-      flightRoute: "Distance from last location:",
-      nicolaFail: "Transmitter was not operational anymore since August 2017.",
-      janFail: "Transmitter was not operational anymore since September 2017."
-    },
+    phrasesDE: phrasesDE,
+    phrasesEN: phrasesEN,
     phrases: {},
     radios: "",
     backgroundmap: "streetmap",
