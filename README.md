@@ -1,4 +1,4 @@
-# turteltauben-ng
+# Turteltauben
 
 ## Project setup
 ```
