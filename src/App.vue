@@ -320,14 +320,16 @@ export default {
     this.radios = "radio-" + this.locale;
   },
   watch: {
-    radios: function(newVal, oldVal) {
+    // function(newVal, oldVal)
+    radios: function(newVal) {
       if (newVal === "radio-de") {
         this.phrases = this.phrasesDE;
       } else {
         this.phrases = this.phrasesEN;
       }
     },
-    phrases: function(newVal, oldVal) {
+    // function(newVal, oldVal)
+    phrases: function() {
       //console.log("newVal:" + newVal.janFail, "oldVal:" + oldVal.janFail);
       let jan = this.turtledoves.filter(function(td) {
         return td.name == "Jan";

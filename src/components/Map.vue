@@ -8,7 +8,6 @@ import L from "leaflet";
 import csv2geojson from "csv2geojson";
 import "leaflet-polylinedecorator";
 import turfDistance from "@turf/distance";
-import Popup from "./Popup";
 
 const turfHelpers = require("@turf/helpers");
 
@@ -23,7 +22,6 @@ L.Icon.Default.mergeOptions({
 });
 
 export default {
-  components: { Popup },
   props: {
     seasons: Array,
     turtledoves: Array,
@@ -56,7 +54,8 @@ export default {
   }),
   watch: {
     backgroundmap: {
-      handler: function(newVal, oldVal) {
+      // function(newVal, oldVal)
+      handler: function(newVal) {
         if (newVal === "streetmap") {
           this.satellite.remove();
           this.streetmap.addTo(this.map);
@@ -69,7 +68,8 @@ export default {
     },
     // Layertree logic
     layerGroups: {
-      handler: function(newVal, oldVal) {
+      // function(newVal, oldVal)
+      handler: function(newVal) {
         this.fitMapBounds(newVal);
       }
     },
@@ -130,7 +130,8 @@ export default {
 
     if (L.Browser.mobile) {
       map.tap.disable();
-      map.on("click", function(e) {
+      // map.on("click", function(e)
+      map.on("click", function() {
         this.$emit("update:mini", !this.mini);
       });
 
