@@ -253,7 +253,7 @@ export default {
                 feature.properties["image"] = bird.image;
                 feature.properties["name"] = bird.name;
                 feature.properties["distance"] = Number(
-                  Math.round(distance + "e2") + "e-2"
+                  distance.toFixed(2)
                 );
                 previousPoint[0] = [
                   feature.geometry.coordinates[1],
