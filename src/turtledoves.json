@@ -1,0 +1,61 @@
+[
+    {
+        "active": true,
+        "avatar": "images/melanie.jpg",
+        "blog": "https://blogs.nabu.de/zugvoegel/tag/melanie/",
+        "color": "#87d5fb",
+        "name": "Melanie"
+    },
+    {
+        "active": true,
+        "avatar": "images/luciano.jpg",
+        "blog": "https://blogs.nabu.de/zugvoegel/tag/luciano/",
+        "color": "#ffff01",
+        "name": "Luciano"
+    },
+    {
+        "active": true,
+        "avatar": "images/cyril.jpg",
+        "blog": "https://blogs.nabu.de/zugvoegel/tag/cyril/",
+        "color": "#8102b3",
+        "name": "Cyril"
+    },
+    {
+        "active": true,
+        "avatar": "images/jenny.jpg",
+        "blog": "https://blogs.nabu.de/zugvoegel/tag/jenny/",
+        "color": "#05ab03",
+        "name": "Jenny"
+    },
+    {
+        "active": false,
+        "avatar": "images/francesco.jpg",
+        "blog": "https://blogs.nabu.de/zugvoegel/tag/francesco/",
+        "color": "#0b7ac1",
+        "name": "Francesco"
+    },
+    {
+        "divider": true
+    },
+    {
+        "active": false,
+        "avatar": "images/dana_flor.jpg",
+        "blog": "https://blogs.nabu.de/zugvoegel/tag/dana/",
+        "color": "#daa97e",
+        "name": "Dana"
+    },
+    {
+        "active": false,
+        "avatar": "images/jan_flor.jpg",
+        "blog": "https://blogs.nabu.de/zugvoegel/tag/jan/",
+        "color": "#6b7a1f",
+        "name": "Jan"
+    },
+    {
+        "active": false,
+        "avatar": "images/nicola_flor.jpg",
+        "blog": "https://blogs.nabu.de/zugvoegel/tag/nicola/",
+        "color": "#303028",
+        "name": "Nicola"
+    }
+]

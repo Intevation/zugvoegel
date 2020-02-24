@@ -106,6 +106,8 @@
 </template>
 
 <script>
+import seasons from "./seasons.json";
+import turtledoves from "./turtledoves.json";
 import Map from "./components/Map";
 import "@mdi/font/css/materialdesignicons.css";
 import Menu from "./components/Menu";
@@ -156,156 +158,8 @@ export default {
     phrases: {},
     radios: "",
     backgroundmap: "streetmap",
-    seasons: [
-      {
-        action: "mdi-crosshairs-gps",
-        title: "2019 / 2020",
-        active: true,
-        turtledoves: [
-          {
-            name: "Melanie",
-            active: true,
-            data: "data/melanie2019_2020.csv",
-            opacity: 1
-          },
-          {
-            name: "Luciano",
-            active: true,
-            data: "data/luciano2019_2020.csv",
-            opacity: 1
-          },
-          {
-            name: "Cyril",
-            active: true,
-            data: "data/cyril2019_2020.csv",
-            opacity: 1
-          },
-          {
-            name: "Jenny",
-            active: true,
-            data: "data/jenny2019_2020.csv",
-            opacity: 1
-          },
-          {
-            name: "Francesco",
-            active: true,
-            data: "data/francesco2019_2020.csv",
-            opacity: 1
-          }
-        ]
-      },
-      {
-        action: "mdi-crosshairs-gps",
-        title: "2018 / 2019",
-        active: false,
-        turtledoves: [
-          {
-            name: "Dana",
-            active: false,
-            data: "data/dana2018_2019.csv",
-            opacity: 1
-          },
-          {
-            name: "Francesco",
-            active: false,
-            data: "data/francesco2018_2019.csv",
-            opacity: 1
-          }
-        ]
-      },
-      {
-        action: "mdi-crosshairs-gps",
-        title: "2017 / 2018",
-        active: false,
-        turtledoves: [
-          {
-            name: "Francesco",
-            active: false,
-            data: "data/francesco2017_2018.csv",
-            opacity: 0.5
-          },
-          { name: "Jan", active: false, data: "data/jan2017_2018.csv" },
-          {
-            name: "Nicola",
-            active: false,
-            data: "data/nicola2017_2018.csv",
-            opacity: 1
-          }
-        ]
-      },
-      {
-        action: "mdi-crosshairs-gps",
-        title: "2016 / 2017",
-        active: false,
-        turtledoves: [
-          {
-            name: "Nicola",
-            active: false,
-            data: "data/nicola2016_2017.csv",
-            opacity: 0.5
-          }
-        ]
-      }
-    ],
-    turtledoves: [
-      {
-        active: true,
-        name: "Melanie",
-        color: "#87d5fb",
-        avatar: "images/melanie.jpg",
-        blog: "https://blogs.nabu.de/zugvoegel/tag/melanie/"
-      },
-      {
-        active: true,
-        name: "Luciano",
-        color: "#ffff01",
-        avatar: "images/luciano_flor.jpg",
-        blog: "https://blogs.nabu.de/zugvoegel/tag/luciano/"
-      },
-      {
-        active: true,
-        name: "Cyril",
-        color: "#8102b3",
-        avatar: "images/cyril.jpg",
-        blog: "https://blogs.nabu.de/zugvoegel/tag/cyril/"
-      },
-      {
-        active: true,
-        name: "Jenny",
-        color: "#05ab03",
-        avatar: "images/jenny_flor.jpg",
-        blog: "https://blogs.nabu.de/zugvoegel/tag/jenny/"
-      },
-      {
-        active: true,
-        name: "Francesco",
-        color: "#0b7ac1",
-        avatar: "images/francesco.jpg",
-        blog: "https://blogs.nabu.de/zugvoegel/tag/francesco/"
-      },
-      { divider: true },
-      {
-        active: false,
-        name: "Dana",
-        color: "#daa97e",
-        avatar: "images/dana_flor.jpg",
-        blog: "https://blogs.nabu.de/zugvoegel/tag/dana/"
-      },
-      {
-        active: false,
-        name: "Jan",
-        color: "#6b7a1f",
-        avatar: "images/jan_flor.jpg",
-        blog: "https://blogs.nabu.de/zugvoegel/tag/jan/"
-      },
-      {
-        active: false,
-        name: "Nicola",
-        color: "#303028",
-        avatar: "images/nicola_flor.jpg",
-        blog: "https://blogs.nabu.de/zugvoegel/tag/nicola/"
-      }
-    ]
+    seasons: seasons,
+    turtledoves: turtledoves
   }),
   created: function() {
     this.language =

@@ -1,0 +1,101 @@
+[
+    {
+        "action": "mdi-crosshairs-gps",
+        "active": true,
+        "title": "2019 / 2020",
+        "turtledoves": [
+            {
+                "active": true,
+                "data": "data/melanie2019_2020.csv",
+                "name": "Melanie",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "data": "data/luciano2019_2020.csv",
+                "name": "Luciano",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "data": "data/cyril2019_2020.csv",
+                "name": "Cyril",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "data": "data/jenny2019_2020.csv",
+                "name": "Jenny",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "data": "data/francesco2019_2020.csv",
+                "name": "Francesco",
+                "opacity": 1
+            }
+        ]
+    },
+    {
+        "action": "mdi-crosshairs-gps",
+        "active": false,
+        "title": "2018 / 2019",
+        "turtledoves": [
+            {
+                "active": false,
+                "data": "data/dana2018_2019.csv",
+                "name": "Dana",
+                "opacity": 1
+            },
+            {
+                "active": false,
+                "data": "data/francesco2018_2019.csv",
+                "name": "Francesco",
+                "opacity": 1
+            }
+        ]
+    },
+    {
+        "action": "mdi-crosshairs-gps",
+        "active": false,
+        "title": "2017 / 2018",
+        "turtledoves": [
+            {
+                "active": false,
+                "data": "data/dana2017_2018.csv",
+                "name": "Dana",
+                "opacity": 0.5
+            },
+            {
+                "active": false,
+                "data": "data/francesco2017_2018.csv",
+                "name": "Francesco",
+                "opacity": 0.5
+            },
+            {
+                "active": false,
+                "data": "data/jan2017_2018.csv",
+                "name": "Jan"
+            },
+            {
+                "active": false,
+                "data": "data/nicola2017_2018.csv",
+                "name": "Nicola",
+                "opacity": 1
+            }
+        ]
+    },
+    {
+        "action": "mdi-crosshairs-gps",
+        "active": false,
+        "title": "2016 / 2017",
+        "turtledoves": [
+            {
+                "active": false,
+                "data": "data/nicola2016_2017.csv",
+                "name": "Nicola",
+                "opacity": 0.5
+            }
+        ]
+    }
+]
