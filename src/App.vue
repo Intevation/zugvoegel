@@ -127,8 +127,8 @@
 <script>
 import seasons from "./config/seasons.json";
 import turtledoves from "./config/turtledoves.json";
-import phrasesEN from "./config/phrasesEN.json";
-import phrasesDE from "./config/phrasesDE.json";
+import phrasesEN from "./locales/phrasesEN.json";
+import phrasesDE from "./locales/phrasesDE.json";
 import Map from "./components/Map";
 import "@mdi/font/css/materialdesignicons.css";
 import Menu from "./components/Menu";
