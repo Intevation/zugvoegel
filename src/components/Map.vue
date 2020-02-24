@@ -1,5 +1,7 @@
 <template>
-  <div v-resize="onResize" id="map"></div>
+  <div
+    id="map"
+    v-resize="onResize" />
 </template>
 
 <script>
@@ -23,10 +25,10 @@ L.Icon.Default.mergeOptions({
 
 export default {
   props: {
-    seasons: Array,
-    turtledoves: Array,
-    phrases: Object,
-    backgroundmap: String,
+    seasons: {type: Array, default(){return []}},
+    turtledoves: {type: Array, default(){return []}},
+    phrases: {type: Object, default(){return {}}},
+    backgroundmap: {type: String, default(){return ""}},
     mini: Boolean
   },
   data: () => ({
