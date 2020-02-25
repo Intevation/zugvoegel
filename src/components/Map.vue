@@ -28,7 +28,7 @@ export default {
     seasons: {type: Array, default(){return []}},
     turtledoves: {type: Array, default(){return []}},
     phrases: {type: Object, default(){return {}}},
-    backgroundmap: {type: String, default(){return ""}},
+    backgroundmap: {type: String, default(){return "streetmap"}},
     mini: Boolean
   },
   data: () => ({
@@ -133,7 +133,11 @@ export default {
     if (L.Browser.mobile) {
       map.tap.disable();
       // map.on("click", function(e)
-      map.on("click", function() {
+      map.on("click", function(error) {
+        if (error){
+          // eslint-disable-next-line
+          console.log(error);
+        }
         this.$emit("update:mini", !this.mini);
       });
 
@@ -216,10 +220,10 @@ export default {
           lonfield: "location_long",
           delimiter: ","
         },
-        (err, data) => {
-          if (err) {
+        (error, data) => {
+          if (error) {
             // eslint-disable-next-line
-            console.log(err);
+            console.log(error);
           } else {
             var previousPoint = [];
             const coords = []; // define an array to store coordinates
