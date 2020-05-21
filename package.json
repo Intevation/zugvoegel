@@ -1,5 +1,5 @@
 {
-  "name": "Turteltauben",
+  "name": "migratory_birds",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,22 +10,23 @@
   "dependencies": {
     "@turf/distance": "^6.0.1",
     "@turf/helpers": "^6.1.4",
-    "core-js": "^3.6.4",
+    "core-js": "^3.6.5",
     "csv2geojson": "^5.1.1",
     "leaflet": "^1.6.0",
     "leaflet-polylinedecorator": "^1.6.0",
     "vue": "^2.6.11",
-    "vuetify": "^2.2.14"
+    "vuetify": "^2.2.29"
   },
   "devDependencies": {
-    "@mdi/font": "^4.9.95",
-    "@vue/cli-plugin-babel": "^4.2.2",
-    "@vue/cli-plugin-eslint": "^4.2.2",
-    "@vue/cli-service": "^4.2.2",
-    "babel-eslint": "^10.0.3",
-    "eslint": "^6.8.0",
-    "eslint-plugin-vue": "^6.2.1",
-    "sass": "^1.25.0",
+    "@mdi/font": "^5.2.45",
+    "@vue/cli-plugin-babel": "^4.3.1",
+    "@vue/cli-plugin-eslint": "^4.3.1",
+    "@vue/cli-service": "^4.3.1",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.0.0",
+    "eslint-plugin-vue": "^6.2.2",
+    "lint-staged": "^10.2.2",
+    "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "vue-cli-plugin-vuetify": "^2.0.5",
     "vue-template-compiler": "^2.6.11",
@@ -55,6 +56,11 @@
     "last 2 versions"
   ],
   "gitHooks": {
-    "pre-commit": "vue-cli-service lint"
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "vue-cli-service lint"
+    ]
   }
 }
