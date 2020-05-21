@@ -34,11 +34,10 @@ module.exports = {
         endTag: "never",
         selfClosingTag: "always"
       }
-    ],
+    ]
   },
   parser: "vue-eslint-parser",
   parserOptions: {
     parser: "babel-eslint"
   }
 };
-
