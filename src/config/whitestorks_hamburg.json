@@ -1,0 +1,43 @@
+[
+    {
+        "active": true,
+        "avatar": "images/whitestorks_hamburg/storch2_alexander.jpg",
+        "blog": "",
+        "color": "#ffff01",
+        "name": "Alexander"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks_hamburg/storch6_juergen.jpg",
+        "blog": "",
+        "color": "#FF7F00",
+        "name": "Jürgen"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks_hamburg/storch1_ombeni.jpg",
+        "color": "#05ab03",
+        "name": "Ombeni"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks_hamburg/storch3_7061.jpg",
+        "blog": "",
+        "color": "#8102b3",
+        "name": "7061"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks_hamburg/storch4_7062.jpg",
+        "blog": "",
+        "color": "#87d5fb",
+        "name": "7062"
+    },
+    {
+        "active": false,
+        "avatar": "images/whitestorks_hamburg/storch5_7063.jpg",
+        "blog": "",
+        "color": "#0b7ac1",
+        "name": "7063"
+    }
+]

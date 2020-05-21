@@ -1,0 +1,51 @@
+[
+    {
+        "action": "mdi-crosshairs-gps",
+        "active": true,
+        "title": "2019 / 2020",
+        "turtledoves": [
+            {
+                "active": true,
+                "color": "#ffff01",
+                "data": "data/WhiteStork-Hamburg-02-2019_2020.csv",
+                "name": "Alexander",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "color": "#05ab03",
+                "data": "data/WhiteStork-Hamburg-01-2019_2020.csv",
+                "name": "Ombeni",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "color": "#FF7F00",
+                "data": "data/WhiteStork-Hamburg-06-2019_2020.csv",
+                "name": "Jürgen",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "color": "#8102b3",
+                "data": "data/WhiteStork-Hamburg-03-2019_2020.csv",
+                "name": "7061",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "color": "#87d5fb",
+                "data": "data/WhiteStork-Hamburg-04-2019_2020.csv",
+                "name": "7062",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "color": "#0b7ac1",
+                "data": "data/WhiteStork-Hamburg-05-2019_2020.csv",
+                "name": "7063",
+                "opacity": 1
+            }
+        ]
+    }
+]
