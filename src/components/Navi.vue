@@ -30,6 +30,7 @@
           <v-list-item-action>
             <v-switch
               v-model="turtledove.active"
+              :color="turtledove.color"
               inset />
           </v-list-item-action>
         </v-list-item>
