@@ -29,21 +29,21 @@
                 "active": true,
                 "color": "#8102b3",
                 "data": "data/WhiteStork-Hamburg-03-2019_2020.csv",
-                "name": "7061",
+                "name": "Mimi",
                 "opacity": 1
             },
             {
                 "active": true,
                 "color": "#87d5fb",
                 "data": "data/WhiteStork-Hamburg-04-2019_2020.csv",
-                "name": "7062",
+                "name": "Jan",
                 "opacity": 1
             },
             {
                 "active": true,
                 "color": "#0b7ac1",
                 "data": "data/WhiteStork-Hamburg-05-2019_2020.csv",
-                "name": "7063",
+                "name": "Hanne",
                 "opacity": 1
             }
         ]
