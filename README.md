@@ -1,4 +1,3 @@
-
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/BjoernSchilberg/zugvoegel)
 
 # Zugvögel
@@ -15,6 +14,7 @@
       - [Create Round Corner](#create-round-corner)
       - [Color Round Corner](#color-round-corner)
     - [Rectangle color borders on image](#rectangle-color-borders-on-image)
+  - [Convert csv to geojson](#convert-csv-to-geojson)
 
 ## Project setup
 
@@ -85,3 +85,9 @@ Option 2) Rectangle Inner border
 
 In the dialogue box, leave everything selected as default, and set the line
 width and color.
+
+## Convert csv to geojson
+
+```shell
+ogr2ogr -f "GeoJSON" output.geojson input.csv -oo X_POSSIBLE_NAMES=lon -oo Y_POSSIBLE_NAMES=lat -oo KEEP_GEOM_COLUMNS=NO
+```
