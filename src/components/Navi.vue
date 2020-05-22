@@ -138,7 +138,9 @@ export default {
   },
   methods: {
     openLink(link) {
-      window.open(link, "_blank");
+      if (link){
+        window.open(link, "_blank");
+      }
     }
   }
 };
