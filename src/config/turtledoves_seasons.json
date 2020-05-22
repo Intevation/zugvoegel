@@ -2,6 +2,35 @@
     {
         "action": "mdi-crosshairs-gps",
         "active": true,
+        "title": "2020 / 2021",
+        "turtledoves": [
+            {
+                "active": true,
+                "data": "data/turtledoves/hope2020_2021.csv",
+                "name": "Hope",
+                "color": "#f9bc60",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "data": "data/turtledoves/marija2020_2021.csv",
+                "name": "Marija",
+                "color": "#ff8ba7",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "data": "data/turtledoves/virginius2020_2021.csv",
+                "name": "Virginius",
+                "color": "#004643",
+                "opacity": 1
+            }
+
+        ]
+    },
+    {
+        "action": "mdi-crosshairs-gps",
+        "active": true,
         "title": "2019 / 2020",
         "turtledoves": [
             {
