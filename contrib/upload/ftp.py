@@ -17,7 +17,7 @@ import os
 from dotenv import load_dotenv
 from typing import List
 
-USAGE = f"Usage: python {sys.argv[0]} [--help] | filename]"
+USAGE = "Usage: python {} [--help] | filename]".format(sys.argv[0])
 
 
 logging.basicConfig(level=logging.DEBUG)
