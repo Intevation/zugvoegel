@@ -164,8 +164,8 @@ export default {
         //var latlngs = L.rectangle(bounds).getLatLngs();
         //L.polyline(latlngs[0].concat(latlngs[0][0])).addTo(this.map);
         this.map.invalidateSize(true);
-        this.map.fitBounds(bounds);
-        //this.map.setMaxBounds(bounds);
+        //this.map.fitBounds(bounds);
+        this.map.panTo(bounds.getCenter())
       } else {
         if (L.Browser.mobile) {
           this.map.setView([37.7185, 13.18359], 3);
