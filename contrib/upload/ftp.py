@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+import json
 import requests
 from requests.auth import HTTPBasicAuth
 import logging
@@ -17,21 +18,28 @@ load_dotenv()
 FTP_HOST= os.getenv("FTP_HOST")
 FTP_USER= os.getenv("FTP_USER")
 FTP_PASSWORD=os.getenv("FTP_PASSWORD")
+FTP_PATH=os.getenv("FTP_PATH")
+STUDY_ID=os.getenv("STUDY_ID")
+BIRDS=os.getenv("BIRDS")
+TIMESTAMP_START=os.getenv("TIMESTAMP_START")
+MOVEBANK_USER=os.getenv("MOVEBANK_USER")
+MOVEBANK_PASSWORD=os.getenv("MOVEBANK_PASSWORD")
+CSV_FILE_POSTFIX=os.getenv("CSV_FILE_POSTFIX")
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 ftp = FTP(FTP_HOST,FTP_USER,FTP_PASSWORD)
-ftp.cwd('turteltauben/data/turtledoves')
+ftp.cwd(FTP_PATH)
 
-#storks = {'dana': 301885264, 'jan': 301885416, 'francesco': 301885945, 'nicola': 301885030}
-storks = {'melanie': 894632438,'luciano': 900346098, 'cyril': 900348381, 'jenny': 900584891,'francesco': 301885945}
+# Convert dictionary string to dictionary
+storks = json.loads(BIRDS)
 
 for stork,individual_id in storks.items():
     logger.info('PROCESSING: '+stork+'/'+str(individual_id))
     logger.info('Start reading '+stork+' from movebank.org')
     #Get csv data from movebank.org
-    r = requests.get("https://www.movebank.org/movebank/service/direct-read?entity_type=event&attributes=timestamp,location_lat,location_long&study_id=301865163&timestamp_start=20190715000000000&individual_id="+str(individual_id), auth=HTTPBasicAuth('nabu-turteltaube', '20hama;Yiwe17'), verify=False)
+    r = requests.get("https://www.movebank.org/movebank/service/direct-read?entity_type=event&attributes=timestamp,location_lat,location_long&study_id="+STUDY_ID+"&timestamp_start="+TIMESTAMP_START+"&individual_id="+str(individual_id), auth=HTTPBasicAuth(MOVEBANK_USER, MOVEBANK_PASSWORD), verify=False)
     #Read csv
     df=pandas.read_csv(StringIO(r.text), index_col=0, parse_dates=True)
     #drop rows with empty fieds
@@ -51,7 +59,7 @@ for stork,individual_id in storks.items():
     csv_file = io.BytesIO(str.encode(content))
     #Store file on ftp
     logger.info('Store '+stork+' on ftp')
-    ftp.storbinary('STOR '+stork+'2019_2020.csv', csv_file)
+    ftp.storbinary('STOR '+stork+CSV_FILE_POSTFIX, csv_file)
 
 ftp.quit()
 logger.info('Done')
