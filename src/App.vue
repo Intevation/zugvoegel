@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import seasons from "./config/seasons.json";
-import turtledoves from "./config/turtledoves.json";
+let seasons = require(process.env.VUE_APP_SEASONS);
+let turtledoves = require(process.env.VUE_APP_BIRDS);
 import phrasesEN from "./locales/phrasesEN.json";
 import phrasesDE from "./locales/phrasesDE.json";
 import Map from "./components/Map";
