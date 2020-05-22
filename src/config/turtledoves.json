@@ -4,7 +4,8 @@
         "avatar": "images/turtledoves/hope.jpg",
         "blog": "https://blogs.nabu.de/zugvoegel/tag/hope/",
         "color": "#f9bc60",
-        "sender/tag": "348",
+        "individual-local-identifier": "Malta_2020_02",
+        "sender/tag": "200348",
         "name": "Hope"
     },
     {
@@ -12,7 +13,8 @@
         "avatar": "images/turtledoves/marija.jpg",
         "blog": "https://blogs.nabu.de/zugvoegel/tag/marija/",
         "color": "#ff8ba7",
-        "sender/tag": "345",
+        "individual-local-identifier": "Malta_2020_01",
+        "sender/tag": "200345",
         "name": "Marija"
     },
     {
@@ -20,6 +22,8 @@
         "avatar": "images/turtledoves/melanie.jpg",
         "blog": "https://blogs.nabu.de/zugvoegel/tag/melanie/",
         "color": "#87d5fb",
+        "individual-local-identifier": "TT19_01_181091",
+        "sender/tag": "181091",
         "name": "Melanie"
     },
     {
@@ -27,6 +31,8 @@
         "avatar": "images/turtledoves/cyril.jpg",
         "blog": "https://blogs.nabu.de/zugvoegel/tag/cyril/",
         "color": "#8102b3",
+        "individual-local-identifier": "TT19_03_181092",
+        "sender/tag": "181092",
         "name": "Cyril"
     },
     {
@@ -34,6 +40,8 @@
         "avatar": "images/turtledoves/francesco.jpg",
         "blog": "https://blogs.nabu.de/zugvoegel/tag/francesco/",
         "color": "#0b7ac1",
+        "individual-local-identifier": "Male 2017_161050",
+        "sender/tag": "161050",
         "name": "Francesco"
     },
     {
@@ -41,7 +49,8 @@
         "avatar": "images/turtledoves/virginius.jpg",
         "blog": "https://blogs.nabu.de/zugvoegel/tag/virginius/",
         "color": "#004643",
-        "sender/tag": "349",
+        "individual-local-identifier": "Malta_2020_03",
+        "sender/tag": "200349",
         "name": "Virginius"
     },
     {
@@ -52,6 +61,8 @@
         "avatar": "images/turtledoves/dana_flor.jpg",
         "blog": "https://blogs.nabu.de/zugvoegel/tag/dana/",
         "color": "#daa97e",
+        "individual-local-identifier": "Female 2017_161048",
+        "sender/tag": "161048",
         "name": "Dana"
     },
     {
@@ -59,6 +70,8 @@
         "avatar": "images/turtledoves/jan_flor.jpg",
         "blog": "https://blogs.nabu.de/zugvoegel/tag/jan/",
         "color": "#6b7a1f",
+        "individual-local-identifier": "Male 2017_161049",
+        "sender/tag": "161049",
         "name": "Jan"
     },
     {
@@ -66,6 +79,8 @@
         "avatar": "images/turtledoves/jenny_flor.jpg",
         "blog": "https://blogs.nabu.de/zugvoegel/tag/jenny/",
         "color": "#05ab03",
+        "individual-local-identifier": "TT19_04_181089",
+        "sender/tag": "181089",
         "name": "Jenny"
     },
     {
@@ -73,6 +88,8 @@
         "avatar": "images/turtledoves/luciano_flor.jpg",
         "blog": "https://blogs.nabu.de/zugvoegel/tag/luciano/",
         "color": "#ffff01",
+        "individual-local-identifier": "TT19_02_181090",
+        "sender/tag": "181090",
         "name": "Luciano"
     },
     {
@@ -80,6 +97,8 @@
         "avatar": "images/turtledoves/nicola_flor.jpg",
         "blog": "https://blogs.nabu.de/zugvoegel/tag/nicola/",
         "color": "#303028",
+        "individual-local-identifier": "TD_2016",
+        "sender/tag": "161046",
         "name": "Nicola"
     }
 ]
