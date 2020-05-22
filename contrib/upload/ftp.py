@@ -33,11 +33,11 @@ ftp = FTP(FTP_HOST,FTP_USER,FTP_PASSWORD)
 ftp.cwd(FTP_PATH)
 
 # Convert dictionary string to dictionary
-storks = json.loads(BIRDS)
+birds = json.loads(BIRDS)
 
-for stork,individual_id in storks.items():
-    logger.info('PROCESSING: '+stork+'/'+str(individual_id))
-    logger.info('Start reading '+stork+' from movebank.org')
+for bird,individual_id in birds.items():
+    logger.info('PROCESSING: '+bird+'/'+str(individual_id))
+    logger.info('Start reading '+bird+' from movebank.org')
     #Get csv data from movebank.org
     r = requests.get("https://www.movebank.org/movebank/service/direct-read?entity_type=event&attributes=timestamp,location_lat,location_long&study_id="+STUDY_ID+"&timestamp_start="+TIMESTAMP_START+"&individual_id="+str(individual_id), auth=HTTPBasicAuth(MOVEBANK_USER, MOVEBANK_PASSWORD), verify=False)
     #Read csv
@@ -58,8 +58,8 @@ for stork,individual_id in storks.items():
     #Create "csv file"
     csv_file = io.BytesIO(str.encode(content))
     #Store file on ftp
-    logger.info('Store '+stork+' on ftp')
-    ftp.storbinary('STOR '+stork+CSV_FILE_POSTFIX, csv_file)
+    logger.info('Store '+bird+' on ftp')
+    ftp.storbinary('STOR '+bird+CSV_FILE_POSTFIX, csv_file)
 
 ftp.quit()
 logger.info('Done')
