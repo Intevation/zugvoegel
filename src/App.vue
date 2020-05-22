@@ -66,7 +66,6 @@ export default {
       (navigator.languages && navigator.languages[0]) ||
       navigator.language ||
       navigator.userLanguage;
-      console.log(language);
     this.language = language.substring(0, 2);
     this.phrases = {
       de: this.phrasesDE,
