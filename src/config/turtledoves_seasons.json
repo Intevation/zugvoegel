@@ -6,32 +6,37 @@
         "turtledoves": [
             {
                 "active": true,
-                "data": "data/melanie2019_2020.csv",
+                "data": "data/turtledoves/melanie2019_2020.csv",
                 "name": "Melanie",
+                "color": "#87d5fb",
                 "opacity": 1
             },
             {
                 "active": true,
-                "data": "data/luciano2019_2020.csv",
+                "data": "data/turtledoves/luciano2019_2020.csv",
                 "name": "Luciano",
+                "color": "#ffff01",
                 "opacity": 1
             },
             {
                 "active": true,
-                "data": "data/cyril2019_2020.csv",
+                "data": "data/turtledoves/cyril2019_2020.csv",
                 "name": "Cyril",
+                "color": "#8102b3",
                 "opacity": 1
             },
             {
                 "active": true,
-                "data": "data/jenny2019_2020.csv",
+                "data": "data/turtledoves/jenny2019_2020.csv",
                 "name": "Jenny",
+                "color": "#05ab03",
                 "opacity": 1
             },
             {
                 "active": true,
-                "data": "data/francesco2019_2020.csv",
+                "data": "data/turtledoves/francesco2019_2020.csv",
                 "name": "Francesco",
+                "color": "#0b7ac1",
                 "opacity": 1
             }
         ]
@@ -43,15 +48,17 @@
         "turtledoves": [
             {
                 "active": false,
-                "data": "data/dana2018_2019.csv",
+                "data": "data/turtledoves/dana2018_2019.csv",
                 "name": "Dana",
-                "opacity": 1
+                "color": "#daa97e",
+                "opacity": 0.75
             },
             {
                 "active": false,
-                "data": "data/francesco2018_2019.csv",
+                "data": "data/turtledoves/francesco2018_2019.csv",
                 "name": "Francesco",
-                "opacity": 1
+                "color": "#0b7ac1",
+                "opacity":0.75
             }
         ]
     },
@@ -62,26 +69,31 @@
         "turtledoves": [
             {
                 "active": false,
-                "data": "data/dana2017_2018.csv",
+                "data": "data/turtledoves/dana2017_2018.csv",
                 "name": "Dana",
+                "color": "#daa97e",
                 "opacity": 0.5
             },
             {
                 "active": false,
-                "data": "data/francesco2017_2018.csv",
+                "data": "data/turtledoves/francesco2017_2018.csv",
                 "name": "Francesco",
+                "color": "#0b7ac1",
                 "opacity": 0.5
             },
             {
                 "active": false,
-                "data": "data/jan2017_2018.csv",
-                "name": "Jan"
+                "data": "data/turtledoves/jan2017_2018.csv",
+                "color": "#6b7a1f",
+                "name": "Jan",
+                "opacity": 0.5
             },
             {
                 "active": false,
-                "data": "data/nicola2017_2018.csv",
+                "data": "data/turtledoves/nicola2017_2018.csv",
                 "name": "Nicola",
-                "opacity": 1
+                "color": "#303028",
+                "opacity": 0.5
             }
         ]
     },
@@ -92,9 +104,10 @@
         "turtledoves": [
             {
                 "active": false,
-                "data": "data/nicola2016_2017.csv",
+                "data": "data/turtledoves/nicola2016_2017.csv",
                 "name": "Nicola",
-                "opacity": 0.5
+                "color": "#303028",
+                "opacity": 0.25
             }
         ]
     }
