@@ -35,7 +35,6 @@ import phrasesEN from "./locales/phrasesEN.json";
 import phrasesDE from "./locales/phrasesDE.json";
 import Map from "./components/Map";
 import Navi from "./components/Navi";
-import "@mdi/font/css/materialdesignicons.css";
 import Menu from "./components/Menu";
 
 export default {
