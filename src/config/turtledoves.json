@@ -10,15 +10,6 @@
     },
     {
         "active": true,
-        "avatar": "images/turtledoves/marija.jpg",
-        "blog": "https://blogs.nabu.de/zugvoegel/tag/marija/",
-        "color": "#ff8ba7",
-        "individual-local-identifier": "Malta_2020_01",
-        "sender/tag": "200345",
-        "name": "Marija"
-    },
-    {
-        "active": true,
         "avatar": "images/turtledoves/melanie.jpg",
         "blog": "https://blogs.nabu.de/zugvoegel/tag/melanie/",
         "color": "#87d5fb",
@@ -91,6 +82,15 @@
         "individual-local-identifier": "TT19_02_181090",
         "sender/tag": "181090",
         "name": "Luciano"
+    },
+    {
+        "active": true,
+        "avatar": "images/turtledoves/marija_flor.jpg",
+        "blog": "https://blogs.nabu.de/zugvoegel/tag/marija/",
+        "color": "#ff8ba7",
+        "individual-local-identifier": "Malta_2020_01",
+        "sender/tag": "200345",
+        "name": "Marija"
     },
     {
         "active": false,
