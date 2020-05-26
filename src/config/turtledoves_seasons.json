@@ -20,8 +20,8 @@
             },
             {
                 "active": true,
-                "data": "data/turtledoves/virginius2020_2021.csv",
-                "name": "Virginius",
+                "data": "data/turtledoves/virginijus2020_2021.csv",
+                "name": "Virginijus",
                 "color": "#004643",
                 "opacity": 1
             }
