@@ -68,13 +68,13 @@ export default {
       },
       immediate: false
     },
-    // Layertree logic
-    layerGroups: {
-      // function(newVal, oldVal)
-      handler: function(newVal) {
-        this.fitMapBounds(newVal);
-      }
-    },
+    //// Layertree logic
+    //layerGroups: {
+    //  // function(newVal, oldVal)
+    //  handler: function(newVal) {
+    //    this.fitMapBounds(newVal);
+    //  }
+    //},
     seasons: {
       handler: function() {
         for (const season of this.seasons) {
