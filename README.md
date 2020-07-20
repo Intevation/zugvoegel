@@ -91,3 +91,9 @@ width and color.
 ```shell
 ogr2ogr -f "GeoJSON" output.geojson input.csv -oo X_POSSIBLE_NAMES=lon -oo Y_POSSIBLE_NAMES=lat -oo KEEP_GEOM_COLUMNS=NO
 ```
+
+## FTP connection
+
+```shell
+ncftp -u $FTP_USER -p $FTP_PASSWORD $FTP_SERVER
+```
