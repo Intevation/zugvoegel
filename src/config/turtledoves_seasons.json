@@ -62,39 +62,39 @@
         "title": "2019 / 2020",
         "turtledoves": [
             {
-                "active": true,
+                "active": false,
                 "data": "data/turtledoves/melanie2019_2020.csv",
                 "name": "Melanie",
                 "color": "#87d5fb",
-                "opacity": 1
+                "opacity": 0.75
             },
             {
-                "active": true,
+                "active": false,
                 "data": "data/turtledoves/luciano2019_2020.csv",
                 "name": "Luciano",
                 "color": "#ffff01",
-                "opacity": 1
+                "opacity":0.75
             },
             {
-                "active": true,
+                "active": false,
                 "data": "data/turtledoves/cyril2019_2020.csv",
                 "name": "Cyril",
                 "color": "#8102b3",
-                "opacity": 1
+                "opacity":0.75
             },
             {
-                "active": true,
+                "active": false,
                 "data": "data/turtledoves/jenny2019_2020.csv",
                 "name": "Jenny",
                 "color": "#05ab03",
-                "opacity": 1
+                "opacity":0.75
             },
             {
-                "active": true,
+                "active": false,
                 "data": "data/turtledoves/francesco2019_2020.csv",
                 "name": "Francesco",
                 "color": "#0b7ac1",
-                "opacity": 1
+                "opacity": 0.75
             }
         ]
     },
