@@ -37,15 +37,6 @@
     },
     {
         "active": true,
-        "avatar": "images/turtledoves/hope.jpg",
-        "blog": "https://blogs.nabu.de/zugvoegel/tag/hope/",
-        "color": "#f9bc60",
-        "individual-local-identifier": "Malta_2020_02",
-        "sender/tag": "200348",
-        "name": "Hope"
-    },
-    {
-        "active": true,
         "avatar": "images/turtledoves/melanie.jpg",
         "blog": "https://blogs.nabu.de/zugvoegel/tag/melanie/",
         "color": "#87d5fb",
@@ -91,6 +82,15 @@
         "individual-local-identifier": "Female 2017_161048",
         "sender/tag": "161048",
         "name": "Dana"
+    },
+    {
+        "active": true,
+        "avatar": "images/turtledoves/hope_flor.jpg",
+        "blog": "https://blogs.nabu.de/zugvoegel/tag/hope/",
+        "color": "#f9bc60",
+        "individual-local-identifier": "Malta_2020_02",
+        "sender/tag": "200348",
+        "name": "Hope"
     },
     {
         "active": false,
