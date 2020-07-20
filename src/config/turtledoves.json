@@ -1,6 +1,42 @@
 [
     {
         "active": true,
+        "avatar": "images/turtledoves/namenlos1.jpg",
+        "blog": "https://blogs.nabu.de/zugvoegel/tag/namenlos1/",
+        "color": "#8c7851",
+        "individual-local-identifier": "TT20_01_200351",
+        "sender/tag": "200351",
+        "name": "Namenlos 1"
+    },
+    {
+        "active": true,
+        "avatar": "images/turtledoves/namenlos2.jpg",
+        "blog": "https://blogs.nabu.de/zugvoegel/tag/namenlos2/",
+        "color": "#f25042",
+        "individual-local-identifier": "TT20_02_200352",
+        "sender/tag": "200352",
+        "name": "Namenlos 2"
+    },
+    {
+        "active": true,
+        "avatar": "images/turtledoves/namenlos3.jpg",
+        "blog": "https://blogs.nabu.de/zugvoegel/tag/namenlos3/",
+        "color": "#009FB7",
+        "individual-local-identifier": "TT20_03_200353",
+        "sender/tag": "200353",
+        "name": "Namenlos 3"
+    },
+    {
+        "active": true,
+        "avatar": "images/turtledoves/namenlos4.jpg",
+        "blog": "https://blogs.nabu.de/zugvoegel/tag/namenlos4/",
+        "color": "#6246ea",
+        "individual-local-identifier": "TT20_04_200350",
+        "sender/tag": "200350",
+        "name": "Namenlos 4"
+    },
+    {
+        "active": true,
         "avatar": "images/turtledoves/hope.jpg",
         "blog": "https://blogs.nabu.de/zugvoegel/tag/hope/",
         "color": "#f9bc60",

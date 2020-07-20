@@ -6,6 +6,34 @@
         "turtledoves": [
             {
                 "active": true,
+                "data": "data/turtledoves/namenlos12020_2021.csv",
+                "name": "Namenlos 1",
+                "color": "#8c7851",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "data": "data/turtledoves/namenlos22020_2021.csv",
+                "name": "Namenlos2",
+                "color": "#f25042",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "data": "data/turtledoves/namenlos32020_2021.csv",
+                "name": "Namenlos3",
+                "color": "#009FB7",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "data": "data/turtledoves/namenlos42020_2021.csv",
+                "name": "Namenlos4",
+                "color": "#6246ea",
+                "opacity": 1
+            },
+            {
+                "active": true,
                 "data": "data/turtledoves/hope2020_2021.csv",
                 "name": "Hope",
                 "color": "#f9bc60",
