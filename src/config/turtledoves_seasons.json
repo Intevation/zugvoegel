@@ -34,6 +34,13 @@
             },
             {
                 "active": true,
+                "data": "data/turtledoves/francesco2020_2021.csv",
+                "name": "Francesco",
+                "color": "#0b7ac1",
+                "opacity": 1
+            },
+            {
+                "active": true,
                 "data": "data/turtledoves/hope2020_2021.csv",
                 "name": "Hope",
                 "color": "#f9bc60",
@@ -44,6 +51,13 @@
                 "data": "data/turtledoves/marija2020_2021.csv",
                 "name": "Marija",
                 "color": "#ff8ba7",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "data": "data/turtledoves/melanie2020_2021.csv",
+                "name": "Melanie",
+                "color": "#87d5fb",
                 "opacity": 1
             },
             {
