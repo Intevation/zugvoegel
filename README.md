@@ -2,7 +2,7 @@
 
 # Zugvögel
 
-- [Zugvögel](#zugv%c3%b6gel)
+- [Zugvögel](#zugvögel)
   - [Project setup](#project-setup)
     - [Compiles and hot-reloads for development](#compiles-and-hot-reloads-for-development)
     - [Compiles and minifies for production](#compiles-and-minifies-for-production)
@@ -15,6 +15,7 @@
       - [Color Round Corner](#color-round-corner)
     - [Rectangle color borders on image](#rectangle-color-borders-on-image)
   - [Convert csv to geojson](#convert-csv-to-geojson)
+  - [FTP connection](#ftp-connection)
 
 ## Project setup
 
@@ -96,4 +97,8 @@ ogr2ogr -f "GeoJSON" output.geojson input.csv -oo X_POSSIBLE_NAMES=lon -oo Y_POS
 
 ```shell
 ncftp -u $FTP_USER -p $FTP_PASSWORD $FTP_SERVER
+```
+
+```shell
+ncftp -u $FTP_USER -p $FTP_PASSWORD ftp://$FTP_SERVER/turteltauben
 ```
