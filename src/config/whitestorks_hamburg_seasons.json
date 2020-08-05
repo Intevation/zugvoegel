@@ -29,14 +29,14 @@
                 "active": true,
                 "color": "#8102b3",
                 "data": "data/WhiteStork-Hamburg-03-2020_2021.csv",
-                "name": "Mimi",
+                "name": "Jan",
                 "opacity": 1
             },
             {
                 "active": true,
                 "color": "#87d5fb",
                 "data": "data/WhiteStork-Hamburg-04-2020_2021.csv",
-                "name": "Jan",
+                "name": "Mimi",
                 "opacity": 1
             },
             {
@@ -78,14 +78,14 @@
                 "active": false,
                 "color": "#8102b3",
                 "data": "data/WhiteStork-Hamburg-03-2019_2020.csv",
-                "name": "Mimi",
+                "name": "Jan",
                 "opacity": 0.75
             },
             {
                 "active": false,
                 "color": "#87d5fb",
                 "data": "data/WhiteStork-Hamburg-04-2019_2020.csv",
-                "name": "Jan",
+                "name": "Mimi",
                 "opacity": 0.75
             },
             {
