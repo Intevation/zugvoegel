@@ -48,42 +48,42 @@
             },
             {
                 "active": true,
-                "color": "#0b7ac1",
+                "color": "#C5A144",
                 "data": "data/WhiteStork-Hamburg-07-2020_2021.csv",
                 "name": "Stefan",
                 "opacity": 1
             },
             {
                 "active": true,
-                "color": "#0b7ac1",
+                "color": "#CFCF63",
                 "data": "data/WhiteStork-Hamburg-08-2020_2021.csv",
                 "name": "Michael",
                 "opacity": 1
             },
             {
                 "active": true,
-                "color": "#0b7ac1",
+                "color": "#66642B",
                 "data": "data/WhiteStork-Hamburg-09-2020_2021.csv",
                 "name": "Christian-Eike",
                 "opacity": 1
             },
             {
                 "active": true,
-                "color": "#0b7ac1",
+                "color": "#4E3723",
                 "data": "data/WhiteStork-Hamburg-10-2020_2021.csv",
                 "name": "Regina",
                 "opacity": 1
             },
             {
                 "active": true,
-                "color": "#0b7ac1",
+                "color": "#681B0F",
                 "data": "data/WhiteStork-Hamburg-11-2020_2021.csv",
                 "name": "Tina",
                 "opacity": 1
             },
             {
                 "active": true,
-                "color": "#0b7ac1",
+                "color": "#CB8460",
                 "data": "data/WhiteStork-Hamburg-12-2020_2021.csv",
                 "name": "Trunca",
                 "opacity": 1
