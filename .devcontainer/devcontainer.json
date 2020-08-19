@@ -1,0 +1,20 @@
+/* Contents of {repository-root}/.devcontainer/devcontainer.json */
+
+{
+  // Open port 8080 by default
+  "appPort": 8080,
+
+  // Install ESLint and Peacock extensions
+  "extensions": [
+    "dbaeumer.vscode-eslint",
+    "johnpapa.vscode-peacock",
+    "ahmadawais.shades-of-purple",
+    "octref.vetur"
+  ],
+
+  // Set remote color for Peacock
+  "settings": {
+    "peacock.remoteColor": "#0078D7"
+  },
+
+}
