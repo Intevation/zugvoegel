@@ -12,7 +12,9 @@
     "octref.vetur",
     "vscodevim.vim",
     "yzhang.markdown-all-in-one",
-    "bierner.color-info"
+    "bierner.color-info",
+    "gruntfuggly.todo-tree",
+    "jgclark.vscode-todo-highlight"
   ],
 
   // Set remote color for Peacock
