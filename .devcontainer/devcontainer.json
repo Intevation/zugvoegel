@@ -9,7 +9,8 @@
     "dbaeumer.vscode-eslint",
     "johnpapa.vscode-peacock",
     "ahmadawais.shades-of-purple",
-    "octref.vetur"
+    "octref.vetur",
+    "vscodevim.vim"
   ],
 
   // Set remote color for Peacock
