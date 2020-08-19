@@ -10,7 +10,8 @@
     "johnpapa.vscode-peacock",
     "ahmadawais.shades-of-purple",
     "octref.vetur",
-    "vscodevim.vim"
+    "vscodevim.vim",
+    "yzhang.markdown-all-in-one"
   ],
 
   // Set remote color for Peacock
