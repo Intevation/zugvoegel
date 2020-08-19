@@ -11,7 +11,8 @@
     "ahmadawais.shades-of-purple",
     "octref.vetur",
     "vscodevim.vim",
-    "yzhang.markdown-all-in-one"
+    "yzhang.markdown-all-in-one",
+    "bierner.color-info"
   ],
 
   // Set remote color for Peacock
