@@ -13,7 +13,8 @@
   // Set *default* container specific settings.json values on container create.
   "settings": {
     "terminal.integrated.shell.linux": "/bin/zsh",
-    "peacock.remoteColor": "#0078D7"
+    "peacock.remoteColor": "#0078D7",
+    "workbench.colorTheme": "Shades of Purple"
   },
   // Open port 8080 by default
   "appPort": 8080,
