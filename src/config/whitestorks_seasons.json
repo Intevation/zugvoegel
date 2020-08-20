@@ -6,35 +6,35 @@
         "turtledoves": [
             {
                 "active": true,
-                "color": "#ffff01",
+                "color": "#ba1212",
                 "data": "data/whitestorks/arthur-2020_2021.csv",
                 "name": "Arthur",
                 "opacity": 1
             },
             {
                 "active": true,
-                "color": "#05ab03",
+                "color": "#7dc66c",
                 "data": "data/whitestorks/hans-2020_2021.csv",
                 "name": "Hans Albert",
                 "opacity": 1
             },
             {
                 "active": true,
-                "color": "#FF7F00",
+                "color": "#32ce2c",
                 "data": "data/whitestorks/gustav-2020_2021.csv",
                 "name": "Gustav",
                 "opacity": 1
             },
             {
                 "active": true,
-                "color": "#8102b3",
+                "color": "#8d8700",
                 "data": "data/whitestorks/leo-2020_2021.csv",
                 "name": "Leo",
                 "opacity": 1
             },
             {
                 "active": true,
-                "color": "#87d5fb",
+                "color": "#fbad0f",
                 "data": "data/whitestorks/robert-2020_2021.csv",
                 "name": "Robert",
                 "opacity": 1
