@@ -10,6 +10,7 @@
     - [Lints and fixes files](#lints-and-fixes-files)
     - [Customize configuration](#customize-configuration)
   - [Tips & Tricks](#tips--tricks)
+    - [Sort json file](#sort-json-file)
     - [Round color corners on image](#round-color-corners-on-image)
       - [Create Round Corner](#create-round-corner)
       - [Color Round Corner](#color-round-corner)
@@ -52,6 +53,12 @@ yarn run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Tips & Tricks
+
+### Sort json file
+
+```shell
+cat src/config/whitestorks.json | jq -s -c '.[]|sort_by(.name)' | python -m json.tool
+```
 
 ### Round color corners on image
 
