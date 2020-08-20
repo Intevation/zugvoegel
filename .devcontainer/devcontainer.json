@@ -14,7 +14,12 @@
   "settings": {
     "terminal.integrated.shell.linux": "/bin/zsh",
     "peacock.remoteColor": "#0078D7",
-    "workbench.colorTheme": "Shades of Purple"
+    "workbench.colorTheme": "Shades of Purple",
+    "colorize.languages": [
+        "javascript",
+        "json",
+        "html"
+    ]
   },
   // Open port 8080 by default
   "appPort": 8080,
@@ -28,7 +33,8 @@
     "yzhang.markdown-all-in-one",
     "bierner.color-info",
     "gruntfuggly.todo-tree",
-    "jgclark.vscode-todo-highlight"
+    "jgclark.vscode-todo-highlight",
+    "kamikillerto.vscode-colorize"
   ],
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [
