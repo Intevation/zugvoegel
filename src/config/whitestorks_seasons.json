@@ -13,9 +13,16 @@
             },
             {
                 "active": true,
-                "color": "#7dc66c",
-                "data": "data/whitestorks/hans-2020_2021.csv",
-                "name": "Hans Albert",
+                "color": "#0b7ac1",
+                "data": "data/whitestorks/fred-2020_2021.csv",
+                "name": "Fred",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "color": "#C5A144",
+                "data": "data/whitestorks/fritzi-2020_2021.csv",
+                "name": "Fritzi",
                 "opacity": 1
             },
             {
@@ -23,6 +30,13 @@
                 "color": "#32ce2c",
                 "data": "data/whitestorks/gustav-2020_2021.csv",
                 "name": "Gustav",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "color": "#7dc66c",
+                "data": "data/whitestorks/hans-2020_2021.csv",
+                "name": "Hans Albert",
                 "opacity": 1
             },
             {
@@ -37,20 +51,6 @@
                 "color": "#fbad0f",
                 "data": "data/whitestorks/robert-2020_2021.csv",
                 "name": "Robert",
-                "opacity": 1
-            },
-            {
-                "active": true,
-                "color": "#0b7ac1",
-                "data": "data/whitestorks/fred-2020_2021.csv",
-                "name": "Fred",
-                "opacity": 1
-            },
-            {
-                "active": true,
-                "color": "#C5A144",
-                "data": "data/whitestorks/fritzi-2020_2021.csv",
-                "name": "Fritzi",
                 "opacity": 1
             }
         ]
