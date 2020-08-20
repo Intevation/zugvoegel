@@ -1,7 +1,7 @@
 [
     {
         "active": true,
-        "avatar": "images/whitestorks/arthur.jpg",
+        "avatar": "images/whitestorks/arthur.png",
         "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/arthur/",
         "color": "#ffff01",
         "individual-local-identifier": "32223501",
@@ -10,7 +10,7 @@
     },
     {
         "active": true,
-        "avatar": "images/whitestorks/fred.jpg",
+        "avatar": "images/whitestorks/fred.png",
         "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/fred/",
         "color": "#0b7ac1",
         "individual-local-identifier": "1217033182",
@@ -19,7 +19,7 @@
     },
     {
         "active": true,
-        "avatar": "images/whitestorks/fritzi.jpg",
+        "avatar": "images/whitestorks/fritzi.png",
         "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/fritzi/",
         "color": "#C5A144",
         "individual-local-identifier": "1238651367",
@@ -28,7 +28,7 @@
     },
     {
         "active": true,
-        "avatar": "images/whitestorks/gustav.jpg",
+        "avatar": "images/whitestorks/gustav.png",
         "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/gustav/",
         "color": "#FF7F00",
         "individual-local-identifier": "6781213",
@@ -37,7 +37,7 @@
     },
     {
         "active": true,
-        "avatar": "images/whitestorks/hans_albert.jpg",
+        "avatar": "images/whitestorks/hans.png",
         "color": "#05ab03",
         "individual-local-identifier": "530425881",
         "name": "Hans Albert",
@@ -45,7 +45,7 @@
     },
     {
         "active": true,
-        "avatar": "images/whitestorks/leo.jpg",
+        "avatar": "images/whitestorks/leo.png",
         "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/leo/",
         "color": "#8102b3",
         "individual-local-identifier": "838973589",
@@ -54,7 +54,7 @@
     },
     {
         "active": true,
-        "avatar": "images/whitestorks/robert.jpg",
+        "avatar": "images/whitestorks/robert.png",
         "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/robert/",
         "color": "#87d5fb",
         "individual-local-identifier": "311164717",
