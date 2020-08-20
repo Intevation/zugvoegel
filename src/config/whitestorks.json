@@ -1,109 +1,64 @@
 [
     {
         "active": true,
-        "avatar": "images/whitestorks_hamburg/storch2_alexander.jpg",
-        "blog": "",
+        "avatar": "images/whitestorks/arthur.jpg",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/arthur/",
         "color": "#ffff01",
-        "individual-local-identifier": "WhiteStork-Hamburg-02",
-        "sender/tag": "3809",
-        "name": "Alexander"
+        "individual-local-identifier": "32223501",
+        "sender/tag": "5170",
+        "name": "Arthur"
     },
     {
         "active": true,
-        "avatar": "images/whitestorks_hamburg/storch6_juergen.jpg",
-        "blog": "",
+        "avatar": "images/whitestorks/gustav.jpg",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/gustav/",
         "color": "#FF7F00",
-        "individual-local-identifier": "WhiteStork-Hamburg-06",
+        "individual-local-identifier": "6781213",
         "sender/tag": "7064",
-        "name": "Jürgen"
+        "name": "Gustav"
     },
     {
         "active": true,
-        "avatar": "images/whitestorks_hamburg/storch1_ombeni.jpg",
+        "avatar": "images/whitestorks/hans_albert.jpg",
         "color": "#05ab03",
-        "individual-local-identifier": "WhiteStork-Hamburg-01",
-        "sender/tag": "2702",
-        "name": "Ombeni"
+        "individual-local-identifier": "530425881",
+        "sender/tag": "6228",
+        "name": "Hans Albert"
     },
     {
         "active": true,
-        "avatar": "images/whitestorks_hamburg/storch3_7061.jpg",
-        "blog": "",
+        "avatar": "images/whitestorks/leo.jpg",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/leo/",
         "color": "#8102b3",
-        "individual-local-identifier": "WhiteStork-Hamburg-03",
-        "sender/tag": "7061",
-        "name": "Jan"
+        "individual-local-identifier": "838973589",
+        "sender/tag": "5544",
+        "name": "Leo"
     },
     {
         "active": true,
-        "avatar": "images/whitestorks_hamburg/storch4_7062.jpg",
-        "blog": "",
+        "avatar": "images/whitestorks/robert.jpg",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/robert/",
         "color": "#87d5fb",
-        "individual-local-identifier": "WhiteStork-Hamburg-04",
-        "sender/tag": "7062",
-        "name": "Mimi"
+        "individual-local-identifier": "311164717",
+        "sender/tag": "5171",
+        "name": "Robert"
     },
     {
         "active": true,
-        "avatar": "images/whitestorks_hamburg/storch5_7063.jpg",
-        "blog": "",
+        "avatar": "images/whitestorks/fred.jpg",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/fred/",
         "color": "#0b7ac1",
-        "individual-local-identifier": "WhiteStork-Hamburg-05",
-        "sender/tag": "7063",
-        "name": "Hanne"
+        "individual-local-identifier": "1217033182",
+        "sender/tag": "4485",
+        "name": "Fred"
     },
     {
         "active": true,
-        "avatar": "images/whitestorks_hamburg/storch7_7112.jpg",
-        "blog": "",
+        "avatar": "images/whitestorks/fritzi.jpg",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/fritzi/",
         "color": "#C5A144",
-        "individual-local-identifier": "WhiteStork-Hamburg-07",
-        "sender/tag": "7112",
-        "name": "Stefan"
-    },
-    {
-        "active": true,
-        "avatar": "images/whitestorks_hamburg/storch8_7115.jpg",
-        "blog": "",
-        "color": "#CFCF63",
-        "individual-local-identifier": "WhiteStork-Hamburg-08",
-        "sender/tag": "7115",
-        "name": "Michael"
-    },
-    {
-        "active": true,
-        "avatar": "images/whitestorks_hamburg/storch9_8053.jpg",
-        "blog": "",
-        "color": "#66642B",
-        "individual-local-identifier": "WhiteStork-Hamburg-09",
-        "sender/tag": "8053",
-        "name": "Christian-Eike"
-    },
-    {
-        "active": true,
-        "avatar": "images/whitestorks_hamburg/storch10_8054.jpg",
-        "blog": "",
-        "color": "#4E3723",
-        "individual-local-identifier": "WhiteStork-Hamburg-10",
-        "sender/tag": "8054",
-        "name": "Regina"
-    },
-    {
-        "active": true,
-        "avatar": "images/whitestorks_hamburg/storch11_8055.jpg",
-        "blog": "",
-        "color": "#681B0F",
-        "individual-local-identifier": "WhiteStork-Hamburg-11",
-        "sender/tag": "8055",
-        "name": "Tina"
-    },
-    {
-        "active": true,
-        "avatar": "images/whitestorks_hamburg/storch12_8056.jpg",
-        "blog": "",
-        "color": "#CB8460",
-        "individual-local-identifier": "WhiteStork-Hamburg-12",
-        "sender/tag": "8056",
-        "name": "Trunca"
+        "individual-local-identifier": "1238651367",
+        "sender/tag": "5851",
+        "name": "Fritzi"
     }
 ]
