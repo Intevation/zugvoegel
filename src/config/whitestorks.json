@@ -5,43 +5,8 @@
         "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/arthur/",
         "color": "#ffff01",
         "individual-local-identifier": "32223501",
-        "sender/tag": "5170",
-        "name": "Arthur"
-    },
-    {
-        "active": true,
-        "avatar": "images/whitestorks/gustav.jpg",
-        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/gustav/",
-        "color": "#FF7F00",
-        "individual-local-identifier": "6781213",
-        "sender/tag": "7064",
-        "name": "Gustav"
-    },
-    {
-        "active": true,
-        "avatar": "images/whitestorks/hans_albert.jpg",
-        "color": "#05ab03",
-        "individual-local-identifier": "530425881",
-        "sender/tag": "6228",
-        "name": "Hans Albert"
-    },
-    {
-        "active": true,
-        "avatar": "images/whitestorks/leo.jpg",
-        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/leo/",
-        "color": "#8102b3",
-        "individual-local-identifier": "838973589",
-        "sender/tag": "5544",
-        "name": "Leo"
-    },
-    {
-        "active": true,
-        "avatar": "images/whitestorks/robert.jpg",
-        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/robert/",
-        "color": "#87d5fb",
-        "individual-local-identifier": "311164717",
-        "sender/tag": "5171",
-        "name": "Robert"
+        "name": "Arthur",
+        "sender/tag": "5170"
     },
     {
         "active": true,
@@ -49,8 +14,8 @@
         "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/fred/",
         "color": "#0b7ac1",
         "individual-local-identifier": "1217033182",
-        "sender/tag": "4485",
-        "name": "Fred"
+        "name": "Fred",
+        "sender/tag": "4485"
     },
     {
         "active": true,
@@ -58,7 +23,42 @@
         "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/fritzi/",
         "color": "#C5A144",
         "individual-local-identifier": "1238651367",
-        "sender/tag": "5851",
-        "name": "Fritzi"
+        "name": "Fritzi",
+        "sender/tag": "5851"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks/gustav.jpg",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/gustav/",
+        "color": "#FF7F00",
+        "individual-local-identifier": "6781213",
+        "name": "Gustav",
+        "sender/tag": "7064"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks/hans_albert.jpg",
+        "color": "#05ab03",
+        "individual-local-identifier": "530425881",
+        "name": "Hans Albert",
+        "sender/tag": "6228"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks/leo.jpg",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/leo/",
+        "color": "#8102b3",
+        "individual-local-identifier": "838973589",
+        "name": "Leo",
+        "sender/tag": "5544"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks/robert.jpg",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/robert/",
+        "color": "#87d5fb",
+        "individual-local-identifier": "311164717",
+        "name": "Robert",
+        "sender/tag": "5171"
     }
 ]
