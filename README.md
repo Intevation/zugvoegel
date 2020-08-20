@@ -56,8 +56,14 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### Sort json file
 
+Test: https://jqplay.org/
+
 ```shell
 cat src/config/whitestorks.json | jq -s -c '.[]|sort_by(.name)' | python -m json.tool
+```
+
+```shell
+cat src/config/whitestorks_seasons.json | jq  'sort_by(.name) | .[].turtledoves'
 ```
 
 ### Round color corners on image
