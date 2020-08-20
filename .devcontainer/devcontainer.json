@@ -15,6 +15,7 @@
     "terminal.integrated.shell.linux": "/bin/zsh",
     "peacock.remoteColor": "#0078D7",
     "workbench.colorTheme": "Shades of Purple",
+    "workbench.iconTheme": "material-icon-theme",
     "colorize.languages": [
         "javascript",
         "json",
@@ -34,7 +35,8 @@
     "bierner.color-info",
     "gruntfuggly.todo-tree",
     "jgclark.vscode-todo-highlight",
-    "kamikillerto.vscode-colorize"
+    "kamikillerto.vscode-colorize",
+    "pkief.material-icon-theme"
   ],
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [
