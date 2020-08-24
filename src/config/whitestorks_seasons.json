@@ -13,14 +13,14 @@
             },
             {
                 "active": true,
-                "color": "#0b7ac1",
+                "color": "#db1f1e",
                 "data": "data/whitestorks/fred-2020_2021.csv",
                 "name": "Fred",
                 "opacity": 1
             },
             {
                 "active": true,
-                "color": "#C5A144",
+                "color": "#2d4d01",
                 "data": "data/whitestorks/fritzi-2020_2021.csv",
                 "name": "Fritzi",
                 "opacity": 1
