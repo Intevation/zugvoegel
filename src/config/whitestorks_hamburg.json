@@ -5,70 +5,8 @@
         "blog": "",
         "color": "#ffff01",
         "individual-local-identifier": "WhiteStork-Hamburg-02",
-        "sender/tag": "3809",
-        "name": "Alexander"
-    },
-    {
-        "active": true,
-        "avatar": "images/whitestorks_hamburg/storch6_juergen.jpg",
-        "blog": "",
-        "color": "#FF7F00",
-        "individual-local-identifier": "WhiteStork-Hamburg-06",
-        "sender/tag": "7064",
-        "name": "Jürgen"
-    },
-    {
-        "active": true,
-        "avatar": "images/whitestorks_hamburg/storch1_ombeni.jpg",
-        "color": "#05ab03",
-        "individual-local-identifier": "WhiteStork-Hamburg-01",
-        "sender/tag": "2702",
-        "name": "Ombeni"
-    },
-    {
-        "active": true,
-        "avatar": "images/whitestorks_hamburg/storch3_7061.jpg",
-        "blog": "",
-        "color": "#8102b3",
-        "individual-local-identifier": "WhiteStork-Hamburg-03",
-        "sender/tag": "7061",
-        "name": "Jan"
-    },
-    {
-        "active": true,
-        "avatar": "images/whitestorks_hamburg/storch4_7062.jpg",
-        "blog": "",
-        "color": "#87d5fb",
-        "individual-local-identifier": "WhiteStork-Hamburg-04",
-        "sender/tag": "7062",
-        "name": "Mimi"
-    },
-    {
-        "active": true,
-        "avatar": "images/whitestorks_hamburg/storch5_7063.jpg",
-        "blog": "",
-        "color": "#0b7ac1",
-        "individual-local-identifier": "WhiteStork-Hamburg-05",
-        "sender/tag": "7063",
-        "name": "Hanne"
-    },
-    {
-        "active": true,
-        "avatar": "images/whitestorks_hamburg/storch7_7112.jpg",
-        "blog": "",
-        "color": "#C5A144",
-        "individual-local-identifier": "WhiteStork-Hamburg-07",
-        "sender/tag": "7112",
-        "name": "Stefan"
-    },
-    {
-        "active": true,
-        "avatar": "images/whitestorks_hamburg/storch8_7115.jpg",
-        "blog": "",
-        "color": "#CFCF63",
-        "individual-local-identifier": "WhiteStork-Hamburg-08",
-        "sender/tag": "7115",
-        "name": "Michael"
+        "name": "Alexander",
+        "sender/tag": "3809"
     },
     {
         "active": true,
@@ -76,8 +14,61 @@
         "blog": "",
         "color": "#66642B",
         "individual-local-identifier": "WhiteStork-Hamburg-09",
-        "sender/tag": "8053",
-        "name": "Christian-Eike"
+        "name": "Christian-Eike",
+        "sender/tag": "8053"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks_hamburg/storch5_7063.jpg",
+        "blog": "",
+        "color": "#0b7ac1",
+        "individual-local-identifier": "WhiteStork-Hamburg-05",
+        "name": "Hanne",
+        "sender/tag": "7063"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks_hamburg/storch3_7061.jpg",
+        "blog": "",
+        "color": "#8102b3",
+        "individual-local-identifier": "WhiteStork-Hamburg-03",
+        "name": "Jan",
+        "sender/tag": "7061"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks_hamburg/storch6_juergen.jpg",
+        "blog": "",
+        "color": "#FF7F00",
+        "individual-local-identifier": "WhiteStork-Hamburg-06",
+        "name": "J\u00fcrgen",
+        "sender/tag": "7064"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks_hamburg/storch8_7115.jpg",
+        "blog": "",
+        "color": "#CFCF63",
+        "individual-local-identifier": "WhiteStork-Hamburg-08",
+        "name": "Michael",
+        "sender/tag": "7115"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks_hamburg/storch4_7062.jpg",
+        "blog": "",
+        "color": "#87d5fb",
+        "individual-local-identifier": "WhiteStork-Hamburg-04",
+        "name": "Mimi",
+        "sender/tag": "7062"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks_hamburg/storch1_ombeni.jpg",
+        "color": "#05ab03",
+        "individual-local-identifier": "WhiteStork-Hamburg-01",
+        "name": "Ombeni",
+        "sender/tag": "2702"
     },
     {
         "active": true,
@@ -85,8 +76,17 @@
         "blog": "",
         "color": "#4E3723",
         "individual-local-identifier": "WhiteStork-Hamburg-10",
-        "sender/tag": "8054",
-        "name": "Regina"
+        "name": "Regina",
+        "sender/tag": "8054"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks_hamburg/storch7_7112.jpg",
+        "blog": "",
+        "color": "#C5A144",
+        "individual-local-identifier": "WhiteStork-Hamburg-07",
+        "name": "Stefan",
+        "sender/tag": "7112"
     },
     {
         "active": true,
@@ -94,8 +94,8 @@
         "blog": "",
         "color": "#681B0F",
         "individual-local-identifier": "WhiteStork-Hamburg-11",
-        "sender/tag": "8055",
-        "name": "Tina"
+        "name": "Tina",
+        "sender/tag": "8055"
     },
     {
         "active": true,
@@ -103,7 +103,7 @@
         "blog": "",
         "color": "#CB8460",
         "individual-local-identifier": "WhiteStork-Hamburg-12",
-        "sender/tag": "8056",
-        "name": "Trunca"
+        "name": "Trunca",
+        "sender/tag": "8056"
     }
 ]
