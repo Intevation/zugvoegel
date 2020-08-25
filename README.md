@@ -17,6 +17,7 @@
     - [Rectangle color borders on image](#rectangle-color-borders-on-image)
   - [Convert csv to geojson](#convert-csv-to-geojson)
   - [FTP connection](#ftp-connection)
+  - [Crontab for movebank export](#crontab-for-movebank-export)
 
 ## Project setup
 
@@ -114,4 +115,11 @@ ncftp -u $FTP_USER -p $FTP_PASSWORD $FTP_SERVER
 
 ```shell
 ncftp -u $FTP_USER -p $FTP_PASSWORD ftp://$FTP_SERVER/turteltauben
+```
+## Crontab for movebank export
+
+```shell
+5 0 */2 * * cd /home/intevation/ && python3_venv/bin/python WhiteStorks/ftp.py WhiteStorks/whitestorks-2020_2021.env > /tmp/cron_whitestorks-2020_2021.log 2>&1
+5 0 */2 * * cd /home/intevation/ && python3_venv/bin/python WhiteStorks-Hamburg/ftp.py WhiteStorks-Hamburg/whitestorks-hamburg2020_2021.env > /tmp/cron_whitestorks-hamburg2020_2021.log 2>&1
+5 1 */2 * * cd /home/intevation/ && python3_venv/bin/python turteltauben/ftp.py turteltauben/turteltauben2020_2021.env > /tmp/cron_turteltauben2020_2021.log 2>&1
 ```
