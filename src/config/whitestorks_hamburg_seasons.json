@@ -13,30 +13,9 @@
             },
             {
                 "active": true,
-                "color": "#05ab03",
-                "data": "data/WhiteStork-Hamburg-01-2020_2021.csv",
-                "name": "Ombeni",
-                "opacity": 1
-            },
-            {
-                "active": true,
-                "color": "#FF7F00",
-                "data": "data/WhiteStork-Hamburg-06-2020_2021.csv",
-                "name": "Jürgen",
-                "opacity": 1
-            },
-            {
-                "active": true,
-                "color": "#8102b3",
-                "data": "data/WhiteStork-Hamburg-03-2020_2021.csv",
-                "name": "Jan",
-                "opacity": 1
-            },
-            {
-                "active": true,
-                "color": "#87d5fb",
-                "data": "data/WhiteStork-Hamburg-04-2020_2021.csv",
-                "name": "Mimi",
+                "color": "#66642B",
+                "data": "data/WhiteStork-Hamburg-09-2020_2021.csv",
+                "name": "Christian-Eike",
                 "opacity": 1
             },
             {
@@ -48,9 +27,16 @@
             },
             {
                 "active": true,
-                "color": "#C5A144",
-                "data": "data/WhiteStork-Hamburg-07-2020_2021.csv",
-                "name": "Stefan",
+                "color": "#8102b3",
+                "data": "data/WhiteStork-Hamburg-03-2020_2021.csv",
+                "name": "Jan",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "color": "#FF7F00",
+                "data": "data/WhiteStork-Hamburg-06-2020_2021.csv",
+                "name": "Jürgen",
                 "opacity": 1
             },
             {
@@ -62,9 +48,16 @@
             },
             {
                 "active": true,
-                "color": "#66642B",
-                "data": "data/WhiteStork-Hamburg-09-2020_2021.csv",
-                "name": "Christian-Eike",
+                "color": "#87d5fb",
+                "data": "data/WhiteStork-Hamburg-04-2020_2021.csv",
+                "name": "Mimi",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "color": "#05ab03",
+                "data": "data/WhiteStork-Hamburg-01-2020_2021.csv",
+                "name": "Ombeni",
                 "opacity": 1
             },
             {
@@ -72,6 +65,13 @@
                 "color": "#4E3723",
                 "data": "data/WhiteStork-Hamburg-10-2020_2021.csv",
                 "name": "Regina",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "color": "#C5A144",
+                "data": "data/WhiteStork-Hamburg-07-2020_2021.csv",
+                "name": "Stefan",
                 "opacity": 1
             },
             {
