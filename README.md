@@ -63,7 +63,7 @@ cat src/config/whitestorks.json | jq -s -c '.[]|sort_by(.name)' | python -m json
 ```
 
 ```shell
-cat src/config/whitestorks_seasons.json | jq  '.[].turtledoves | sort_by(.name) | .[]'
+cat src/config/whitestorks_seasons.json | jq  '.[0].turtledoves | sort_by(.name) | .[]'
 ```
 
 ### Round color corners on image
