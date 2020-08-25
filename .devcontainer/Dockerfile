@@ -2,6 +2,7 @@
 ARG VARIANT=14
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:${VARIANT}
 
+RUN sudo apt-get -y update && sudo apt-get -y install ncftp
 RUN sudo -u node npm install -g http-server @vue/cli @vue/cli-service-global
 WORKDIR /app
 
