@@ -28,7 +28,7 @@ export default {
     seasons: {type: Array, default(){return []}},
     turtledoves: {type: Array, default(){return []}},
     phrases: {type: Object, default(){return {}}},
-    backgroundmap: {type: String, default(){return "streetmap"}},
+    backgroundmap: {type: String, default(){return "osm"}},
     mini: Boolean
   },
   data: () => ({
@@ -36,18 +36,11 @@ export default {
     urlTemplate: {},
     layerGroups: [],
     dialog: false,
-    streetmap: L.tileLayer(
-      "https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
-      {
-        attribution:
-          'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>, '+process.env.VUE_APP_GIT_HASH,
-        maxZoom: 18,
-        id: "mapbox.streets",
-        accessToken:
-          "pk.eyJ1IjoiYmpvZXJuc2NoaWxiZXJnIiwiYSI6InRzOVZKeWsifQ.y20mr9o3MolFOUdTQekhUA",
-        noWrap: true
-      }
-    ),
+    osm: new L.TileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 18,
+      attribution:
+        'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors, ' + process.env.VUE_APP_GIT_HASH
+    }),
     satellite: L.tileLayer.wms("https://tiles.maps.eox.at/?", {
       layers: "s2cloudless_3857",
       attribution:
@@ -58,11 +51,11 @@ export default {
     backgroundmap: {
       // function(newVal, oldVal)
       handler: function(newVal) {
-        if (newVal === "streetmap") {
+        if (newVal === "osm") {
           this.satellite.remove();
-          this.streetmap.addTo(this.map);
+          this.osm.addTo(this.map);
         } else {
-          this.streetmap.remove();
+          this.osm.remove();
           this.satellite.addTo(this.map);
         }
       },
@@ -128,7 +121,7 @@ export default {
 
     L.control.scale({ position: "bottomright" }).addTo(this.map);
 
-    this.streetmap.addTo(this.map);
+    this.osm.addTo(this.map);
 
     if (L.Browser.mobile) {
       map.tap.disable();

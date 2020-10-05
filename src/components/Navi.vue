@@ -74,8 +74,8 @@
             :label="phrases.satellite"
             value="satellite" />
           <v-radio
-            :label="phrases.streetmap"
-            value="streetmap" />
+            :label="phrases.osm"
+            value="osm" />
         </v-radio-group>
       </v-list-item>
     </v-list-group>
@@ -109,7 +109,7 @@ export default {
     seasons: {type: Array, default(){return []}},
     turtledoves: {type: Array, default(){return []}},
     phrases: {type: Object, default(){return {}}},
-    backgroundmap: {type: String, default(){return "streetmap"}},
+    backgroundmap: {type: String, default(){return "osm"}},
     language: {type: String, default(){return ""}}
   },
   data: () => ({
@@ -118,8 +118,8 @@ export default {
     backgroundmap: {
       // function(newVal, oldVal)
       handler: function(newVal) {
-        if (newVal === "streetmap") {
-          this.$emit("update:backgroundmap", "streetmap");
+        if (newVal === "osm") {
+          this.$emit("update:backgroundmap", "osm");
         } else {
           this.$emit("update:backgroundmap", "satellite");
         }
