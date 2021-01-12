@@ -45,7 +45,7 @@ export default {
     phrases: {},
     phrasesDE: phrasesDE,
     phrasesEN: phrasesEN,
-    backgroundmap: "streetmap",
+    backgroundmap: "osm",
     seasons: seasons,
     turtledoves: turtledoves,
     language: ""
