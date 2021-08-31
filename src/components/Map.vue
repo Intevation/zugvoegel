@@ -221,7 +221,8 @@ export default {
             var previousPoint = [];
             const coords = []; // define an array to store coordinates
             // removeEmpty(data);
-
+            data.features = data.features.filter( // "visible: 0.0" indicates outlier value
+              d => d.properties.visible !== "0.0" );
             // points
             var points = L.geoJSON(data, {
               onEachFeature: function(feature, layer) {
