@@ -2,52 +2,94 @@
     {
         "action": "mdi-crosshairs-gps",
         "active": true,
-        "title": "2020 / 2021",
+        "title": "2021 / 2022",
         "turtledoves": [
             {
                 "active": true,
-                "color": "#ba1212",
-                "data": "data/whitestorks/arthur-2020_2021.csv",
-                "name": "Arthur",
-                "opacity": 1
-            },
-            {
-                "active": true,
-                "color": "#db1f1e",
-                "data": "data/whitestorks/fred-2020_2021.csv",
-                "name": "Fred",
-                "opacity": 1
-            },
-            {
-                "active": true,
-                "color": "#2d4d01",
-                "data": "data/whitestorks/fritzi-2020_2021.csv",
-                "name": "Fritzi",
-                "opacity": 1
-            },
-            {
-                "active": true,
                 "color": "#32ce2c",
-                "data": "data/whitestorks/gustav-2020_2021.csv",
+                "data": "data/whitestorks/gustav-2021_2022.csv",
                 "name": "Gustav",
                 "opacity": 1
             },
             {
                 "active": true,
                 "color": "#7dc66c",
-                "data": "data/whitestorks/hans-2020_2021.csv",
+                "data": "data/whitestorks/hans-2021_2022.csv",
                 "name": "Hans Albert",
                 "opacity": 1
             },
             {
                 "active": true,
+                "color": "#b9140e",
+                "data": "data/whitestorks/eva-2021_2022.csv",
+                "name": "Eva",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "color": "#3636ca",
+                "data": "data/whitestorks/joe-2021_2022.csv",
+                "name": "Joe",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "color": "#91cbdf",
+                "data": "data/whitestorks/tini-2021_2022.csv",
+                "name": "Tini",
+                "opacity": 1
+            }
+        ]
+    },
+    {
+        "action": "mdi-crosshairs-gps",
+        "active": false,
+        "title": "2020 / 2021",
+        "turtledoves": [
+            {
+                "active": false,
+                "color": "#ba1212",
+                "data": "data/whitestorks/arthur-2020_2021.csv",
+                "name": "Arthur",
+                "opacity": 1
+            },
+            {
+                "active": false,
+                "color": "#db1f1e",
+                "data": "data/whitestorks/fred-2020_2021.csv",
+                "name": "Fred",
+                "opacity": 1
+            },
+            {
+                "active": false,
+                "color": "#2d4d01",
+                "data": "data/whitestorks/fritzi-2020_2021.csv",
+                "name": "Fritzi",
+                "opacity": 1
+            },
+            {
+                "active": false,
+                "color": "#32ce2c",
+                "data": "data/whitestorks/gustav-2020_2021.csv",
+                "name": "Gustav",
+                "opacity": 1
+            },
+            {
+                "active": false,
+                "color": "#7dc66c",
+                "data": "data/whitestorks/hans-2020_2021.csv",
+                "name": "Hans Albert",
+                "opacity": 1
+            },
+            {
+                "active": false,
                 "color": "#8d8700",
                 "data": "data/whitestorks/leo-2020_2021.csv",
                 "name": "Leo",
                 "opacity": 1
             },
             {
-                "active": true,
+                "active": false,
                 "color": "#fbad0f",
                 "data": "data/whitestorks/robert-2020_2021.csv",
                 "name": "Robert",

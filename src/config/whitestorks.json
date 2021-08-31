@@ -1,6 +1,6 @@
 [
     {
-        "active": true,
+        "active": false,
         "avatar": "images/whitestorks/arthur.png",
         "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/arthur/",
         "color": "#ba1212",
@@ -9,7 +9,7 @@
         "sender/tag": "5170"
     },
     {
-        "active": true,
+        "active": false,
         "avatar": "images/whitestorks/fred.png",
         "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/fred/",
         "color": "#db1f1e",
@@ -18,7 +18,7 @@
         "sender/tag": "4485"
     },
     {
-        "active": true,
+        "active": false,
         "avatar": "images/whitestorks/fritzi.png",
         "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/fritzi/",
         "color": "#2d4d01",
@@ -44,7 +44,7 @@
         "sender/tag": "6228"
     },
     {
-        "active": true,
+        "active": false,
         "avatar": "images/whitestorks/leo.png",
         "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/leo/",
         "color": "#8d8700",
@@ -53,12 +53,37 @@
         "sender/tag": "5544"
     },
     {
-        "active": true,
+        "active": false,
         "avatar": "images/whitestorks/robert.png",
         "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/robert/",
         "color": "#fbad0f",
         "individual-local-identifier": "311164717",
         "name": "Robert",
         "sender/tag": "5171"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks/eva.png",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/eva/",
+        "color": "#b9140e",
+        "individual-local-identifier": "1611295151",
+        "name": "Eva",
+        "sender/tag": "213050"
+    },{
+        "active": true,
+        "avatar": "images/whitestorks/joe.png",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/joe/",
+        "color": "#3636ca",
+        "individual-local-identifier": "1614334496",
+        "name": "Joe",
+        "sender/tag": "213048"
+    },{
+        "active": true,
+        "avatar": "images/whitestorks/tini.png",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/tini/",
+        "color": "#91cbdf",
+        "individual-local-identifier": "1619810604",
+        "name": "Tini",
+        "sender/tag": "213049"
     }
 ]

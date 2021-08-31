@@ -331,7 +331,7 @@ export default {
 
 <style>
 .endpoint {
-  border-radius: 50%;
+  border-radius: 18px;
 }
 
 #map {
