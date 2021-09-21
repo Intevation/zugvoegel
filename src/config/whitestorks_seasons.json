@@ -38,6 +38,13 @@
                 "data": "data/whitestorks/tini-2021_2022.csv",
                 "name": "Tini",
                 "opacity": 1
+            },
+            {
+                "active": true,
+                "color": "#e62a28",
+                "data": "data/whitestorks/sonja-2021_2022.csv",
+                "name": "Sonja",
+                "opacity": 1
             }
         ]
     },
