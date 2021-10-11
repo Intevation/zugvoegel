@@ -43,21 +43,28 @@
       <template v-slot:activator>
         <v-list-item-title>{{ phrases.who }}</v-list-item-title>
       </template>
-      <v-list-item
+      <div
         v-for="(td, index) in turtledoves"
-        :key="index"
-        v-model="turtledoves"
-        inactive
-        ripple
-        @click="openLink(td.blog)">
-        <v-divider v-if="td.divider" />
-        <v-list-item-avatar v-if="td.avatar">
-          <v-img :src="td.avatar" />
-        </v-list-item-avatar>
-        <v-list-item-content v-if="td.name">
-          <v-list-item-title v-text="td.name" />
-        </v-list-item-content>
-      </v-list-item>
+        :key="index">
+        <v-list-item
+          v-model="turtledoves"
+          inactive
+          ripple
+          @click="openLink(td.blog)">
+          <v-divider v-if="td.divider" />
+          <v-list-item-avatar v-if="td.avatar">
+            <v-img :src="td.avatar" />
+          </v-list-item-avatar>
+          <v-list-item-content v-if="td.name">
+            <v-list-item-title v-text="td.name" />
+          </v-list-item-content>
+        </v-list-item>
+        <div
+          v-if="td.extraInfo"
+          class="extrainfo">
+          {{ td.extraInfo }}
+        </div>
+      </div>
     </v-list-group>
 
     <v-list-group
@@ -149,5 +156,11 @@ export default {
 .navi {
   transform: none !important;
   -webkit-transform: none !important;
+}
+.extrainfo {
+  margin-left: 25px;
+  font-weight: thin;
+  font-style: italic;
+  color: black;
 }
 </style>
