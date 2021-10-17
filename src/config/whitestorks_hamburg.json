@@ -78,7 +78,7 @@
         "individual-local-identifier": "WhiteStork-Hamburg-10",
         "name": "Regina",
         "sender/tag": "8054",
-        "extraInfo": "Letztes Signal am 29.08.2021. In der Nähe von Delmenhorst tödliche Kollision mit einer Windkraftanlage."
+        "extraInfo": "Letztes Signal am 29.08.2021. In der Nähe von Delmenhorst vermutlich tödliche Kollision mit einer Windkraftanlage."
     },
     {
         "active": true,
@@ -88,7 +88,7 @@
         "individual-local-identifier": "WhiteStork-Hamburg-07",
         "name": "Stefan",
         "sender/tag": "7112",
-        "extraInfo": "Letztes Signal am 13.03.2021 aus dem Tschad. Ob Senderausfall oder Tod des Storches die Ursache ist, ist nicht bekannt."
+        "extraInfo": "Letztes Signal am 13.03.2021 am Karyari Lake an der Grenze Tschad/Sudan. Ob Senderausfall oder Tod des Storches die Ursache ist, ist nicht bekannt."
     },
     {
         "active": true,
@@ -107,6 +107,6 @@
         "individual-local-identifier": "WhiteStork-Hamburg-12",
         "name": "Trunca",
         "sender/tag": "8056",
-        "extraInfo": "Letztes Signal am 06.04.2021. In Frankreich, kurz vor der saarländischen Grenze tödliche Kollision mit einer Windkraftanlage."
+        "extraInfo": "Letztes Signal am 06.04.2021. In Frankreich, kurz vor der saarländischen Grenze vermutlich tödliche Kollision mit einer Windkraftanlage."
     }
 ]
