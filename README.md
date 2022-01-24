@@ -69,6 +69,12 @@ cat src/config/whitestorks_seasons.json | jq  '.[0].turtledoves | sort_by(.name)
 
 ### Round color corners on image
 
+#### new method 2022
+As of 2022, the "endpoint" css class takes care of a round image; a number of
+additional "color-XXXXXX" classes are defined to match the color of the
+endpoint with the bird's line. This makes manual adaption of the pngs obsolete.
+This css tweak was tested to work with firefox, chrome and edge.
+
 #### Create Round Corner
 
 Color Round Border

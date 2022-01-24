@@ -99,7 +99,7 @@ export default {
   mounted() {
     let map = L.map("map", {
       attributionControl: false,
-      center: [35.5322, 21.09375],
+      center: [58, 45],
       zoom: 4,
       maxZoom: 18,
       minZoom: 2,
@@ -201,7 +201,7 @@ export default {
       const geojsonMarkerOptions = {
         radius: 5,
         fillColor: bird.color,
-        color: "#000",
+        color: "#000000",
         weight: 1,
         opacity: 1,
         fillOpacity: bird.opacity
@@ -277,11 +277,13 @@ export default {
               pointToLayer: function(feature, latlng) {
                 if (feature === data.features[data.features.length - 1]) {
                   // Image for endpoint
+                  var ep = "endpoint " + "color-" + bird.color.substr(1);
                   return L.marker(latlng, {
                     icon: L.icon({
-                      iconSize: [38, 38],
+                      iconSize: [32, 32],
                       iconUrl: bird.avatar,
-                      className: "endpoint"
+                      color: bird.color,
+                      className: ep
                     })
                   });
                 } else {
@@ -333,11 +335,55 @@ export default {
 <style>
 .endpoint {
   border-radius: 18px;
+  border-style: solid;
+  border-width: medium;
 }
+
+.color-000000 { border-color: #000000;}
+.color-FFFF00 { border-color: #FFFF00;}
+.color-1CE6FF { border-color: #1CE6FF;}
+.color-FF34FF { border-color: #FF34FF;}
+.color-FF4A46 { border-color: #FF4A46;}
+.color-008941 { border-color: #008941;}
+.color-006FA6 { border-color: #006FA6;}
+.color-A30059 { border-color: #A30059;}
+.color-FFDBE5 { border-color: #FFDBE5;}
+.color-7A4900 { border-color: #7A4900;}
+.color-0000A6 { border-color: #0000A6;}
+.color-63FFAC { border-color: #63FFAC;}
+.color-B79762 { border-color: #B79762;}
+.color-004D43 { border-color: #004D43;}
+.color-8FB0FF { border-color: #8FB0FF;}
+.color-997D87 { border-color: #997D87;}
+.color-5A0007 { border-color: #5A0007;}
+.color-809693 { border-color: #809693;}
+.color-DEAFD6 { border-color: #DEAFD6;}
+.color-1B4400 { border-color: #1B4400;}
+.color-4FC601 { border-color: #4FC601;}
+.color-3B5DFF { border-color: #3B5DFF;}
+.color-4A3B53 { border-color: #4A3B53;}
+.color-FF2F80 { border-color: #FF2F80;}
+.color-61615A { border-color: #61615A;}
+.color-BA0900 { border-color: #BA0900;}
+.color-6B7900 { border-color: #6B7900;}
+.color-00C2A0 { border-color: #00C2A0;}
+.color-FFAA92 { border-color: #FFAA92;}
+.color-FF90C9 { border-color: #FF90C9;}
+.color-B903AA { border-color: #B903AA;}
+.color-D16100 { border-color: #D16100;}
+.color-DDEFFF { border-color: #DDEFFF;}
+.color-000035 { border-color: #000035;}
+.color-7B4F4B { border-color: #7B4F4B;}
+.color-A1C299 { border-color: #A1C299;}
+.color-300018 { border-color: #300018;}
+.color-0AA6D8 { border-color: #0AA6D8;}
+.color-013349 { border-color: #013349;}
+.color-00846F { border-color: #00846F;}
 
 #map {
   width: 100% !important;
   height: 100% !important;
   z-index: 0;
 }
+
 </style>
