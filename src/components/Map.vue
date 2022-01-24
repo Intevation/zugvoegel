@@ -240,8 +240,14 @@ export default {
                 if ( dashOldOnes && timestamp < veryOld) {
                   coordsVeryOld.push(latlon);
                 } else if (dashOldOnes && timestamp < monthOld) {
+                  if (!coordsOld.length && previousPoint[0]) {
+                    coordsOld.push(previousPoint[0])
+                  }
                   coordsOld.push(latlon);
                 } else {
+                  if (!coords.length && previousPoint[0]) {
+                    coords.push(previousPoint[0])
+                  }
                   coords.push(latlon);
                 }
                 var from;
