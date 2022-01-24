@@ -206,6 +206,10 @@ export default {
         opacity: 1,
         fillOpacity: bird.opacity
       };
+
+      var dashOldOnes = true;
+      const monthOld = new Date().valueOf() - (86400000 * 30);
+      const veryOld = new Date().valueOf() - (86400000 * 60);
       csv2geojson.csv2geojson(
         csvData,
         {
@@ -219,6 +223,8 @@ export default {
             console.log(error);
           } else {
             var previousPoint = [];
+            const coordsVeryOld = [];
+            const coordsOld = [];
             const coords = []; // define an array to store coordinates
             // removeEmpty(data);
             data.features = data.features.filter( // "visible: 0.0" indicates outlier value
@@ -226,12 +232,18 @@ export default {
             // points
             var points = L.geoJSON(data, {
               onEachFeature: function(feature, layer) {
-                coords.push(
-                  new L.LatLng(
+                const latlon = new L.LatLng(
                     feature.geometry.coordinates[1],
                     feature.geometry.coordinates[0]
-                  )
                 );
+                const timestamp = new Date(feature.properties.timestamp).valueOf();
+                if ( dashOldOnes && timestamp < veryOld) {
+                  coordsVeryOld.push(latlon);
+                } else if (dashOldOnes && timestamp < monthOld) {
+                  coordsOld.push(latlon);
+                } else {
+                  coords.push(latlon);
+                }
                 var from;
                 if (
                   typeof previousPoint[0] !== "undefined" &&
@@ -293,13 +305,22 @@ export default {
             // route/line
             // Adding a polyline. Define an array of Latlng objects (points
             // along the line) then use it to make a polyline
+            var polylineVeryOld = dashOldOnes ? L.polyline(coordsVeryOld, {
+              color: bird.color,
+              opacity: bird.opacity,
+              dashArray: "1 10"
+            }) : null;
+            var polylineOld = dashOldOnes ? L.polyline(coordsOld, {
+              color: bird.color,
+              opacity: bird.opacity,
+              dashArray: "3 7"
+            }) : null;
             var polyline = L.polyline(coords, {
               color: bird.color,
               opacity: bird.opacity
             });
 
-            // create a decorator
-            var decorator = L.polylineDecorator(polyline, {
+            var decOptions = {
               patterns: [
                 {
                   offset: 25,
@@ -308,15 +329,20 @@ export default {
                     pixelSize: 10,
                     pathOptions: {
                       color: bird.color,
-                      fillOpacity: 1,
+                      fillOpacity: bird.opacity,
                       weight: 0
                     }
                   })
                 }
               ]
-            });
-
-            var group = L.featureGroup([points, polyline, decorator]);
+            };
+            // create a decorator
+            var decorator = L.polylineDecorator(polyline, decOptions);
+            var decoratorOld = dashOldOnes ? L.polylineDecorator(polylineOld, decOptions) : null;
+            var decoratorVeryOld = dashOldOnes ? L.polylineDecorator(polylineVeryOld, decOptions) : null;
+            var group = dashOldOnes ?
+                L.featureGroup([points, polyline, polylineOld, polylineVeryOld, decorator, decoratorOld, decoratorVeryOld]) :
+                L.featureGroup([points, polyline, decorator]);
             group.addTo(this.map);
 
             this.layerGroups.push({ data: bird.data, group: group });
