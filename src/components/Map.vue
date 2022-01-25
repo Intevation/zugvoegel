@@ -206,6 +206,15 @@ export default {
         opacity: 1,
         fillOpacity: bird.opacity
       };
+
+      // age "decay" of lines. Set dashOldOnes to true for activation
+      // lines between data will become more transparent according to timestamp
+      // age and the below definitions (30, 60, 90 days)
+      var dashOldOnes = true;
+      const now = new Date().valueOf();
+      const monthOld = now - (86400000 * 30);
+      const older = now - (86400000 * 60);
+      const veryOld = now - (86400000 * 90);
       csv2geojson.csv2geojson(
         csvData,
         {
@@ -219,19 +228,40 @@ export default {
             console.log(error);
           } else {
             var previousPoint = [];
-            const coords = []; // define an array to store coordinates
+            // define arrays to store coordinates
+            const coords = []; //solid
+            const coordsOld = []; // dash 3 5
+            const coordsOlder = []; // dash 2 7
+            const coordsVeryOld = []; // dash 1 10
             // removeEmpty(data);
             data.features = data.features.filter( // "visible: 0.0" indicates outlier value
               d => d.properties.visible !== "0.0" );
             // points
             var points = L.geoJSON(data, {
               onEachFeature: function(feature, layer) {
-                coords.push(
-                  new L.LatLng(
+                const latlon = new L.LatLng(
                     feature.geometry.coordinates[1],
                     feature.geometry.coordinates[0]
-                  )
                 );
+                const timestamp = new Date(feature.properties.timestamp).valueOf();
+                if ( dashOldOnes && timestamp < veryOld) {
+                  coordsVeryOld.push(latlon);
+                } else if (dashOldOnes && timestamp < older) {
+                  if (!coordsOlder.length && previousPoint[0]) {
+                    coordsOlder.push(previousPoint[0])
+                  }
+                  coordsOlder.push(latlon);
+                } else if (dashOldOnes && timestamp < monthOld) {
+                  if (!coordsOld.length && previousPoint[0]) {
+                    coordsOld.push(previousPoint[0])
+                  }
+                  coordsOld.push(latlon);
+                } else {
+                  if (!coords.length && previousPoint[0]) {
+                    coords.push(previousPoint[0])
+                  }
+                  coords.push(latlon);
+                }
                 var from;
                 if (
                   typeof previousPoint[0] !== "undefined" &&
@@ -291,17 +321,8 @@ export default {
                 }
               }
             });
-
-            // route/line
-            // Adding a polyline. Define an array of Latlng objects (points
-            // along the line) then use it to make a polyline
-            var polyline = L.polyline(coords, {
-              color: bird.color,
-              opacity: bird.opacity
-            });
-
-            // create a decorator
-            var decorator = L.polylineDecorator(polyline, {
+            var featuregroup = [points];
+            var decOptions = {
               patterns: [
                 {
                   offset: 25,
@@ -310,19 +331,48 @@ export default {
                     pixelSize: 10,
                     pathOptions: {
                       color: bird.color,
-                      fillOpacity: 1,
+                      fillOpacity: bird.opacity,
                       weight: 0
                     }
                   })
                 }
               ]
-            });
-
-            var group = L.featureGroup([points, polyline, decorator]);
+            };
+            var decorator = L.polylineDecorator(polyline, decOptions);
+            featuregroup.push(decorator);
+            if (coordsVeryOld.length >1) {
+              var polylineVeryOld = L.polyline(coordsVeryOld, {
+                color: bird.color,
+                opacity: 0.5,
+                dashArray: "1 10"
+              });
+              featuregroup.push(polylineVeryOld);
+              featuregroup.push(L.polylineDecorator(polylineVeryOld, decOptions));
+            }
+            if (coordsOlder.length >1) {
+              var polylineOlder = L.polyline(coordsOlder, {
+                color: bird.color,
+                opacity: 0.65,
+                dashArray: "2 7"
+              });
+              featuregroup.push(polylineOlder);
+              featuregroup.push(L.polylineDecorator(polylineOlder, decOptions));
+            }
+            if (coordsOld.length >1) {
+              var polylineOld = L.polyline(coordsOld, {
+                color: bird.color,
+                opacity: 0.7,
+                dashArray: "3 5"
+              });
+              featuregroup.push(polylineOld);
+              featuregroup.push(L.polylineDecorator(polylineOld, decOptions));
+            }
+            var polyline = L.polyline(coords, {color: bird.color,opacity: 1});
+            featuregroup.push(polyline);
+            featuregroup.push(L.polylineDecorator(polyline, decOptions));
+            var group = L.featureGroup(featuregroup);
             group.addTo(this.map);
-
             this.layerGroups.push({ data: bird.data, group: group });
-
             // L.geoJSON(csv2geojson.toLine(data)).addTo(map);
           }
         }
