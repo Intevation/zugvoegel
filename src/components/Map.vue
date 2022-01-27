@@ -384,9 +384,9 @@ export default {
 
 <style>
 .endpoint {
-  border-radius: 18px;
+  border-radius: 16px;
   border-style: solid;
-  border-width: medium;
+  border-width: 4px;
 }
 
 .color-000000 { border-color: #000000;}
