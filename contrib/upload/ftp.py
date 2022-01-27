@@ -11,6 +11,8 @@ from io import StringIO
 import io
 import pandas
 import urllib3
+from datetime import date, timedelta
+
 
 urllib3.disable_warnings()
 import os
@@ -27,18 +29,33 @@ logger = logging.getLogger(__name__)
 def validate(args: List[str]):
     filename = args[0]
     load_dotenv(dotenv_path=filename)
+    # output FTP server settings
     FTP_HOST = os.getenv("FTP_HOST")
     FTP_USER = os.getenv("FTP_USER")
     FTP_PASSWORD = os.getenv("FTP_PASSWORD")
     FTP_PATH = os.getenv("FTP_PATH")
+    CSV_FILE_POSTFIX = os.getenv("CSV_FILE_POSTFIX")
+
+    # movebank settings
     STUDY_ID = os.getenv("STUDY_ID")
-    BIRDS = os.getenv("BIRDS")
-    TIMESTAMP_START = os.getenv("TIMESTAMP_START")
     MOVEBANK_USER = os.getenv("MOVEBANK_USER")
     MOVEBANK_PASSWORD = os.getenv("MOVEBANK_PASSWORD")
-    CSV_FILE_POSTFIX = os.getenv("CSV_FILE_POSTFIX")
+
+    # list of birds considered: json object with name: movebank_identifier
+    BIRDS = os.getenv("BIRDS")
+
+    # begin of campaign: older dates will not be considered
+    TIMESTAMP_START = os.getenv("TIMESTAMP_START")
+
+    # delay in days (current data will be ignored)
+    TIMESTAMP_DELAY = int(os.getenv("TIMESTAMP_DELAY")) # TODO error handling if not present
+
+
     ftp = FTP(FTP_HOST, FTP_USER, FTP_PASSWORD)
     ftp.cwd(FTP_PATH)
+
+    enddate = date.today() - timedelta(days=TIMESTAMP_DELAY)
+    endstring = str(enddate.year) + str(enddate.month).zfill(2) + str(enddate.day).zfill(2) + "000000000"
 
     # Convert dictionary string to dictionary
     birds = json.loads(BIRDS)
@@ -47,10 +64,11 @@ def validate(args: List[str]):
         logger.info("Start reading " + bird + " from movebank.org")
         # Get csv data from movebank.org
         r = requests.get(
-            "https://www.movebank.org/movebank/service/direct-read?entity_type=event&attributes=timestamp,location_lat,location_long&study_id="
+            "https://www.movebank.org/movebank/service/direct-read?entity_type=event&attributes=timestamp,location_lat,location_long,visible&study_id="
             + STUDY_ID
             + "&timestamp_start="
             + TIMESTAMP_START
+            + "&timestamp_end=" + endstring
             + "&individual_id="
             + str(individual_id),
             auth=HTTPBasicAuth(MOVEBANK_USER, MOVEBANK_PASSWORD),
