@@ -76,7 +76,7 @@ export default {
               e => e.data === bird.data
             );
             if (bird.active && layerGroupObject.length == 0) {
-              this.processBird(bird);
+              this.processBird(bird, season.dashOldOnes);
             } else if (!bird.active && layerGroupObject.length > 0) {
               var lg = this.layerGroups.filter(function(td) {
                 return td.data == bird.data;
@@ -173,7 +173,7 @@ export default {
         //this.fitMapBounds(this.layerGroups);
       }
     },
-    processBird(sbird) {
+    processBird(sbird, dashOldOnes) {
       // Get metadata
       let bird = this.turtledoves.filter(function(td) {
         return td.name == sbird.name;
@@ -189,14 +189,14 @@ export default {
           return response.text();
         })
         .then(function(csv) {
-          me.paintBird(csv, bird);
+          me.paintBird(csv, bird, dashOldOnes);
         })
         .catch(function(error) {
           // eslint-disable-next-line
           console.log(error);
         });
     },
-    paintBird(csvData, bird) {
+    paintBird(csvData, bird, dashOldOnes) {
       let ph = this.phrases;
       const geojsonMarkerOptions = {
         radius: 5,
@@ -207,14 +207,13 @@ export default {
         fillOpacity: bird.opacity
       };
 
-      // age "decay" of lines. Set dashOldOnes to true for activation
-      // lines between data will become more transparent according to timestamp
-      // age and the below definitions (30, 60, 90 days)
-      var dashOldOnes = true;
-      const now = new Date().valueOf();
-      const monthOld = now - (86400000 * 30);
-      const older = now - (86400000 * 60);
-      const veryOld = now - (86400000 * 90);
+      let now = new Date().valueOf();
+      let monthOld, older, veryOld;
+      if (Array.isArray(dashOldOnes)){
+        monthOld = now - (86400000 * dashOldOnes[0]);
+        older = now - (86400000 * dashOldOnes[1]);
+        veryOld = now - (86400000 * dashOldOnes[2]);
+      }
       csv2geojson.csv2geojson(
         csvData,
         {
@@ -244,14 +243,14 @@ export default {
                     feature.geometry.coordinates[0]
                 );
                 const timestamp = new Date(feature.properties.timestamp).valueOf();
-                if ( dashOldOnes && timestamp < veryOld) {
+                if ( veryOld && timestamp < veryOld) {
                   coordsVeryOld.push(latlon);
-                } else if (dashOldOnes && timestamp < older) {
+                } else if (older && timestamp < older) {
                   if (!coordsOlder.length && previousPoint[0]) {
                     coordsOlder.push(previousPoint[0])
                   }
                   coordsOlder.push(latlon);
-                } else if (dashOldOnes && timestamp < monthOld) {
+                } else if (monthOld && timestamp < monthOld) {
                   if (!coordsOld.length && previousPoint[0]) {
                     coordsOld.push(previousPoint[0])
                   }
