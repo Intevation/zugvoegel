@@ -19,8 +19,20 @@
         no-action
         sub-group>
         <template v-slot:activator>
-          <v-list-item-title>{{ phrases.journey }} {{ season.title }}</v-list-item-title>
+          <v-list-item-title>
+            {{ phrases.journey }} {{ season.title }}
+          </v-list-item-title>
         </template>
+        <v-list-item>
+          <v-list-item-content>
+            <v-btn
+              @click="toggleBirds(season, !isBirdActive(season))">
+              <v-icon>
+                {{ isBirdActive(season) ? 'mdi-eye-off' : 'mdi-eye' }}
+              </v-icon>
+            </v-btn>
+          </v-list-item-content>
+        </v-list-item>
         <v-list-item
           v-for="turtledove in season.turtledoves"
           :key="turtledove.name">
@@ -146,6 +158,14 @@ export default {
     openLink(link) {
       if (link){
         window.open(link, "_blank");
+      }
+    },
+    isBirdActive(season) {
+      return season.turtledoves.find(d => d.active) ? true: false;
+    },
+    toggleBirds(season, newState) {
+      for (const bird of season.turtledoves) {
+        bird.active = newState;
       }
     }
   }
