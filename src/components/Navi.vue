@@ -38,7 +38,7 @@
     </v-list-group>
 
     <v-list-group
-      prepend-icon="mdi-twitter-circle"
+      prepend-icon="mdi-help-circle"
       no-action>
       <template v-slot:activator>
         <v-list-item-title>{{ phrases.who }}</v-list-item-title>

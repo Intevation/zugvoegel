@@ -9,18 +9,10 @@
   },
   {
     "active": true,
-    "sender/tag": "214397",
-    "avatar": "images/zwergschwan/012T.png",
-    "color": "#FFFF00",
-    "name": "012T",
-    "individial-local-identifier": "1852464805"
-  },
-  {
-    "active": true,
     "sender/tag": "214398",
     "avatar": "images/zwergschwan/013T.png",
     "color": "#1CE6FF",
-    "name": "013T",
+    "name": "Clyde",
     "individual-local-identifier": "1866842020"
   },
   {
@@ -44,7 +36,7 @@
     "sender/tag": "214401",
     "avatar": "images/zwergschwan/016T.png",
     "color": "#008941",
-    "name": "016T",
+    "name": "Anne",
     "individial-local-identifier": "1852472421"
   },
   {
@@ -52,7 +44,7 @@
     "sender/tag": "214402",
     "avatar": "images/zwergschwan/017T.png",
     "color": "#006FA6",
-    "name": "017T",
+    "name": "Jutta",
     "individial-local-identifier": "1852469486"
   },
   {
@@ -60,7 +52,7 @@
     "sender/tag": "214403",
     "avatar": "images/zwergschwan/018T.png",
     "color": "#A30059",
-    "name": "018T",
+    "name": "Lina",
     "individial-local-identifier": "1852460237"
   },
   {
@@ -76,7 +68,7 @@
     "sender/tag": "214405",
     "avatar": "images/zwergschwan/020T.png",
     "color": "#7A4900",
-    "name": "020T",
+    "name": "Toni",
     "individial-local-identifier": "1852467885"
   },
   {
@@ -84,7 +76,7 @@
     "sender/tag": "214406",
     "avatar": "images/zwergschwan/021T.png",
     "color": "#0000A6",
-    "name": "021T",
+    "name": "Hannah",
     "individial-local-identifier": "1852471186"
   },
   {
@@ -92,7 +84,7 @@
     "sender/tag": "214407",
     "avatar": "images/zwergschwan/022T.png",
     "color": "#63FFAC",
-    "name": "022T",
+    "name": "Joel",
     "individial-local-identifier": "1852475999"
   },
   {
@@ -100,7 +92,7 @@
     "sender/tag": "214408",
     "avatar": "images/zwergschwan/023T.png",
     "color": "#B79762",
-    "name": "023T",
+    "name": "Ljubow",
     "individial-local-identifier": "1852477404"
   },
   {
@@ -108,16 +100,8 @@
     "sender/tag": "214409",
     "avatar": "images/zwergschwan/024T.png",
     "color": "#004D43",
-    "name": "024T",
+    "name": "Yamal",
     "individial-local-identifier": "1852479977"
-  },
-  {
-    "active": true,
-    "sender/tag": "214410",
-    "avatar": "images/zwergschwan/025T.png",
-    "color": "#8FB0FF",
-    "name": "025T",
-    "individial-local-identifier": "1866835146"
   },
   {
     "active": true,
@@ -129,18 +113,10 @@
   },
   {
     "active": true,
-    "sender/tag": "214412",
-    "avatar": "images/zwergschwan/027T.png",
-    "color": "#5A0007",
-    "name": "027T",
-    "individial-local-identifier": "1866837059"
-  },
-  {
-    "active": true,
     "sender/tag": "214413",
     "avatar": "images/zwergschwan/028T.png",
     "color": "#809693",
-    "name": "028T",
+    "name": "Louise",
     "individial-local-identifier": "1866831887"
   },
   {
@@ -148,7 +124,7 @@
     "sender/tag": "214414",
     "avatar": "images/zwergschwan/029T.png",
     "color": "#DEAFD6",
-    "name": "029T",
+    "name": "Luis",
     "individial-local-identifier": "1830859600"
   },
   {
@@ -156,7 +132,7 @@
     "sender/tag": "214415",
     "avatar": "images/zwergschwan/030T.png",
     "color": "#1B4400",
-    "name": "030T",
+    "name": "Thor",
     "individial-local-identifier": "1866842295"
   },
   {
@@ -164,7 +140,7 @@
     "sender/tag": "214416",
     "avatar": "images/zwergschwan/031T.png",
     "color": "#4FC601",
-    "name": "031T",
+    "name": "Kopernikus",
     "individial-local-identifier": "1866839234"
   },
   {
@@ -172,7 +148,7 @@
     "sender/tag": "214417",
     "avatar": "images/zwergschwan/032T.png",
     "color": "#3B5DFF",
-    "name": "032T",
+    "name": "Felix",
     "individial-local-identifier": "1866828984"
   },
   {
@@ -180,7 +156,7 @@
     "sender/tag": "214418",
     "avatar": "images/zwergschwan/033T.png",
     "color": "#4A3B53",
-    "name": "033T",
+    "name": "Freya",
     "individial-local-identifier": "1866825819"
   },
   {
@@ -188,7 +164,7 @@
     "sender/tag": "214419",
     "avatar": "images/zwergschwan/034T.png",
     "color": "#FF2F80",
-    "name": "034T",
+    "name": "Vincent",
     "individial-local-identifier": "1866832837"
   },
   {
@@ -196,7 +172,7 @@
     "sender/tag": "214420",
     "avatar": "images/zwergschwan/035T.png",
     "color": "#61615A",
-    "name": "035T",
+    "name": "Bonnie",
     "individial-local-identifier": "1866829989"
   },
   {
@@ -204,7 +180,7 @@
     "sender/tag": "214421",
     "avatar": "images/zwergschwan/036T.png",
     "color": "#BA0900",
-    "name": "036T",
+    "name": "Elisabeth",
     "individial-local-identifier": "1866832313"
   },
   {
@@ -212,7 +188,7 @@
     "sender/tag": "214422",
     "avatar": "images/zwergschwan/037T.png",
     "color": "#6B7900",
-    "name": "037T",
+    "name": "Natascha",
     "individial-local-identifier": "1866841262"
   },
   {
@@ -220,7 +196,7 @@
     "sender/tag": "214423",
     "avatar": "images/zwergschwan/038T.png",
     "color": "#00C2A0",
-    "name": "038T",
+    "name": "Frauke",
     "individial-local-identifier": "1866840410"
   },
   {
@@ -236,7 +212,7 @@
     "sender/tag": "214425",
     "avatar": "images/zwergschwan/040T.png",
     "color": "#FF90C9",
-    "name": "040T",
+    "name": "Eileen",
     "individial-local-identifier": "1866836728"
   },
   {
@@ -244,7 +220,7 @@
     "sender/tag": "214426",
     "avatar": "images/zwergschwan/041T.png",
     "color": "#B903AA",
-    "name": "041T",
+    "name": "Heintje",
     "individial-local-identifier": "1866839937"
   },
   {
@@ -252,7 +228,7 @@
     "sender/tag": "214427",
     "avatar": "images/zwergschwan/042T.png",
     "color": "#D16100",
-    "name": "042T",
+    "name": "Albireo",
     "individial-local-identifier": "1866833594"
   },
   {
@@ -260,7 +236,7 @@
     "sender/tag": "214428",
     "avatar": "images/zwergschwan/043T.png",
     "color": "#DDEFFF",
-    "name": "043T",
+    "name": "Doro",
     "individial-local-identifier": "1866831122"
   },
   {
@@ -268,7 +244,7 @@
     "sender/tag": "214429",
     "avatar": "images/zwergschwan/044T.png",
     "color": "#000035",
-    "name": "044T",
+    "name": "Rasputin",
     "individial-local-identifier": "1866841635"
   },
   {
@@ -276,23 +252,15 @@
     "sender/tag": "214430",
     "avatar": "images/zwergschwan/045T.png",
     "color": "#7B4F4B",
-    "name": "045T",
+    "name": "Tschaika",
     "individial-local-identifier": "1866840907"
-  },
-  {
-    "active": true,
-    "sender/tag": "214431",
-    "avatar": "images/zwergschwan/046T.png",
-    "color": "#A1C299",
-    "name": "046T",
-    "individial-local-identifier": "1866838474"
   },
   {
     "active": true,
     "sender/tag": "214432",
     "avatar": "images/zwergschwan/047T.png",
     "color": "#300018",
-    "name": "047T",
+    "name": "Deneb",
     "individial-local-identifier": "1866835538"
   },
   {
@@ -300,7 +268,7 @@
     "sender/tag": "214433",
     "avatar": "images/zwergschwan/048T.png",
     "color": "#0AA6D8",
-    "name": "048T",
+    "name": "Nadeschda",
     "individial-local-identifier": "1866837649"
   },
   {
@@ -308,7 +276,7 @@
     "sender/tag": "214434",
     "avatar": "images/zwergschwan/049T.png",
     "color": "#013349",
-    "name": "049T",
+    "name": "Thelma",
     "individial-local-identifier": "1866836290"
   },
   {
@@ -316,7 +284,23 @@
     "sender/tag": "214435",
     "avatar": "images/zwergschwan/050T.png",
     "color": "#00846F",
-    "name": "050T",
+    "name": "Ragnar",
     "individial-local-identifier": "1866833095"
+  },
+  {
+    "active": true,
+    "sender/tag": "214412",
+    "avatar": "images/zwergschwan/027T.png",
+    "color": "#5A0007",
+    "name": "Gagarin",
+    "individial-local-identifier": "1866837059"
+  },
+  {
+    "active": true,
+    "sender/tag": "214431",
+    "avatar": "images/zwergschwan/046T.png",
+    "color": "#A1C299",
+    "name": "Gerard",
+    "individial-local-identifier": "1866838474"
   }
 ]
