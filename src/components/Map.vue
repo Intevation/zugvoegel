@@ -97,21 +97,22 @@ export default {
     }
   },
   mounted() {
-    let map = L.map("map", {
+    this.map = L.map("map", {
       attributionControl: false,
       center: [58, 45],
       zoom: 4,
       maxZoom: 18,
       minZoom: 2,
-      //maxBounds: [[42, -46], [58, 67]],
-      //maxBounds: [[0, -180], [0, 180]],
       fadeAnimation: false,
       zoomControl: false
-      // renderer: L.canvas()
     });
 
-    this.map = map;
-
+    //zoom differently in winter and summer
+    const thisMonth = new Date().getMonth();
+    const bounds = thisMonth < 3 || thisMonth > 9 ?
+      [[49, 0], [55, 18]] : // winter zoom: central europe
+      [[49, 0], [65, 70]] ; // summer zoom: including russia
+    this.map.fitBounds(bounds, {animate: false});
     this.map.addControl(
       L.control.attribution({
         position: "bottomright",
@@ -123,10 +124,12 @@ export default {
 
     this.osm.addTo(this.map);
 
+
+
     if (L.Browser.mobile) {
-      map.tap.disable();
+      this.map.tap.disable();
       // map.on("click", function(e)
-      map.on("click", function(error) {
+      this.map.on("click", function(error) {
         if (error){
           // eslint-disable-next-line
           console.log(error);
@@ -170,7 +173,6 @@ export default {
     onResize() {
       if (this.map instanceof L.Map) {
         this.map.invalidateSize({ pan: false });
-        //this.fitMapBounds(this.layerGroups);
       }
     },
     processBird(sbird, dashOldOnes) {
