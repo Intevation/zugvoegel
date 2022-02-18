@@ -237,6 +237,12 @@ export default {
             // removeEmpty(data);
             data.features = data.features.filter( // "visible: 0.0" indicates outlier value
               d => d.properties.visible !== "0.0" );
+
+            // manual overwrite to only show points of the youngest two classes
+            data.features = data.features.filter(
+              d => new Date(d.properties.timestamp).valueOf() >= older
+            );
+
             // points
             var points = L.geoJSON(data, {
               onEachFeature: function(feature, layer) {
@@ -341,24 +347,26 @@ export default {
             };
             var decorator = L.polylineDecorator(polyline, decOptions);
             featuregroup.push(decorator);
-            if (coordsVeryOld.length >1) {
-              var polylineVeryOld = L.polyline(coordsVeryOld, {
-                color: bird.color,
-                opacity: 0.5,
-                dashArray: "1 10"
-              });
-              featuregroup.push(polylineVeryOld);
-              featuregroup.push(L.polylineDecorator(polylineVeryOld, decOptions));
-            }
-            if (coordsOlder.length >1) {
-              var polylineOlder = L.polyline(coordsOlder, {
-                color: bird.color,
-                opacity: 0.65,
-                dashArray: "2 7"
-              });
-              featuregroup.push(polylineOlder);
-              featuregroup.push(L.polylineDecorator(polylineOlder, decOptions));
-            }
+            // manually disabled for zwergschwan: only show current (30d) and
+            //    older (60d)
+            // if (coordsVeryOld.length >1) {
+            //   var polylineVeryOld = L.polyline(coordsVeryOld, {
+            //     color: bird.color,
+            //     opacity: 0.5,
+            //     dashArray: "1 10"
+            //   });
+            //   featuregroup.push(polylineVeryOld);
+            //   featuregroup.push(L.polylineDecorator(polylineVeryOld, decOptions));
+            // }
+            // if (coordsOlder.length >1) {
+            //   var polylineOlder = L.polyline(coordsOlder, {
+            //     color: bird.color,
+            //     opacity: 0.65,
+            //     dashArray: "2 7"
+            //   });
+            //   featuregroup.push(polylineOlder);
+            //   featuregroup.push(L.polylineDecorator(polylineOlder, decOptions));
+            // }
             if (coordsOld.length >1) {
               var polylineOld = L.polyline(coordsOld, {
                 color: bird.color,
