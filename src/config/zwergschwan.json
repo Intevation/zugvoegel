@@ -113,14 +113,6 @@
   },
   {
     "active": true,
-    "sender/tag": "214413",
-    "avatar": "images/zwergschwan/028T.png",
-    "color": "#809693",
-    "name": "Louise (028T)",
-    "individial-local-identifier": "1866831887"
-  },
-  {
-    "active": true,
     "sender/tag": "214414",
     "avatar": "images/zwergschwan/029T.png",
     "color": "#DEAFD6",
@@ -172,7 +164,7 @@
     "sender/tag": "214420",
     "avatar": "images/zwergschwan/035T.png",
     "color": "#61615A",
-    "name": "Bonnie (025T)",
+    "name": "Bonnie (035T)",
     "individial-local-identifier": "1866829989"
   },
   {
