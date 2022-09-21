@@ -27,7 +27,7 @@
         "sender/tag": "5851"
     },
     {
-        "active": true,
+        "active": false,
         "avatar": "images/whitestorks/gustav.png",
         "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/gustav/",
         "color": "#32ce2c",
@@ -70,7 +70,7 @@
         "name": "Eva",
         "sender/tag": "213050"
     },{
-        "active": true,
+        "active": false,
         "avatar": "images/whitestorks/joe.png",
         "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/joe/",
         "color": "#3636ca",
@@ -93,5 +93,45 @@
         "individual-local-identifier": "1727033634",
         "name": "Sonja",
         "sender/tag": "213051"
+    },{
+        "active": true,
+        "avatar": "images/whitestorks/else.png",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/else/",
+        "color": "#03b4bf",
+        "individual-local-identifier": "2166907976",
+        "name": "Else",
+        "sender/tag": "213057"
+    },{
+        "active": true,
+        "avatar": "images/whitestorks/fritziii.png",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/fritziii/",
+        "color": "#2c4a0c",
+        "individual-local-identifier": "1984039615",
+        "name": "Fritzi II",
+        "sender/tag": "213053"
+    },{
+        "active": true,
+        "avatar": "images/whitestorks/max.png",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/max/",
+        "color": "#de2c12",
+        "individual-local-identifier": "2166900210",
+        "name": "Max",
+        "sender/tag": "213058"
+    },{
+        "active": true,
+        "avatar": "images/whitestorks/oleeinar.png",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/oleeinar/",
+        "color": "#f7af0f",
+        "individual-local-identifier": "2204380403",
+        "name": "Ole Einar",
+        "sender/tag": "213052"
+    },{
+        "active": true,
+        "avatar": "images/whitestorks/pauli.png",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/pauli/",
+        "color": "#e35f00",
+        "individual-local-identifier": "2236608066",
+        "name": "Pauli",
+        "sender/tag": "213056"
     }
 ]
