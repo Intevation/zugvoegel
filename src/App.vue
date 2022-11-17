@@ -6,7 +6,7 @@
       permanent
       :mini-variant.sync="mini"
       @mouseover.native="mini=false"
-      @mouseleave.native="mini=true">
+      @mouseleave.native="mini=false">
       <Navi
         :phrases="phrases"
         :seasons.sync="seasons"
