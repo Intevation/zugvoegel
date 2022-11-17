@@ -46,7 +46,7 @@ def validate(args: List[str]):
 
     # begin of campaign: older dates will not be considered
     TIMESTAMP_START = os.getenv("TIMESTAMP_START")
-
+    TIMESTAMP_START_LATE = os.getenv("TIMESTAMP_START_LATE")
     # delay in days (current data will be ignored)
     TIMESTAMP_DELAY = int(os.getenv("TIMESTAMP_DELAY")) # TODO error handling if not present
 
@@ -54,12 +54,17 @@ def validate(args: List[str]):
     ftp = FTP(FTP_HOST, FTP_USER, FTP_PASSWORD)
     ftp.cwd(FTP_PATH)
 
+    # calculate end date (adding a delay to 'today')
     enddate = date.today() - timedelta(days=TIMESTAMP_DELAY)
     endstring = str(enddate.year) + str(enddate.month).zfill(2) + str(enddate.day).zfill(2) + "000000000"
 
     # Convert dictionary string to dictionary
     birds = json.loads(BIRDS)
     for bird, individual_id in birds.items():
+        if bird in ['051T', '052T']: # special handling for late birds
+            times = TIMESTAMP_START_LATE
+        else:
+            times = TIMESTAMP_START
         logger.info("PROCESSING: " + bird + "/" + str(individual_id))
         logger.info("Start reading " + bird + " from movebank.org")
         # Get csv data from movebank.org
@@ -67,7 +72,7 @@ def validate(args: List[str]):
             "https://www.movebank.org/movebank/service/direct-read?entity_type=event&attributes=timestamp,location_lat,location_long,visible&study_id="
             + STUDY_ID
             + "&timestamp_start="
-            + TIMESTAMP_START
+            + times
             + "&timestamp_end=" + endstring
             + "&individual_id="
             + str(individual_id),
