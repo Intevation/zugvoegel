@@ -34,6 +34,7 @@ def validate(args: List[str]):
     FTP_USER = os.getenv("FTP_USER")
     FTP_PASSWORD = os.getenv("FTP_PASSWORD")
     FTP_PATH = os.getenv("FTP_PATH")
+    FILE_OUT = os.getenv("FILE_OUT")
     CSV_FILE_POSTFIX = os.getenv("CSV_FILE_POSTFIX")
 
     # movebank settings
@@ -48,11 +49,16 @@ def validate(args: List[str]):
     TIMESTAMP_START = os.getenv("TIMESTAMP_START")
     TIMESTAMP_START_LATE = os.getenv("TIMESTAMP_START_LATE")
     # delay in days (current data will be ignored)
-    TIMESTAMP_DELAY = int(os.getenv("TIMESTAMP_DELAY")) # TODO error handling if not present
+    TIMESTAMP_DELAY = int(os.getenv("TIMESTAMP_DELAY", "0"))
+    # rule for sampling geo data (https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.resample.html)
+    # default '1D' means "sample every one day"
+    # '0.5D' means "sample every half day", i.e. twice a day
+    SAMPLE_RULE = os.getenv("SAMPLE_RULE", "1D")
 
-
-    ftp = FTP(FTP_HOST, FTP_USER, FTP_PASSWORD)
-    ftp.cwd(FTP_PATH)
+    ftp = None
+    if FTP_HOST is not None and FTP_USER is not None and FTP_PASSWORD is not None and FTP_PATH is not None:
+        ftp = FTP(FTP_HOST, FTP_USER, FTP_PASSWORD)
+        ftp.cwd(FTP_PATH)
 
     # calculate end date (adding a delay to 'today')
     enddate = date.today() - timedelta(days=TIMESTAMP_DELAY)
@@ -79,12 +85,18 @@ def validate(args: List[str]):
             auth=HTTPBasicAuth(MOVEBANK_USER, MOVEBANK_PASSWORD),
             verify=False,
         )
+        # DEBUG: write movebank response data to file before processing
+        # with open(FILE_OUT + '/' + bird + ".raw", 'w') as f:
+        #     f.write(r.text)
+
         # Read csv
         df = pandas.read_csv(StringIO(r.text), index_col=0, parse_dates=True)
-        # drop rows with empty fieds
-        df.dropna(axis=0, inplace=True)
-        # get only the last record of a day
-        df = df.resample("D").last().dropna(thresh=2)
+        if not df.empty:
+            # drop rows with empty fieds
+            df.dropna(axis=0, inplace=True)
+            df.drop_duplicates(inplace=True)
+            # sample records down
+            df = df.resample(SAMPLE_RULE).nearest().dropna(thresh=2)
         # output
         output = StringIO()
         # export to csv
@@ -97,20 +109,26 @@ def validate(args: List[str]):
         # Create "csv file"
         csv_file = io.BytesIO(str.encode(content))
         # Store file on ftp
-        logger.info(
-            "Store "
-            + bird
-            + CSV_FILE_POSTFIX
-            + " on ftp://"
-            + FTP_USER
-            + ":PASSWORD@"
-            + FTP_HOST
-            + "/"
-            + FTP_PATH
-        )
-        ftp.storbinary("STOR " + bird + CSV_FILE_POSTFIX, csv_file)
+        if ftp is not None:
+            ftp.storbinary("STOR " + bird + CSV_FILE_POSTFIX, csv_file)
+            logger.info(
+                "Stored "
+                + bird
+                + CSV_FILE_POSTFIX
+                + " on ftp://"
+                + FTP_USER
+                + ":PASSWORD@"
+                + FTP_HOST
+                + "/"
+                + FTP_PATH
+            )
+        if FILE_OUT is not None:
+            with open(FILE_OUT + '/' + bird + CSV_FILE_POSTFIX, 'w') as f:
+                f.write(content)
+                logger.info("Saved file " + FILE_OUT + '/' + bird + CSV_FILE_POSTFIX)
         logger.info("-----------------")
-    ftp.quit()
+    if ftp is not None:
+        ftp.quit()
     logger.info("Done")
 
 
