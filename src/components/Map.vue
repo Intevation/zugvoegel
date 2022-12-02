@@ -75,18 +75,34 @@ export default {
             var layerGroupObject = this.layerGroups.filter(
               e => e.data === bird.data
             );
-            if (bird.active && layerGroupObject.length == 0) {
-              this.processBird(bird, season.dashOldOnes);
-            } else if (!bird.active && layerGroupObject.length > 0) {
-              var lg = this.layerGroups.filter(function(td) {
-                return td.data == bird.data;
-              })[0];
-              lg.group.removeFrom(this.map);
-              lg.group.clearLayers();
-              this.layerGroups = this.layerGroups.filter(
-                item => item !== layerGroupObject[0]
-              );
+
+            let dateChanged = true
+            if (bird.active && layerGroupObject.length > 0) {
+              dateChanged = !(season.daterange.length == bird.daterange.length &&
+                  season.daterange.every((v, i) => bird.daterange.indexOf(v) == i))
             }
+
+            // Clear bird layers
+            if (!bird.active || dateChanged) {
+              console.log("CLEAR BIRDS");
+              if (layerGroupObject.length > 0) {
+                var lg = this.layerGroups.filter(function(td) {
+                  return td.data == bird.data;
+                })[0];
+                lg.group.removeFrom(this.map);
+                lg.group.clearLayers();
+                this.layerGroups = this.layerGroups.filter(
+                  item => item !== layerGroupObject[0]
+                );
+              }
+            }
+
+            // process and paint birds
+            if (bird.active && dateChanged) {
+              console.log("PAINT BIRDS");
+              this.processBird(bird, season.dashOldOnes, season.daterange);
+            }
+
           }
         }
       },
@@ -175,7 +191,7 @@ export default {
         this.map.invalidateSize({ pan: false });
       }
     },
-    processBird(sbird, dashOldOnes) {
+    processBird(sbird, dashOldOnes, daterange) {
       // Get metadata
       let bird = this.turtledoves.filter(function(td) {
         return td.name == sbird.name;
@@ -184,6 +200,7 @@ export default {
       // Add data url to metadata
       bird.data = sbird.data;
       bird.opacity = sbird.opacity;
+      bird.daterange = daterange;
 
       let me = this;
       fetch(bird.data)
@@ -241,6 +258,15 @@ export default {
             // manual overwrite to only show points of the youngest two classes
             data.features = data.features.filter(
               d => new Date(d.properties.timestamp).valueOf() >= older
+            );
+
+            // filter out features where properties.timestamp is outside daterange
+            data.features = data.features.filter(
+              d => {
+                let t = new Date(d.properties.timestamp);
+                return bird.daterange.length == 0 || ( t >= bird.daterange[0] && t <= bird.daterange[1] ) 
+                // return t >= daterange[0] && t <= daterange[1]
+              }
             );
 
             // points
