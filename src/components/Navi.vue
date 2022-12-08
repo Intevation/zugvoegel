@@ -32,10 +32,11 @@
               persistent
               width="290px">
               <template v-slot:activator="{ on, attrs }">
-                <v-text-field
+                <v-textarea
                   v-model="dateRangeText"
                   label="Zeitraum"
                   prepend-icon="mdi-calendar"
+                  rows="2"
                   readonly
                   v-bind="attrs"
                   v-on="on" />
