@@ -105,13 +105,6 @@
       },
       {
         "active": true,
-        "color": "#809693",
-        "data": "data/zwergschwan/028T-2022.csv",
-        "name": "Louise\n(028T)",
-        "opacity": 1
-      },
-      {
-        "active": true,
         "color": "#DEAFD6",
         "data": "data/zwergschwan/029T-2022.csv",
         "name": "Luis\n(029T)",
@@ -129,13 +122,6 @@
         "color": "#4FC601",
         "data": "data/zwergschwan/031T-2022.csv",
         "name": "Kopernikus\n(031T)",
-        "opacity": 1
-      },
-      {
-        "active": true,
-        "color": "#3B5DFF",
-        "data": "data/zwergschwan/032T-2022.csv",
-        "name": "Felix\n(032T)",
         "opacity": 1
       },
       {
@@ -273,219 +259,219 @@
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#D39700",
         "data": "data/zwergschwan/350E-2022.csv",
-        "name": "Bird01\n(350E)",
+        "name": "350E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#05ADAA",
         "data": "data/zwergschwan/351E-2022.csv",
-        "name": "Bird02\n(351E)",
+        "name": "351E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#83F24F",
         "data": "data/zwergschwan/352E-2022.csv",
-        "name": "Bird03\n(352E)",
+        "name": "352E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#C10777",
         "data": "data/zwergschwan/353E-2022.csv",
-        "name": "Bird04\n(353E)",
+        "name": "353E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#7B41A8",
         "data": "data/zwergschwan/354E-2022.csv",
-        "name": "Bird05\n(354E)",
+        "name": "354E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#3913C1",
         "data": "data/zwergschwan/355E-2022.csv",
-        "name": "Bird06\n(355E)",
+        "name": "355E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#D6515C",
         "data": "data/zwergschwan/356E-2022.csv",
-        "name": "Bird07\n(356E)",
+        "name": "356E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#BA7500",
         "data": "data/zwergschwan/357E-2022.csv",
-        "name": "Bird08\n(357E)",
+        "name": "357E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#63DD67",
         "data": "data/zwergschwan/358E-2022.csv",
-        "name": "Bird09\n(358E)",
+        "name": "358E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#5E5EE5",
         "data": "data/zwergschwan/361E-2022.csv",
-        "name": "Bird10\n(361E)",
+        "name": "361E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#2D369B",
         "data": "data/zwergschwan/362E-2022.csv",
-        "name": "Bird11\n(362E)",
+        "name": "362E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#41D3B1",
         "data": "data/zwergschwan/363E-2022.csv",
-        "name": "Bird12\n(363E)",
+        "name": "363E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#C7D10E",
         "data": "data/zwergschwan/364E-2022.csv",
-        "name": "Bird13\n(364E)",
+        "name": "364E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#049312",
         "data": "data/zwergschwan/365E-2022.csv",
-        "name": "Bird14\n(365E)",
+        "name": "365E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#BF170B",
         "data": "data/zwergschwan/366E-2022.csv",
-        "name": "Bird15\n(366E)",
+        "name": "366E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#40F7C6",
         "data": "data/zwergschwan/367E-2022.csv",
-        "name": "Bird16\n(367E)",
+        "name": "367E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#FF0AA9",
         "data": "data/zwergschwan/368E-2022.csv",
-        "name": "Bird17\n(368E)",
+        "name": "368E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#9909C1",
         "data": "data/zwergschwan/370E-2022.csv",
-        "name": "Bird18\n(370E)",
+        "name": "370E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#BA4E3D",
         "data": "data/zwergschwan/371E-2022.csv",
-        "name": "Bird19\n(371E)",
+        "name": "371E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#35A6BA",
         "data": "data/zwergschwan/372E-2022.csv",
-        "name": "Bird20\n(372E)",
+        "name": "372E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#F70090",
         "data": "data/zwergschwan/373E-2022.csv",
-        "name": "Bird21\n(373E)",
+        "name": "373E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#400E82",
         "data": "data/zwergschwan/374E-2022.csv",
-        "name": "Bird22\n(374E)",
+        "name": "374E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#A912EA",
         "data": "data/zwergschwan/375E-2022.csv",
-        "name": "Bird23\n(375E)",
+        "name": "375E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#E8BF68",
         "data": "data/zwergschwan/376E-2022.csv",
-        "name": "Bird24\n(376E)",
+        "name": "376E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#D402EF",
         "data": "data/zwergschwan/377E-2022.csv",
-        "name": "Bird25\n(377E)",
+        "name": "377E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#C6F41D",
         "data": "data/zwergschwan/378E-2022.csv",
-        "name": "Bird26\n(378E)",
+        "name": "378E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#204182",
         "data": "data/zwergschwan/379E-2022.csv",
-        "name": "Bird27\n(379E)",
+        "name": "379E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#E0D42A",
         "data": "data/zwergschwan/380E-2022.csv",
-        "name": "Bird28\n(380E)",
+        "name": "380E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#1EBC5A",
         "data": "data/zwergschwan/381E-2022.csv",
-        "name": "Bird29\n(381E)",
+        "name": "381E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#4E2D9B",
         "data": "data/zwergschwan/382E-2022.csv",
-        "name": "Bird30\n(382E)",
+        "name": "382E",
         "opacity": 1
       },
       {
         "active": true,
-        "color": "#FF00FF",
+        "color": "#E59567",
         "data": "data/zwergschwan/383E-2022.csv",
-        "name": "Bird31\n(383E)",
+        "name": "383E",
         "opacity": 1
       }
     ]
