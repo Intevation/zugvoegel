@@ -54,6 +54,7 @@ def validate(args: List[str]):
     # default '1D' means "sample every one day"
     # '0.5D' means "sample every half day", i.e. twice a day
     SAMPLE_RULE = os.getenv("SAMPLE_RULE", "1D")
+    COUNTRY_FILTER = os.getenv("COUNTRY_FILTER", "[]")
 
     ftp = None
     if FTP_HOST is not None and FTP_USER is not None and FTP_PASSWORD is not None and FTP_PATH is not None:
@@ -64,7 +65,8 @@ def validate(args: List[str]):
     enddate = date.today() - timedelta(days=TIMESTAMP_DELAY)
     endstring = str(enddate.year) + str(enddate.month).zfill(2) + str(enddate.day).zfill(2) + "000000000"
 
-    # Convert dictionary string to dictionary
+    # Convert json strings to data
+    country_filter = json.loads(COUNTRY_FILTER)
     birds = json.loads(BIRDS)
     for bird, individual_id in birds.items():
         if bird in ['051T', '052T']: # special handling for late birds
@@ -92,11 +94,16 @@ def validate(args: List[str]):
         # Read csv
         df = pandas.read_csv(StringIO(r.text), index_col=0, parse_dates=True)
         if not df.empty:
-            # drop rows with empty fieds
-            df.dropna(axis=0, inplace=True)
-            df.drop_duplicates(inplace=True)
-            # sample records down
-            df = df.resample(SAMPLE_RULE).nearest().dropna(thresh=2)
+            last = df.iloc[-1]
+            if is_in_country(country_filter, last['location_lat'],last['location_long']):
+                # clear all points
+                df = df.iloc[0:0]
+            else:
+                # drop rows with empty fieds
+                df.dropna(axis=0, inplace=True)
+                df.drop_duplicates(inplace=True)
+                # sample records down
+                df = df.resample(SAMPLE_RULE).nearest().dropna(thresh=2)
         # output
         output = StringIO()
         # export to csv
@@ -130,6 +137,19 @@ def validate(args: List[str]):
     if ftp is not None:
         ftp.quit()
     logger.info("Done")
+
+
+def is_in_country(filter, lat, lon):
+    if filter is None or len(filter) == 0:
+        return False
+
+    r = requests.get(
+        "https://nominatim.openstreetmap.org/reverse?format=json" +
+        "&lat=" + str(lat) + "&lon=" + str(lon),
+        verify=False,
+    )
+    code = json.loads(r.text)['address']['country_code']
+    return code in filter
 
 
 def main() -> None:
