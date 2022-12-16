@@ -25,46 +25,6 @@
         </template>
         <v-list-item>
           <v-list-item-content>
-            <v-dialog
-              ref="dialog"
-              v-model="modal"
-              :return-value.sync="date"
-              persistent
-              width="290px">
-              <template v-slot:activator="{ on, attrs }">
-                <v-text-field
-                  v-model="dateRangeText"
-                  label="Zeitraum"
-                  prepend-icon="mdi-calendar"
-                  readonly
-                  v-bind="attrs"
-                  v-on="on" />
-                model: {{ dates }}
-              </template>
-              <v-date-picker 
-                v-model="dates" 
-                locale="de-DE"
-                range 
-                scrollable>
-                <v-spacer />
-                <v-btn
-                  text
-                  color="primary"
-                  @click="modal = false">
-                  Cancel
-                </v-btn>
-                <v-btn
-                  text
-                  color="primary"
-                  @click="$refs.dialog[0].save(dates)">
-                  OK
-                </v-btn>
-              </v-date-picker>
-            </v-dialog>
-          </v-list-item-content>
-        </v-list-item>
-        <v-list-item>
-          <v-list-item-content>
             <v-btn
               @click="toggleBirds(season, !isBirdActive(season))">
               <v-icon>
@@ -172,15 +132,7 @@ export default {
     language: {type: String, default(){return ""}}
   },
   data: () => ({
-      dates: [],
-      menu: false,
-      modal: false
   }),
-  computed: {
-      dateRangeText () {
-        return this.dates.join(' ~ ')
-      }
-  },
   watch: {
     backgroundmap: {
       // function(newVal, oldVal)
