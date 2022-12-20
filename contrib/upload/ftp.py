@@ -52,7 +52,7 @@ def validate(args: List[str]):
     TIMESTAMP_DELAY = int(os.getenv("TIMESTAMP_DELAY", '0'))
     # rule for sampling geo data (https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.resample.html)
     # default '24H' means "sample every 24 hours", i.e. one day
-    SAMPLE_RULE = os.getenv("SAMPLE_RULE", '24H')
+    SAMPLE_RULE = os.getenv("SAMPLE_RULE", "24H")
     # Sampling can only create evenly distributed datapoints in time. So we use
     # another array to pick from those.
     # ATTENTION: SAMPLE_RULE must be set small enough such that the points that
