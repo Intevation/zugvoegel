@@ -100,7 +100,7 @@ export default {
             // process and paint birds
             if (bird.active && dateChanged) {
               console.log("PAINT BIRDS");
-              this.processBird(bird, season.dashOldOnes, season.daterange);
+              this.processBird(bird, season.daterange);
             }
 
           }
@@ -191,7 +191,7 @@ export default {
         this.map.invalidateSize({ pan: false });
       }
     },
-    processBird(sbird, dashOldOnes, daterange) {
+    processBird(sbird, daterange) {
       // Get metadata
       let bird = this.turtledoves.filter(function(td) {
         return td.name == sbird.name;
@@ -208,31 +208,22 @@ export default {
           return response.text();
         })
         .then(function(csv) {
-          me.paintBird(csv, bird, dashOldOnes);
+          me.paintBird(csv, bird);
         })
         .catch(function(error) {
           // eslint-disable-next-line
           console.log(error);
         });
     },
-    paintBird(csvData, bird, dashOldOnes) {
+    paintBird(csvData, bird) {
       let ph = this.phrases;
       const geojsonMarkerOptions = {
         radius: 5,
         fillColor: bird.color,
-        color: "#000000",
-        weight: 1,
-        opacity: 1,
+        weight: 0,
         fillOpacity: bird.opacity
       };
 
-      let now = new Date().valueOf();
-      let monthOld, older, veryOld;
-      if (Array.isArray(dashOldOnes)){
-        monthOld = now - (86400000 * dashOldOnes[0]);
-        older = now - (86400000 * dashOldOnes[1]);
-        veryOld = now - (86400000 * dashOldOnes[2]);
-      }
       csv2geojson.csv2geojson(
         csvData,
         {
@@ -248,17 +239,8 @@ export default {
             var previousPoint = [];
             // define arrays to store coordinates
             const coords = []; //solid
-            const coordsOld = []; // dash 3 5
-            const coordsOlder = []; // dash 2 7
-            const coordsVeryOld = []; // dash 1 10
-            // removeEmpty(data);
             data.features = data.features.filter( // "visible: 0.0" indicates outlier value
               d => d.properties.visible !== "0.0" );
-
-            // manual overwrite to only show points of the youngest two classes
-            data.features = data.features.filter(
-              d => new Date(d.properties.timestamp).valueOf() >= older
-            );
 
             // filter out features where properties.timestamp is outside daterange
             data.features = data.features.filter(
@@ -276,25 +258,7 @@ export default {
                     feature.geometry.coordinates[1],
                     feature.geometry.coordinates[0]
                 );
-                const timestamp = new Date(feature.properties.timestamp).valueOf();
-                if ( veryOld && timestamp < veryOld) {
-                  coordsVeryOld.push(latlon);
-                } else if (older && timestamp < older) {
-                  if (!coordsOlder.length && previousPoint[0]) {
-                    coordsOlder.push(previousPoint[0])
-                  }
-                  coordsOlder.push(latlon);
-                } else if (monthOld && timestamp < monthOld) {
-                  if (!coordsOld.length && previousPoint[0]) {
-                    coordsOld.push(previousPoint[0])
-                  }
-                  coordsOld.push(latlon);
-                } else {
-                  if (!coords.length && previousPoint[0]) {
-                    coords.push(previousPoint[0])
-                  }
-                  coords.push(latlon);
-                }
+                coords.push(latlon);
                 var from;
                 if (
                   typeof previousPoint[0] !== "undefined" &&
@@ -343,9 +307,8 @@ export default {
                   var ep = "endpoint " + "color-" + bird.color.substr(1);
                   return L.marker(latlng, {
                     icon: L.icon({
-                      iconSize: [32, 32],
+                      //iconSize: [32, 32],
                       iconUrl: bird.avatar,
-                      color: bird.color,
                       className: ep
                     })
                   });
@@ -373,36 +336,7 @@ export default {
             };
             var decorator = L.polylineDecorator(polyline, decOptions);
             featuregroup.push(decorator);
-            // manually disabled for zwergschwan: only show current (30d) and
-            //    older (60d)
-            // if (coordsVeryOld.length >1) {
-            //   var polylineVeryOld = L.polyline(coordsVeryOld, {
-            //     color: bird.color,
-            //     opacity: 0.5,
-            //     dashArray: "1 10"
-            //   });
-            //   featuregroup.push(polylineVeryOld);
-            //   featuregroup.push(L.polylineDecorator(polylineVeryOld, decOptions));
-            // }
-            // if (coordsOlder.length >1) {
-            //   var polylineOlder = L.polyline(coordsOlder, {
-            //     color: bird.color,
-            //     opacity: 0.65,
-            //     dashArray: "2 7"
-            //   });
-            //   featuregroup.push(polylineOlder);
-            //   featuregroup.push(L.polylineDecorator(polylineOlder, decOptions));
-            // }
-            if (coordsOld.length >1) {
-              var polylineOld = L.polyline(coordsOld, {
-                color: bird.color,
-                opacity: 0.7,
-                dashArray: "3 5"
-              });
-              featuregroup.push(polylineOld);
-              featuregroup.push(L.polylineDecorator(polylineOld, decOptions));
-            }
-            var polyline = L.polyline(coords, {color: bird.color,opacity: 1});
+            var polyline = L.polyline(coords, {color: bird.color,weight: 1});
             featuregroup.push(polyline);
             featuregroup.push(L.polylineDecorator(polyline, decOptions));
             var group = L.featureGroup(featuregroup);
@@ -420,8 +354,8 @@ export default {
 <style>
 .endpoint {
   border-radius: 16px;
-  border-style: solid;
-  border-width: 4px;
+  border-style: groove;
+  border-width: 3px;
 }
 
 .color-000000 { border-color: #000000;}

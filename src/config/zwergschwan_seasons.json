@@ -3,7 +3,6 @@
     "action": "mdi-crosshairs-gps",
     "active": true,
     "title": "2022",
-    "dashOldOnes": [30,60,90],
     "daterange": [],
     "turtledoves": [
       {
