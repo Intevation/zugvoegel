@@ -45,6 +45,7 @@
                 v-model="dates" 
                 locale="de-DE"
                 range 
+                no-title
                 scrollable>
                 <v-spacer />
                 <v-btn
