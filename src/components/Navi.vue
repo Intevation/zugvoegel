@@ -78,6 +78,7 @@
           :key="turtledove.name">
           <v-list-item-content>
             <v-list-item-title>{{ turtledove.name }}</v-list-item-title>
+            <v-list-item-subtitle>{{ turtledove.id }}</v-list-item-subtitle>
           </v-list-item-content>
           <v-list-item-action>
             <v-switch
@@ -109,6 +110,7 @@
           </v-list-item-avatar>
           <v-list-item-content v-if="td.name">
             <v-list-item-title v-text="td.name" />
+            <v-list-item-subtitle v-text="td.id" />
           </v-list-item-content>
         </v-list-item>
         <div
@@ -235,7 +237,7 @@ export default {
   font-style: italic;
   color: black;
 }
-.v-list-item__title {
-    white-space: pre-line;
+.v-list-item__subtitle {
+    font-size: small;
 }
 </style>
