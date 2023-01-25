@@ -175,7 +175,15 @@ export default {
     language: {type: String, default(){return ""}}
   },
   data: () => ({
+      dates: [],
+      menu: false,
+      modal: false
   }),
+  computed: {
+      dateRangeText () {
+        return this.dates.join(' ~ ')
+      }
+  },
   watch: {
     backgroundmap: {
       // function(newVal, oldVal)
