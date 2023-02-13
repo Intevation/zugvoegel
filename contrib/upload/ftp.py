@@ -11,7 +11,7 @@ from io import StringIO
 import io
 import pandas
 import urllib3
-from datetime import date, timedelta
+from datetime import datetime, timedelta
 
 
 urllib3.disable_warnings()
@@ -66,8 +66,13 @@ def validate(args: List[str]):
         ftp.cwd(FTP_PATH)
 
     # calculate end date (adding a delay to 'today')
-    enddate = date.today() - timedelta(days=TIMESTAMP_DELAY)
-    endstring = str(enddate.year) + str(enddate.month).zfill(2) + str(enddate.day).zfill(2) + "000000000"
+    enddate = datetime.today() - timedelta(days=TIMESTAMP_DELAY)
+    endstring = str(enddate.year) + \
+                str(enddate.month).zfill(2) + \
+                str(enddate.day).zfill(2) + \
+                str(enddate.hour).zfill(2) + \
+                str(enddate.minute).zfill(2) + \
+                "00000"
 
     # Convert json strings to data
     sample_pick = json.loads(SAMPLE_PICK)
