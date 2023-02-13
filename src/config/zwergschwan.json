@@ -325,6 +325,42 @@
   },
   {
     "active": true,
+    "sender/tag": "214410",
+    "avatar": "images/zwergschwan/053T.png",
+    "color": "#829E2F",
+    "name": "053T",
+    "id": "",
+    "individial-local-identifier": "2577410809"
+  },
+  {
+    "active": true,
+    "sender/tag": "214397",
+    "avatar": "images/zwergschwan/054T.png",
+    "color": "#94C0F7",
+    "name": "054T",
+    "id": "",
+    "individial-local-identifier": "2577408374"
+  },
+  {
+    "active": true,
+    "sender/tag": "214413",
+    "avatar": "images/zwergschwan/055T.png",
+    "color": "#933C41",
+    "name": "055T",
+    "id": "",
+    "individial-local-identifier": "2577413705"
+  },
+  {
+    "active": true,
+    "sender/tag": "214417",
+    "avatar": "images/zwergschwan/056T.png",
+    "color": "#4A9E8A",
+    "name": "056T",
+    "id": "",
+    "individial-local-identifier": "2577414629"
+  },
+  {
+    "active": true,
     "sender/tag": "202927",
     "avatar": "images/zwergschwan/350E.png",
     "color": "#D39700",
@@ -397,6 +433,14 @@
   },
   {
     "active": true,
+    "sender/tag": "202936",
+    "avatar": "images/zwergschwan/359E.png",
+    "color": "#E01D8B",
+    "name": "359E",
+    "individial-local-identifier": "2585320065"
+  },
+  {
+    "active": true,
     "sender/tag": "202938",
     "avatar": "images/zwergschwan/361E.png",
     "color": "#5E5EE5",
@@ -458,6 +502,14 @@
     "color": "#FF0AA9",
     "name": "368E",
     "individial-local-identifier": "1893536930"
+  },
+  {
+    "active": true,
+    "sender/tag": "202946",
+    "avatar": "images/zwergschwan/369E.png",
+    "color": "#BA3042",
+    "name": "369E",
+    "individial-local-identifier": "2585317577"
   },
   {
     "active": true,
