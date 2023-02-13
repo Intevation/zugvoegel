@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/contrib/upload/ftp.py",
-            "args": ["zwergschwan-2022.env"],
+            "args": [".env.local"],
             "console": "integratedTerminal",
             "justMyCode": true
         }
