@@ -49,12 +49,16 @@ def validate(args: List[str]):
     TIMESTAMP_START = os.getenv("TIMESTAMP_START")
     TIMESTAMP_START_LATE = os.getenv("TIMESTAMP_START_LATE")
     # delay in days (current data will be ignored)
-    TIMESTAMP_DELAY = int(os.getenv("TIMESTAMP_DELAY", "0"))
+    TIMESTAMP_DELAY = int(os.getenv("TIMESTAMP_DELAY", '0'))
     # rule for sampling geo data (https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.resample.html)
-    # default '1D' means "sample every one day"
-    # '0.5D' means "sample every half day", i.e. twice a day
-    SAMPLE_RULE = os.getenv("SAMPLE_RULE", "1D")
-    COUNTRY_FILTER = os.getenv("COUNTRY_FILTER", "[]")
+    # default '24H' means "sample every 24 hours", i.e. one day
+    SAMPLE_RULE = os.getenv("SAMPLE_RULE", '24H')
+    # Sampling can only create evenly distributed datapoints in time. So we use
+    # another array to pick from those.
+    # ATTENTION: SAMPLE_RULE must be set small enough such that the points that
+    # are to be picked exist.
+    SAMPLE_PICK = os.getenv("SAMPLE_PICK", '["00:00"]')
+    COUNTRY_FILTER = os.getenv("COUNTRY_FILTER", '[]')
 
     ftp = None
     if FTP_HOST is not None and FTP_USER is not None and FTP_PASSWORD is not None and FTP_PATH is not None:
@@ -66,6 +70,7 @@ def validate(args: List[str]):
     endstring = str(enddate.year) + str(enddate.month).zfill(2) + str(enddate.day).zfill(2) + "000000000"
 
     # Convert json strings to data
+    sample_pick = json.loads(SAMPLE_PICK)
     country_filter = json.loads(COUNTRY_FILTER)
     birds = json.loads(BIRDS)
     for bird, individual_id in birds.items():
@@ -104,6 +109,12 @@ def validate(args: List[str]):
                 df.drop_duplicates(inplace=True)
                 # sample records down
                 df = df.resample(SAMPLE_RULE).nearest().dropna(thresh=2)
+                picked_df = []
+                for t in sample_pick:
+                    picked_df.append(df.at_time(t))
+                df = pandas.concat(picked_df).sort_index()
+                if df.empty:
+                    logger.warn(f'No data could be sampled for {bird}. Ensure SAMPLE_RULE provides enough data for SAMPLE_PICK')
         # output
         output = StringIO()
         # export to csv
