@@ -3,7 +3,7 @@
     "action": "mdi-crosshairs-gps",
     "active": true,
     "title": "2022/2023",
-    "defaulDaterange": [],
+    "defaultDaterangeDays": 60,
     "daterange": [],
     "turtledoves": [
       {

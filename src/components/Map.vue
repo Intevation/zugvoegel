@@ -84,7 +84,7 @@ export default {
 
             // Clear bird layers
             if (!bird.active || dateChanged) {
-              console.log("CLEAR BIRDS");
+              // console.log("CLEAR BIRDS");
               if (layerGroupObject.length > 0) {
                 var lg = this.layerGroups.filter(function(td) {
                   return td.data == bird.data;
@@ -99,7 +99,7 @@ export default {
 
             // process and paint birds
             if (bird.active && dateChanged) {
-              console.log("PAINT BIRDS");
+            //  console.log("PAINT BIRDS");
               this.processBird(bird, season.daterange);
             }
 

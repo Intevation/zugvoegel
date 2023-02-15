@@ -15,5 +15,8 @@
     "title": "Zugv\u00f6gel auf Reisen",
     "turtledoves": "Turteltauben",
     "who": "Wer ist wer?",
-    "whitestorks": "Weißstorch"
+    "whitestorks": "Weißstorch",
+    "dialogOk": "OK",
+    "dialogCancel": "Abbrechen",
+    "dialogClear": "Standard"
 }

@@ -47,18 +47,24 @@
                 range 
                 no-title
                 scrollable>
+                <v-btn
+                  text
+                  color="primary"
+                  @click="resetDateRange(season)">
+                  {{ phrases.dialogClear }}
+                </v-btn>
                 <v-spacer />
                 <v-btn
                   text
                   color="primary"
                   @click="modal = false">
-                  Cancel
+                  {{ phrases.dialogCancel }}
                 </v-btn>
                 <v-btn
                   text
                   color="primary"
                   @click="$refs.dialog[0].save(dates); setDateRange(season, dates)">
-                  OK
+                  {{ phrases.dialogOk }}
                 </v-btn>
               </v-date-picker>
             </v-dialog>
@@ -205,6 +211,11 @@ export default {
       }
     },
   },
+  mounted() {
+    for (const season of this.seasons) {
+      this.resetDateRange(season)
+    }
+  },
   methods: {
     openLink(link) {
       if (link){
@@ -230,6 +241,15 @@ export default {
       // a.sort(function(a,b){
       //   return new Date(a.plantingDate) - new Date(b.plantingDate)
       // })
+    },
+    
+    resetDateRange(season) {
+        let d2 = new Date();
+        console.log("D2:" + d2);
+        let d1 = new Date(d2.valueOf() - (86400000 * season.defaultDaterangeDays));
+        console.log("D1:" + d1);
+        this.dates = [d1.toISOString().substr(0, 10), d2.toISOString().substr(0, 10)];
+        this.setDateRange(season, [d1, d2])
     }
   }
 };
