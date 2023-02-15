@@ -28,7 +28,6 @@
             <v-dialog
               ref="dialog"
               v-model="modal"
-              :return-value.sync="date"
               persistent
               width="290px">
               <template v-slot:activator="{ on, attrs }">
@@ -42,16 +41,16 @@
                   v-on="on" />
               </template>
               <v-date-picker 
-                v-model="dates" 
+                v-model="dates"
                 locale="de-DE"
-                range 
+                range
                 no-title
                 scrollable>
                 <v-btn
                   text
                   color="primary"
-                  @click="resetDateRange(season)">
-                  {{ phrases.dialogClear }}
+                  @click="resetDates(season)">
+                  {{ phrases.dialogReset }}
                 </v-btn>
                 <v-spacer />
                 <v-btn
@@ -63,7 +62,7 @@
                 <v-btn
                   text
                   color="primary"
-                  @click="$refs.dialog[0].save(dates); setDateRange(season, dates)">
+                  @click="$refs.dialog[0].save(dates); setDateRange(season)">
                   {{ phrases.dialogOk }}
                 </v-btn>
               </v-date-picker>
@@ -181,9 +180,9 @@ export default {
     language: {type: String, default(){return ""}}
   },
   data: () => ({
-      dates: [],
-      menu: false,
-      modal: false
+    menu: false,
+    modal: false,
+    dates: [],
   }),
   computed: {
       dateRangeText () {
@@ -213,7 +212,8 @@ export default {
   },
   mounted() {
     for (const season of this.seasons) {
-      this.resetDateRange(season)
+      this.resetDates(season)
+      this.setDateRange(season)
     }
   },
   methods: {
@@ -230,26 +230,27 @@ export default {
         bird.active = newState;
       }
     },
-    setDateRange(season, newDaterange) {
+    setDateRange(season) {
       // console.log("SEASON: " + season);
       // console.log("DATERANGE: " + daterange);
-      if (newDaterange.length != 2) {
+      if (this.dates.length != 2) {
         console.error("Range does not consist of two dates.");
         return
       }
-      season.daterange = newDaterange.sort().map(v => new Date(v));
+      console.log("SETTING DATERANGE: " + this.dates.sort().map(v => new Date(v)));
+      season.daterange = this.dates.sort().map(v => new Date(v));
+      // season._daterangetextModel = season._daterangeModel.join(' ~ ');
       // a.sort(function(a,b){
       //   return new Date(a.plantingDate) - new Date(b.plantingDate)
       // })
     },
     
-    resetDateRange(season) {
-        let d2 = new Date();
-        console.log("D2:" + d2);
-        let d1 = new Date(d2.valueOf() - (86400000 * season.defaultDaterangeDays));
-        console.log("D1:" + d1);
-        this.dates = [d1.toISOString().substr(0, 10), d2.toISOString().substr(0, 10)];
-        this.setDateRange(season, [d1, d2])
+    resetDates(season) {
+      let d2 = new Date();
+      let d1 = new Date(d2.valueOf() - (86400000 * season.defaultDaterangeDays));
+      // season.season._daterangeModel
+      this.dates = [d1.toISOString().substr(0, 10), d2.toISOString().substr(0, 10)];
+      return [d1, d2];
     }
   }
 };
