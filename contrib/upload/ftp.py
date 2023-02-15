@@ -119,7 +119,7 @@ def validate(args: List[str]):
                     picked_df.append(df.at_time(t))
                 df = pandas.concat(picked_df).sort_index()
                 if df.empty:
-                    logger.warn(f'No data could be sampled for {bird}. Ensure SAMPLE_RULE provides enough data for SAMPLE_PICK')
+                    logger.warn('No data could be sampled for ' + bird + '. Ensure SAMPLE_RULE provides enough data for SAMPLE_PICK')
         # output
         output = StringIO()
         # export to csv
