@@ -15,5 +15,8 @@
     "title": "Migratory birds travelling",
     "turtledoves": "Turteldoves",
     "who": "Who is who?",
-    "whitestorks": "White Storks"
+    "whitestorks": "White Storks",
+    "dialogOk": "OK",
+    "dialogCancel": "Cancel",
+    "dialogClear": "Clear"
 }
