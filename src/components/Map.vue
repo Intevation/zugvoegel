@@ -36,6 +36,7 @@ export default {
     urlTemplate: {},
     layerGroups: [],
     dialog: false,
+    daterangeOld: {},
     osm: new L.TileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 18,
       attribution:
@@ -71,21 +72,27 @@ export default {
     seasons: {
       handler: function() {
         for (const season of this.seasons) {
+          // skip initial paint, Navi will set the daterange on 'mounted' to trigger it
+          if (season.daterange.length == 0) {
+            continue;
+          }
+          let dateChanged = this.daterangeOld[season.title] != undefined &&
+              !(season.daterange.length == this.daterangeOld[season.title].length &&
+                season.daterange.every((v, i) => this.daterangeOld[season.title].indexOf(v) == i));
           for (const bird of season.turtledoves) {
             var layerGroupObject = this.layerGroups.filter(
               e => e.data === bird.data
             );
+            let currentlyPainted = layerGroupObject.length > 0;
 
-            let dateChanged = true
-            if (bird.active && layerGroupObject.length > 0) {
-              dateChanged = !(season.daterange.length == bird.daterange.length &&
-                  season.daterange.every((v, i) => bird.daterange.indexOf(v) == i))
+            if (dateChanged) {
+              console.log("DATE CHANGED (season: " + season.title + ", bird: " + bird.name + ")");
             }
 
             // Clear bird layers
             if (!bird.active || dateChanged) {
-              // console.log("CLEAR BIRDS");
-              if (layerGroupObject.length > 0) {
+              if (currentlyPainted) {
+                console.log("CLEAR BIRD (season: " + season.title + ", bird: " + bird.name + ")");
                 var lg = this.layerGroups.filter(function(td) {
                   return td.data == bird.data;
                 })[0];
@@ -94,16 +101,18 @@ export default {
                 this.layerGroups = this.layerGroups.filter(
                   item => item !== layerGroupObject[0]
                 );
+                currentlyPainted = false;
               }
             }
 
             // process and paint birds
-            if (bird.active && dateChanged) {
-            //  console.log("PAINT BIRDS");
+            if (bird.active && !currentlyPainted) {
+              console.log("PAINT BIRD (season: " + season.title + ", bird: " + bird.name + ")");
               this.processBird(bird, season.daterange);
             }
 
           }
+          this.daterangeOld[season.title] = season.daterange;
         }
       },
       // because of array
