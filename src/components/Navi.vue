@@ -234,9 +234,11 @@ export default {
       // console.log("SEASON: " + season);
       // console.log("DATERANGE: " + daterange);
       if (this.dates.length != 2) {
+        // eslint-disable-next-line
         console.error("Range does not consist of two dates.");
         return
       }
+      // eslint-disable-next-line no-console
       console.log("SETTING DATERANGE: " + this.dates.sort().map(v => new Date(v)));
       season.daterange = this.dates.sort().map(v => new Date(v));
       // season._daterangetextModel = season._daterangeModel.join(' ~ ');

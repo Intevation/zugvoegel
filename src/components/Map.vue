@@ -86,12 +86,14 @@ export default {
             let currentlyPainted = layerGroupObject.length > 0;
 
             if (dateChanged) {
+              // eslint-disable-next-line no-console
               console.log("DATE CHANGED (season: " + season.title + ", bird: " + bird.name + ")");
             }
 
             // Clear bird layers
             if (!bird.active || dateChanged) {
               if (currentlyPainted) {
+                // eslint-disable-next-line no-console
                 console.log("CLEAR BIRD (season: " + season.title + ", bird: " + bird.name + ")");
                 var lg = this.layerGroups.filter(function(td) {
                   return td.data == bird.data;
@@ -107,6 +109,7 @@ export default {
 
             // process and paint birds
             if (bird.active && !currentlyPainted) {
+              // eslint-disable-next-line no-console
               console.log("PAINT BIRD (season: " + season.title + ", bird: " + bird.name + ")");
               this.processBird(bird, season.daterange);
             }
