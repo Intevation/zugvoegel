@@ -66,12 +66,12 @@ def validate(args: List[str]):
         ftp.cwd(FTP_PATH)
 
     # calculate end date (adding a delay to 'today')
-    enddate = datetime.today() - timedelta(days=TIMESTAMP_DELAY)
-    endstring = str(enddate.year) + \
-                str(enddate.month).zfill(2) + \
-                str(enddate.day).zfill(2) + \
-                str(enddate.hour).zfill(2) + \
-                str(enddate.minute).zfill(2) + \
+    endtime = datetime.utcnow() - timedelta(days=TIMESTAMP_DELAY)
+    endstring = str(endtime.year) + \
+                str(endtime.month).zfill(2) + \
+                str(endtime.day).zfill(2) + \
+                str(endtime.hour).zfill(2) + \
+                str(endtime.minute).zfill(2) + \
                 "00000"
 
     # Convert json strings to data
@@ -111,9 +111,17 @@ def validate(args: List[str]):
             else:
                 # drop rows with empty fieds
                 df.dropna(axis=0, inplace=True)
+                # resampling cannot handle duplicates
                 df.drop_duplicates(inplace=True)
+                # make sure the resampling will reach until endtime by reinserting the last row at endtime
+                df.loc[endtime] = list(df.iloc[-1])
+                # movebank returns UTC timestamps
+                df = df.tz_localize('utc').tz_convert('Europe/Berlin')
                 # sample records down
                 df = df.resample(SAMPLE_RULE).nearest().dropna(thresh=2)
+                # resampling may introduce new duplicates in case there are big holes in the data
+                df.drop_duplicates(inplace=True)
+                # pick out desired data (SAMPLE_PICK)
                 picked_df = []
                 for t in sample_pick:
                     picked_df.append(df.at_time(t))
