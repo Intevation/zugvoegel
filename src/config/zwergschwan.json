@@ -441,6 +441,14 @@
   },
   {
     "active": true,
+    "sender/tag": "202936",
+    "avatar": "images/zwergschwan/360E.png",
+    "color": "#31BC7B",
+    "name": "360E",
+    "individial-local-identifier": "2585321342"
+  },
+  {
+    "active": true,
     "sender/tag": "202938",
     "avatar": "images/zwergschwan/361E.png",
     "color": "#5E5EE5",
