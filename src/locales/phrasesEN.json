@@ -18,5 +18,6 @@
     "whitestorks": "White Storks",
     "dialogOk": "OK",
     "dialogCancel": "Cancel",
-    "dialogReset": "Reset"
+    "dialogReset": "Reset",
+    "snackbarText": "No data in this timespan"
 }

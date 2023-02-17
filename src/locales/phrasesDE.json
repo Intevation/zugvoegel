@@ -18,5 +18,6 @@
     "whitestorks": "Weißstorch",
     "dialogOk": "OK",
     "dialogCancel": "Abbrechen",
-    "dialogReset": "Standard"
+    "dialogReset": "Standard",
+    "snackbarText": "Keine Daten in diesem Zeitraum"
 }
