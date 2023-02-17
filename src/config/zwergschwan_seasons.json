@@ -398,6 +398,13 @@
       },
       {
         "active": true,
+        "color": "#31BC7B",
+        "data": "data/zwergschwan/360E-2223.csv",
+        "name": "360E",
+        "opacity": 1
+      },
+      {
+        "active": true,
         "color": "#5E5EE5",
         "data": "data/zwergschwan/361E-2223.csv",
         "name": "361E",
