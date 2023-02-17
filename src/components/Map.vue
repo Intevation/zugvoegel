@@ -1,7 +1,11 @@
 <template>
   <div
     id="map"
-    v-resize="onResize" />
+    v-resize="onResize">
+    <v-snackbar v-model="snackbar">
+      {{ phrases.snackbarText + " (" + snackbarBird + ")" }}
+    </v-snackbar>
+  </div>
 </template>
 
 <script>
@@ -46,7 +50,9 @@ export default {
       layers: "s2cloudless_3857",
       attribution:
         '<a href="https://s2maps.eu" target="_blank">Sentinel-2 cloudless - https://s2maps.eu</a> by <a href="https://eox.at/" target="_blank">EOX IT Services GmbH</a> (Contains modified Copernicus Sentinel data 2017 & 2018), '+process.env.VUE_APP_GIT_HASH
-    })
+    }),
+    snackbar: false,
+    snackbarBird: ""
   }),
   watch: {
     backgroundmap: {
@@ -255,6 +261,7 @@ export default {
               d => d.properties.visible !== "0.0" );
 
             // filter out features where properties.timestamp is outside daterange
+            let hasPoints = data.features.length > 0;
             data.features = data.features.filter(
               d => {
                 let t = new Date(d.properties.timestamp);
@@ -262,6 +269,14 @@ export default {
                 // return t >= daterange[0] && t <= daterange[1]
               }
             );
+            let hasPointsInRange = data.features.length > 0;
+
+            if (hasPoints && !hasPointsInRange) {
+              // eslint-disable-next-line no-console
+              console.log("NO DATA (bird: " + bird.name + ")");
+              this.snackbar = true;
+              this.snackbarBird = bird.name;
+            }
 
             // points
             var points = L.geoJSON(data, {
