@@ -231,26 +231,23 @@ export default {
       }
     },
     setDateRange(season) {
-      // console.log("SEASON: " + season);
-      // console.log("DATERANGE: " + daterange);
       if (this.dates.length != 2) {
         // eslint-disable-next-line
         console.error("Range does not consist of two dates.");
         return
       }
+      let newDaterange = this.dates.sort().map(v => new Date(v));
+      newDaterange[1].setHours(23);
+      newDaterange[1].setMinutes(59);
+      newDaterange[1].setSeconds(59);
       // eslint-disable-next-line no-console
-      console.log("SETTING DATERANGE: " + this.dates.sort().map(v => new Date(v)));
-      season.daterange = this.dates.sort().map(v => new Date(v));
-      // season._daterangetextModel = season._daterangeModel.join(' ~ ');
-      // a.sort(function(a,b){
-      //   return new Date(a.plantingDate) - new Date(b.plantingDate)
-      // })
+      console.log("SETTING DATERANGE: " + newDaterange);
+      season.daterange = newDaterange;
     },
     
     resetDates(season) {
       let d2 = new Date();
       let d1 = new Date(d2.valueOf() - (86400000 * season.defaultDaterangeDays));
-      // season.season._daterangeModel
       this.dates = [d1.toISOString().substr(0, 10), d2.toISOString().substr(0, 10)];
       return [d1, d2];
     }
