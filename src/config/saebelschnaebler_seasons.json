@@ -1,0 +1,27 @@
+[
+  {
+    "action": "mdi-crosshairs-gps",
+    "active": true,
+    "title": "2022/2023",
+    "defaultDaterangeDays": 60,
+    "daterange": [],
+    "turtledoves": [
+      {
+        "active": true,
+        "color": "#000000",
+        "data": "data/saebelschnaebler/PIAV-5442613-Oland.csv",
+        "name": "PIAV-5442613-Oland",
+        "id": "(055T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#1CE6FF",
+        "data": "data/saebelschnaebler/PIAV-5442620-Oland.csv",
+        "name": "PIAV-5442620-Oland",
+        "id": "(056T)",
+        "opacity": 1
+      }
+    ]
+  }
+]
