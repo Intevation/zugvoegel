@@ -48,14 +48,6 @@
       },
       {
         "active": true,
-        "color": "#006FA6",
-        "data": "data/zwergschwan/017T-2223.csv",
-        "name": "Jutta",
-        "id": "(017T)",
-        "opacity": 1
-      },
-      {
-        "active": true,
         "color": "#A30059",
         "data": "data/zwergschwan/018T-2223.csv",
         "name": "Lina",
@@ -104,26 +96,10 @@
       },
       {
         "active": true,
-        "color": "#004D43",
-        "data": "data/zwergschwan/024T-2223.csv",
-        "name": "Yamal",
-        "id": "(024T)",
-        "opacity": 1
-      },
-      {
-        "active": true,
         "color": "#997D87",
         "data": "data/zwergschwan/026T-2223.csv",
         "name": "Hans",
         "id": "(026T)",
-        "opacity": 1
-      },
-      {
-        "active": true,
-        "color": "#DEAFD6",
-        "data": "data/zwergschwan/029T-2223.csv",
-        "name": "Luis",
-        "id": "(029T)",
         "opacity": 1
       },
       {
@@ -192,34 +168,10 @@
       },
       {
         "active": true,
-        "color": "#FFAA92",
-        "data": "data/zwergschwan/039T-2223.csv",
-        "name": "Irina",
-        "id": "(039T)",
-        "opacity": 1
-      },
-      {
-        "active": true,
-        "color": "#FF90C9",
-        "data": "data/zwergschwan/040T-2223.csv",
-        "name": "Eileen",
-        "id": "(040T)",
-        "opacity": 1
-      },
-      {
-        "active": true,
         "color": "#B903AA",
         "data": "data/zwergschwan/041T-2223.csv",
         "name": "Heintje",
         "id": "(041T)",
-        "opacity": 1
-      },
-      {
-        "active": true,
-        "color": "#D16100",
-        "data": "data/zwergschwan/042T-2223.csv",
-        "name": "Albireo",
-        "id": "(042T)",
         "opacity": 1
       },
       {
@@ -284,14 +236,6 @@
         "data": "data/zwergschwan/051T-2223.csv",
         "name": "Gagarin",
         "id": "(051T)",
-        "opacity": 1
-      },
-      {
-        "active": true,
-        "color": "#A1C299",
-        "data": "data/zwergschwan/052T-2223.csv",
-        "name": "Gerard",
-        "id": "(052T)",
         "opacity": 1
       },
       {
@@ -791,13 +735,6 @@
       },
       {
         "active": false,
-        "color": "#83F24F",
-        "data": "data/zwergschwan/352E-2122.csv",
-        "name": "352E",
-        "opacity": 1
-      },
-      {
-        "active": false,
         "color": "#C10777",
         "data": "data/zwergschwan/353E-2122.csv",
         "name": "353E",
@@ -808,13 +745,6 @@
         "color": "#7B41A8",
         "data": "data/zwergschwan/354E-2122.csv",
         "name": "354E",
-        "opacity": 1
-      },
-      {
-        "active": false,
-        "color": "#3913C1",
-        "data": "data/zwergschwan/355E-2122.csv",
-        "name": "355E",
         "opacity": 1
       },
       {
@@ -833,13 +763,6 @@
       },
       {
         "active": false,
-        "color": "#63DD67",
-        "data": "data/zwergschwan/358E-2122.csv",
-        "name": "358E",
-        "opacity": 1
-      },
-      {
-        "active": false,
         "color": "#5E5EE5",
         "data": "data/zwergschwan/361E-2122.csv",
         "name": "361E",
@@ -850,13 +773,6 @@
         "color": "#2D369B",
         "data": "data/zwergschwan/362E-2122.csv",
         "name": "362E",
-        "opacity": 1
-      },
-      {
-        "active": false,
-        "color": "#41D3B1",
-        "data": "data/zwergschwan/363E-2122.csv",
-        "name": "363E",
         "opacity": 1
       },
       {
@@ -885,13 +801,6 @@
         "color": "#40F7C6",
         "data": "data/zwergschwan/367E-2122.csv",
         "name": "367E",
-        "opacity": 1
-      },
-      {
-        "active": false,
-        "color": "#FF0AA9",
-        "data": "data/zwergschwan/368E-2122.csv",
-        "name": "368E",
         "opacity": 1
       },
       {
@@ -941,20 +850,6 @@
         "color": "#E8BF68",
         "data": "data/zwergschwan/376E-2122.csv",
         "name": "376E",
-        "opacity": 1
-      },
-      {
-        "active": false,
-        "color": "#D402EF",
-        "data": "data/zwergschwan/377E-2122.csv",
-        "name": "377E",
-        "opacity": 1
-      },
-      {
-        "active": false,
-        "color": "#C6F41D",
-        "data": "data/zwergschwan/378E-2122.csv",
-        "name": "378E",
         "opacity": 1
       },
       {
