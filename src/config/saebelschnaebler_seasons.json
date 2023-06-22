@@ -10,7 +10,7 @@
         "active": true,
         "color": "#000000",
         "data": "data/saebelschnaebler/055T-2023.csv",
-        "name": "5442613",
+        "name": "Levia",
         "id": "(055T)",
         "opacity": 1
       },
@@ -18,7 +18,7 @@
         "active": true,
         "color": "#1CE6FF",
         "data": "data/saebelschnaebler/056T-2023.csv",
-        "name": "5442620",
+        "name": "Gravius",
         "id": "(056T)",
         "opacity": 1
       }
