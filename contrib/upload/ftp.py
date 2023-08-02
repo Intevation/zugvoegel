@@ -58,7 +58,7 @@ def validate(args: List[str]):
     # ATTENTION: SAMPLE_RULE must be set small enough such that the points that
     # are to be picked exist.
     SAMPLE_PICK = os.getenv("SAMPLE_PICK", '["00:00"]')
-    COUNTRY_FILTER = os.getenv("COUNTRY_FILTER", '[]')
+    FILTER_RECTANGLES = os.getenv("FILTER_RECTANGLES", '[]')
 
     ftp = None
     if FTP_HOST is not None and FTP_USER is not None and FTP_PASSWORD is not None and FTP_PATH is not None:
@@ -76,7 +76,7 @@ def validate(args: List[str]):
 
     # Convert json strings to data
     sample_pick = json.loads(SAMPLE_PICK)
-    country_filter = json.loads(COUNTRY_FILTER)
+    filter_rectangles = json.loads(FILTER_RECTANGLES)
     birds = json.loads(BIRDS)
     for bird, individual_id in birds.items():
         if bird in ['051T', '052T']: # special handling for late birds
@@ -103,31 +103,38 @@ def validate(args: List[str]):
 
         # Read csv
         df = pandas.read_csv(StringIO(r.text), index_col=0, parse_dates=True)
+        do_filtering = False
         if not df.empty:
+            # drop rows with empty fieds
+            df.dropna(axis=0, inplace=True)
             last = df.iloc[-1]
-            if is_in_country(country_filter, last['location_lat'],last['location_long']):
-                # clear all points
-                df = df.iloc[0:0]
-            else:
-                # drop rows with empty fieds
-                df.dropna(axis=0, inplace=True)
-                # resampling cannot handle duplicates
-                df.drop_duplicates(inplace=True)
-                # make sure the resampling will reach until endtime by reinserting the last row at endtime
-                df.loc[endtime] = list(df.iloc[-1])
-                # movebank returns UTC timestamps
-                df = df.tz_localize('utc').tz_convert('Europe/Berlin')
-                # sample records down
-                df = df.resample(SAMPLE_RULE).nearest().dropna(thresh=2)
-                # resampling may introduce new duplicates in case there are big holes in the data
-                df.drop_duplicates(inplace=True)
-                # pick out desired data (SAMPLE_PICK)
-                picked_df = []
-                for t in sample_pick:
-                    picked_df.append(df.at_time(t))
-                df = pandas.concat(picked_df).sort_index()
-                if df.empty:
-                    logger.warn('No data could be sampled for ' + bird + '. Ensure SAMPLE_RULE provides enough data for SAMPLE_PICK')
+            if is_in_filter_rectangles(filter_rectangles, last['location_lat'],last['location_long']):
+                # clear all points within the filter rectangles later
+                do_filtering = True
+                logger.info(bird + " was last seen in one of the filter rectangles. Filtering out points ...")
+            # resampling cannot handle duplicates
+            df.drop_duplicates(inplace=True)
+            # make sure the resampling will reach until endtime by reinserting the last row at endtime
+            df.loc[endtime] = list(df.iloc[-1])
+            # movebank returns UTC timestamps
+            df = df.tz_localize('utc').tz_convert('Europe/Berlin')
+            # sample records down
+            df = df.resample(SAMPLE_RULE).nearest().dropna(thresh=2)
+            # resampling may introduce new duplicates in case there are big holes in the data
+            df.drop_duplicates(inplace=True)
+            # pick out desired data (SAMPLE_PICK)
+            picked_df = []
+            for t in sample_pick:
+                picked_df.append(df.at_time(t))
+            df = pandas.concat(picked_df).sort_index()
+            if df.empty:
+                logger.warn('No data could be sampled for ' + bird + '. Ensure SAMPLE_RULE provides enough data for SAMPLE_PICK')
+            if do_filtering:
+                df = df.apply(lambda x:
+                    None if
+                    is_in_filter_rectangles(filter_rectangles, x['location_lat'], x['location_long'])
+                    else x, axis=1)
+            df.dropna(axis=0, inplace=True)
         # output
         output = StringIO()
         # export to csv
@@ -163,17 +170,21 @@ def validate(args: List[str]):
     logger.info("Done")
 
 
-def is_in_country(filter, lat, lon):
+def is_in_filter_rectangles(filter, lat, lon):
     if filter is None or len(filter) == 0:
         return False
 
-    r = requests.get(
-        "https://nominatim.openstreetmap.org/reverse?format=json" +
-        "&lat=" + str(lat) + "&lon=" + str(lon),
-        verify=False,
-    )
-    code = json.loads(r.text)['address']['country_code']
-    return code in filter
+    for rect in filter:
+        topleft = rect[0]
+        botright = rect[1]
+
+        if lat < topleft[0] and \
+           lon > topleft[1] and \
+           lat > botright[0] and \
+           lon < botright[1]:
+            return True
+
+    return False
 
 
 def main() -> None:
