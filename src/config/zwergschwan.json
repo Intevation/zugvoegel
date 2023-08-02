@@ -46,6 +46,15 @@
   },
   {
     "active": true,
+    "sender/tag": "214402",
+    "avatar": "images/zwergschwan/017T.png",
+    "color": "#006FA6",
+    "name": "Jutta",
+    "id": "(017T)",
+    "individial-local-identifier": "1852469486"
+  },
+  {
+    "active": true,
     "sender/tag": "214403",
     "avatar": "images/zwergschwan/018T.png",
     "color": "#A30059",
@@ -100,12 +109,30 @@
   },
   {
     "active": true,
+    "sender/tag": "214409",
+    "avatar": "images/zwergschwan/024T.png",
+    "color": "#004D43",
+    "name": "Yamal",
+    "id": "(024T)",
+    "individial-local-identifier": "1852479977"
+  },
+  {
+    "active": true,
     "sender/tag": "214411",
     "avatar": "images/zwergschwan/026T.png",
     "color": "#997D87",
     "name": "Hans",
     "id": "(026T)",
     "individial-local-identifier": "1830853156"
+  },
+  {
+    "active": true,
+    "sender/tag": "214414",
+    "avatar": "images/zwergschwan/029T.png",
+    "color": "#DEAFD6",
+    "name": "Luis",
+    "id": "(029T)",
+    "individial-local-identifier": "1830859600"
   },
   {
     "active": true,
@@ -178,6 +205,24 @@
     "name": "Frauke",
     "id": "(038T)",
     "individial-local-identifier": "1866840410"
+  },
+  {
+    "active": true,
+    "sender/tag": "214424",
+    "avatar": "images/zwergschwan/039T.png",
+    "color": "#FFAA92",
+    "name": "Irina",
+    "id": "(039T)",
+    "individial-local-identifier": "1830861535"
+  },
+  {
+    "active": true,
+    "sender/tag": "214425",
+    "avatar": "images/zwergschwan/040T.png",
+    "color": "#FF90C9",
+    "name": "Eileen",
+    "id": "(040T)",
+    "individial-local-identifier": "1866836728"
   },
   {
     "active": true,
@@ -259,6 +304,15 @@
     "name": "Gagarin",
     "id": "(051T)",
     "individial-local-identifier": "1866837059"
+  },
+  {
+    "active": true,
+    "sender/tag": "214431",
+    "avatar": "images/zwergschwan/046T.png",
+    "color": "#A1C299",
+    "name": "Gerard",
+    "id": "(052T)",
+    "individial-local-identifier": "1866838474"
   },
   {
     "active": true,

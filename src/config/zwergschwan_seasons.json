@@ -521,6 +521,14 @@
       },
       {
         "active": false,
+        "color": "#006FA6",
+        "data": "data/zwergschwan/017T-2122.csv",
+        "name": "Jutta",
+        "id": "(017T)",
+        "opacity": 1
+      },
+      {
+        "active": false,
         "color": "#A30059",
         "data": "data/zwergschwan/018T-2122.csv",
         "name": "Lina",
@@ -569,10 +577,26 @@
       },
       {
         "active": false,
+        "color": "#004D43",
+        "data": "data/zwergschwan/024T-2122.csv",
+        "name": "Yamal",
+        "id": "(024T)",
+        "opacity": 1
+      },
+      {
+        "active": false,
         "color": "#997D87",
         "data": "data/zwergschwan/026T-2122.csv",
         "name": "Hans",
         "id": "(026T)",
+        "opacity": 1
+      },
+      {
+        "active": false,
+        "color": "#DEAFD6",
+        "data": "data/zwergschwan/029T-2122.csv",
+        "name": "Luis",
+        "id": "(029T)",
         "opacity": 1
       },
       {
@@ -637,6 +661,22 @@
         "data": "data/zwergschwan/038T-2122.csv",
         "name": "Frauke",
         "id": "(038T)",
+        "opacity": 1
+      },
+      {
+        "active": false,
+        "color": "#FFAA92",
+        "data": "data/zwergschwan/039T-2122.csv",
+        "name": "Irina",
+        "id": "(039T)",
+        "opacity": 1
+      },
+      {
+        "active": false,
+        "color": "#FF90C9",
+        "data": "data/zwergschwan/040T-2122.csv",
+        "name": "Eileen",
+        "id": "(040T)",
         "opacity": 1
       },
       {
@@ -709,6 +749,14 @@
         "data": "data/zwergschwan/051T-2122.csv",
         "name": "Gagarin",
         "id": "(051T)",
+        "opacity": 1
+      },
+      {
+        "active": false,
+        "color": "#A1C299",
+        "data": "data/zwergschwan/052T-2122.csv",
+        "name": "Gerard",
+        "id": "(052T)",
         "opacity": 1
       },
       {
