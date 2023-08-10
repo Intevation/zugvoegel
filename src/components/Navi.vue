@@ -266,6 +266,9 @@ export default {
   font-style: italic;
   color: black;
 }
+.v-list-item__title {
+    white-space: pre-line;
+}
 .v-list-item__subtitle {
     font-size: small;
 }

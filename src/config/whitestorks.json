@@ -78,7 +78,7 @@
         "name": "Joe",
         "sender/tag": "213048"
     },{
-        "active": true,
+        "active": false,
         "avatar": "images/whitestorks/tini.png",
         "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/tini/",
         "color": "#91cbdf",
@@ -123,7 +123,7 @@
         "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/oleeinar/",
         "color": "#f7af0f",
         "individual-local-identifier": "2204380403",
-        "name": "Ole Einar",
+        "name": "Ole Einar /\nPrzygódka",
         "sender/tag": "213052"
     },{
         "active": true,

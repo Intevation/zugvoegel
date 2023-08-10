@@ -425,6 +425,22 @@ export default {
 .color-0AA6D8 { border-color: #0AA6D8;}
 .color-013349 { border-color: #013349;}
 .color-00846F { border-color: #00846F;}
+.color-e35f00 { border-color: #e35f00;}
+.color-ba1212 { border-color: #ba1212;}
+.color-db1f1e { border-color: #db1f1e;}
+.color-2d4d01 { border-color: #2d4d01;}
+.color-32ce2c { border-color: #32ce2c;}
+.color-7dc66c { border-color: #7dc66c;}
+.color-8d8700 { border-color: #8d8700;}
+.color-fbad0f { border-color: #fbad0f;}
+.color-b9140e { border-color: #b9140e;}
+.color-3636ca { border-color: #3636ca;}
+.color-91cbdf { border-color: #91cbdf;}
+.color-e62a28 { border-color: #e62a28;}
+.color-03b4bf { border-color: #03b4bf;}
+.color-2c4a0c { border-color: #2c4a0c;}
+.color-de2c12 { border-color: #de2c12;}
+.color-f7af0f { border-color: #f7af0f;}
 
 #map {
   width: 100% !important;
