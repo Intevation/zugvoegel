@@ -60,6 +60,8 @@ def validate(args: List[str]):
     SAMPLE_PICK = os.getenv("SAMPLE_PICK", '["00:00"]')
     FILTER_RECTANGLES = os.getenv("FILTER_RECTANGLES", '[]')
 
+    LOG_LAST_N = int(os.getenv("LOG_LAST_N", '3'))
+
     ftp = None
     if FTP_HOST is not None and FTP_USER is not None and FTP_PASSWORD is not None and FTP_PATH is not None:
         ftp = FTP(FTP_HOST, FTP_USER, FTP_PASSWORD)
@@ -105,6 +107,9 @@ def validate(args: List[str]):
         df = pandas.read_csv(StringIO(r.text), index_col=0, parse_dates=True)
         do_filtering = False
         if not df.empty:
+            log_last_n(LOG_LAST_N, df, " returned by movebank")
+
+            # pandas DataFrame operations
             # drop rows with empty fieds
             df.dropna(axis=0, inplace=True)
             last = df.iloc[-1]
@@ -120,8 +125,7 @@ def validate(args: List[str]):
             df = df.tz_localize('utc').tz_convert('Europe/Berlin')
             # sample records down
             df = df.resample(SAMPLE_RULE).nearest().dropna(thresh=2)
-            # resampling may introduce new duplicates in case there are big holes in the data
-            df.drop_duplicates(inplace=True)
+
             # pick out desired data (SAMPLE_PICK)
             picked_df = []
             for t in sample_pick:
@@ -135,6 +139,7 @@ def validate(args: List[str]):
                     is_in_filter_rectangles(filter_rectangles, x['location_lat'], x['location_long'])
                     else x, axis=1)
             df.dropna(axis=0, inplace=True)
+            log_last_n(LOG_LAST_N, df, " after processing")
         # output
         output = StringIO()
         # export to csv
@@ -185,6 +190,14 @@ def is_in_filter_rectangles(filter, lat, lon):
             return True
 
     return False
+
+
+def log_last_n(n, df, s):
+    if n > 0:
+        logger.info("Last " + str(n) + " locations" + s + ": ")
+        for i in reversed(range(n)):
+            d = df.iloc[-1 - i]
+            logger.info("  #(N-" + str(i) + "): " + str(d.name) + " (lat: " + str(d["location_lat"]) + " ,lon: " + str(d["location_long"]) + ")")
 
 
 def main() -> None:
