@@ -68,7 +68,8 @@
         "color": "#05ab03",
         "individual-local-identifier": "WhiteStork-Hamburg-01",
         "name": "Ombeni",
-        "sender/tag": "2702"
+        "sender/tag": "2702",
+        "extraInfo": "Letztes Signal am 23.08.2021 aus dem Sudan. Ob Senderausfall oder Tode des Storches die Ursache ist, ist nicht bekannt."
     },
     {
         "active": true,
@@ -97,7 +98,8 @@
         "color": "#681B0F",
         "individual-local-identifier": "WhiteStork-Hamburg-11",
         "name": "Tina",
-        "sender/tag": "8055"
+        "sender/tag": "8055",
+        "extraInfo": "Letztes Signal am 01.04.2022. Tina hat sich in der Türkei in einem Binnensee in ein Fischernetz verheddert und ist ertrunken."
     },
     {
         "active": true,
