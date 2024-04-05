@@ -44,6 +44,7 @@ def validate(args: List[str]):
 
     # list of birds considered: json object with name: movebank_identifier
     BIRDS = os.getenv("BIRDS")
+    SENSOR_TYPE_ID = os.getenv("SENSOR_TYPE_ID")
 
     # begin of campaign: older dates will not be considered
     TIMESTAMP_START = os.getenv("TIMESTAMP_START")
@@ -95,13 +96,16 @@ def validate(args: List[str]):
             + times
             + "&timestamp_end=" + endstring
             + "&individual_id="
-            + str(individual_id),
+            + str(individual_id)
+            # handle with caution, 
+            + "&sensor_type_id=" + SENSOR_TYPE_ID
+            ,
             auth=HTTPBasicAuth(MOVEBANK_USER, MOVEBANK_PASSWORD),
             verify=False,
         )
         # DEBUG: write movebank response data to file before processing
-        # with open(FILE_OUT + '/' + bird + ".raw", 'w') as f:
-        #     f.write(r.text)
+        with open(FILE_OUT + '/' + bird + ".raw", 'w') as f:
+            f.write(r.text)
 
         # Read csv
         df = pandas.read_csv(StringIO(r.text), index_col=0, parse_dates=True)
@@ -118,13 +122,16 @@ def validate(args: List[str]):
                 do_filtering = True
                 logger.info(bird + " was last seen in one of the filter rectangles. Filtering out points ...")
             # resampling cannot handle duplicates
-            df.drop_duplicates(inplace=True)
+            # df.drop_duplicates(inplace=True) doesn't work in this DataFrame because it's a DateTimeIndex
+            df = df[~df.index.duplicated(keep='first')] 
             # make sure the resampling will reach until endtime by reinserting the last row at endtime
             df.loc[endtime] = list(df.iloc[-1])
             # movebank returns UTC timestamps
             df = df.tz_localize('utc').tz_convert('Europe/Berlin')
             # sample records down
             df = df.resample(SAMPLE_RULE).nearest().dropna(thresh=2)
+
+
 
             # pick out desired data (SAMPLE_PICK)
             picked_df = []

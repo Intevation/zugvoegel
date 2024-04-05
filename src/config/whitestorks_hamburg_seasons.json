@@ -2,8 +2,62 @@
     {
         "action": "mdi-crosshairs-gps",
         "active": true,
+        "title": "2023 / 2024",
+        "dashOldOnes": [3650,3650,3650],
+        "defaultDaterangeDays": 60,
+        "daterange": [],
+        "turtledoves": [
+            {
+                "active": true,
+                "color": "#ffff01",
+                "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-02-2023_2024.csv",
+                "name": "Alexander",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "color": "#66642B",
+                "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-09-2023_2024.csv",
+                "name": "Christian-Eike",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "color": "#0b7ac1",
+                "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-05-2023_2024.csv",
+                "name": "Hanne",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "color": "#8102b3",
+                "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-03-2023_2024.csv",
+                "name": "Jan",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "color": "#FF7F00",
+                "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-06-2023_2024.csv",
+                "name": "Jürgen",
+                "opacity": 1
+            },
+            {
+                "active": true,
+                "color": "#CFCF63",
+                "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-08-2023_2024.csv",
+                "name": "Michael",
+                "opacity": 1
+            }
+        ]
+    },
+    {
+        "action": "mdi-crosshairs-gps",
+        "active": false,
         "title": "2022 / 2023",
         "dashOldOnes": [3650,3650,3650],
+        "defaultDaterangeDays": 60,
+        "daterange": [],
         "turtledoves": [
             {
                 "active": true,
@@ -61,6 +115,8 @@
         "active": false,
         "title": "2021 / 2022",
         "dashOldOnes": [3650,3650,3650],
+        "defaultDaterangeDays": 60,
+        "daterange": [],
         "turtledoves": [
             {
                 "active": false,
@@ -132,6 +188,8 @@
         "active": false,
         "title": "2020 / 2021",
         "dashOldOnes": [3650,3650,3650],
+        "defaultDaterangeDays": 60,
+        "daterange": [],
         "turtledoves": [
             {
                 "active": false,
@@ -224,6 +282,8 @@
         "active": false,
         "title": "2019 / 2020",
         "dashOldOnes": [3650,3650,3650],
+        "defaultDaterangeDays": 60,
+        "daterange": [],
         "turtledoves": [
             {
                 "active": false,
