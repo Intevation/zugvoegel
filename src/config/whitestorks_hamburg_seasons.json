@@ -3,7 +3,6 @@
         "action": "mdi-crosshairs-gps",
         "active": true,
         "title": "2023 / 2024",
-        "dashOldOnes": [3650,3650,3650],
         "defaultDaterangeDays": 60,
         "daterange": [],
         "turtledoves": [
@@ -55,54 +54,53 @@
         "action": "mdi-crosshairs-gps",
         "active": false,
         "title": "2022 / 2023",
-        "dashOldOnes": [3650,3650,3650],
         "defaultDaterangeDays": 60,
         "daterange": [],
         "turtledoves": [
             {
-                "active": true,
+                "active": false,
                 "color": "#ffff01",
                 "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-02-2022_2023.csv",
                 "name": "Alexander",
                 "opacity": 1
             },
             {
-                "active": true,
+                "active": false,
                 "color": "#66642B",
                 "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-09-2022_2023.csv",
                 "name": "Christian-Eike",
                 "opacity": 1
             },
             {
-                "active": true,
+                "active": false,
                 "color": "#0b7ac1",
                 "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-05-2022_2023.csv",
                 "name": "Hanne",
                 "opacity": 1
             },
             {
-                "active": true,
+                "active": false,
                 "color": "#8102b3",
                 "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-03-2022_2023.csv",
                 "name": "Jan",
                 "opacity": 1
             },
             {
-                "active": true,
+                "active": false,
                 "color": "#FF7F00",
                 "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-06-2022_2023.csv",
                 "name": "Jürgen",
                 "opacity": 1
             },
             {
-                "active": true,
+                "active": false,
                 "color": "#CFCF63",
                 "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-08-2022_2023.csv",
                 "name": "Michael",
                 "opacity": 1
             },
             {
-                "active": true,
+                "active": false,
                 "color": "#87d5fb",
                 "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-04-2022_2023.csv",
                 "name": "Mimi",
@@ -114,7 +112,6 @@
         "action": "mdi-crosshairs-gps",
         "active": false,
         "title": "2021 / 2022",
-        "dashOldOnes": [3650,3650,3650],
         "defaultDaterangeDays": 60,
         "daterange": [],
         "turtledoves": [
@@ -187,7 +184,6 @@
         "action": "mdi-crosshairs-gps",
         "active": false,
         "title": "2020 / 2021",
-        "dashOldOnes": [3650,3650,3650],
         "defaultDaterangeDays": 60,
         "daterange": [],
         "turtledoves": [
@@ -281,7 +277,6 @@
         "action": "mdi-crosshairs-gps",
         "active": false,
         "title": "2019 / 2020",
-        "dashOldOnes": [3650,3650,3650],
         "defaultDaterangeDays": 60,
         "daterange": [],
         "turtledoves": [
