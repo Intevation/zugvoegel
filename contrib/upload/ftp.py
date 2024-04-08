@@ -70,12 +70,17 @@ def validate(args: List[str]):
 
     # calculate end date (adding a delay to 'today')
     endtime = datetime.utcnow() - timedelta(days=TIMESTAMP_DELAY)
-    endstring = str(endtime.year) + \
+    endstring = "&timestamp_end=" + \
+                str(endtime.year) + \
                 str(endtime.month).zfill(2) + \
                 str(endtime.day).zfill(2) + \
                 str(endtime.hour).zfill(2) + \
                 str(endtime.minute).zfill(2) + \
                 "00000"
+    
+    sensortypestring = ""
+    if SENSOR_TYPE_ID is not None:
+        sensortypestring = "&sensor_type_id=" + SENSOR_TYPE_ID
 
     # Convert json strings to data
     sample_pick = json.loads(SAMPLE_PICK)
@@ -94,18 +99,18 @@ def validate(args: List[str]):
             + STUDY_ID
             + "&timestamp_start="
             + times
-            + "&timestamp_end=" + endstring
+            + endstring
             + "&individual_id="
             + str(individual_id)
             # handle with caution, 
-            + "&sensor_type_id=" + SENSOR_TYPE_ID
+            + sensortypestring
             ,
             auth=HTTPBasicAuth(MOVEBANK_USER, MOVEBANK_PASSWORD),
             verify=False,
         )
         # DEBUG: write movebank response data to file before processing
-        with open(FILE_OUT + '/' + bird + ".raw", 'w') as f:
-            f.write(r.text)
+        # with open(FILE_OUT + '/' + bird + ".raw", 'w') as f:
+        #     f.write(r.text)
 
         # Read csv
         df = pandas.read_csv(StringIO(r.text), index_col=0, parse_dates=True)

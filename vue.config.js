@@ -11,7 +11,6 @@ module.exports = {
   productionSourceMap: false,
   lintOnSave: "error",
   devServer: {
-        disableHostCheck: true,
-        port: 8082
-    }
+        disableHostCheck: true
+  }
 };
