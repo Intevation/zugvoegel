@@ -7,7 +7,7 @@
     "daterange": [],
     "turtledoves": [
       {
-        "active": true,
+        "active": false,
         "color": "#000000",
         "data": "data/saebelschnaebler/055T-2023.csv",
         "name": "Levia",
@@ -20,6 +20,14 @@
         "data": "data/saebelschnaebler/056T-2023.csv",
         "name": "Gravius",
         "id": "(056T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#FF8C00",
+        "data": "data/saebelschnaebler/PIAV-5442644-Oland-2023.csv",
+        "name": "Lenia",
+        "id": "(PIAV-5442644-Oland)",
         "opacity": 1
       }
     ]

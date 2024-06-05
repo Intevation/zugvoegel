@@ -1,12 +1,14 @@
 [
   {
-    "active": true,
+    "active": false,
     "sender/tag": "226703",
     "avatar": "images/saebelschnaebler/055T.png",
     "color": "#000000",
     "name": "Levia",
     "id": "(055T)",
-    "individual-local-identifier": "2775522878"
+    "individual-local-identifier": "2775522878",
+    "extraInfo": "Kein Datenempfang mehr seit 29.11.2023; Grund unbekannt, siehe Mads' Blog."
+
   },
   {
     "active": true,
@@ -16,5 +18,14 @@
     "name": "Gravius",
     "id": "(056T)",
     "individual-local-identifier": "2775584582"
+  },
+  {
+    "active": true,
+    "sender/tag": "240517",
+    "avatar": "images/saebelschnaebler/PIAV-5442644-Oland.png",
+    "color": "#FF8C00",
+    "name": "Lenia",
+    "id": "(PIAV-5442644-Oland)",
+    "individual-local-identifier": "3691751554"
   }
 ]

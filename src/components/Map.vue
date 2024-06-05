@@ -334,7 +334,7 @@ export default {
                   var ep = "endpoint " + "color-" + bird.color.substr(1);
                   return L.marker(latlng, {
                     icon: L.icon({
-                      //iconSize: [32, 32],
+                      iconSize: [32, 32],
                       iconUrl: bird.avatar,
                       className: ep
                     })
