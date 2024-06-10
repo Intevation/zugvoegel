@@ -49,6 +49,7 @@ def validate(args: List[str]):
     # begin of campaign: older dates will not be considered
     TIMESTAMP_START = os.getenv("TIMESTAMP_START")
     TIMESTAMP_START_LATE = os.getenv("TIMESTAMP_START_LATE")
+    TIMESTAMP_END = os.getenv("TIMESTAMP_END", None)
     # delay in days (current data will be ignored)
     TIMESTAMP_DELAY = int(os.getenv("TIMESTAMP_DELAY", '0'))
     # rule for sampling geo data (https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.resample.html)
@@ -70,13 +71,27 @@ def validate(args: List[str]):
 
     # calculate end date (adding a delay to 'today')
     endtime = datetime.utcnow() - timedelta(days=TIMESTAMP_DELAY)
+
+    if TIMESTAMP_END is not None:
+        envendtime = datetime(
+                        int(TIMESTAMP_END[:4]),      # year
+                        int(TIMESTAMP_END[4:6]),     # month
+                        int(TIMESTAMP_END[6:8]),     # day
+                        int(TIMESTAMP_END[8:10]),    # hour
+                        int(TIMESTAMP_END[10:12])    # minute
+                    ) - timedelta(days=TIMESTAMP_DELAY)
+        if endtime > envendtime:
+            endtime = envendtime
+
+    endtimestamp =  str(endtime.year) + \
+                    str(endtime.month).zfill(2) + \
+                    str(endtime.day).zfill(2) + \
+                    str(endtime.hour).zfill(2) + \
+                    str(endtime.minute).zfill(2) + \
+                    "00000"
+
     endstring = "&timestamp_end=" + \
-                str(endtime.year) + \
-                str(endtime.month).zfill(2) + \
-                str(endtime.day).zfill(2) + \
-                str(endtime.hour).zfill(2) + \
-                str(endtime.minute).zfill(2) + \
-                "00000"
+                endtimestamp
     
     sensortypestring = ""
     if SENSOR_TYPE_ID is not None:

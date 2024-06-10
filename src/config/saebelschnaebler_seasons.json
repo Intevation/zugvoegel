@@ -2,22 +2,14 @@
   {
     "action": "mdi-crosshairs-gps",
     "active": true,
-    "title": "2022/2023",
+    "title": "2024/2025",
     "defaultDaterangeDays": 60,
     "daterange": [],
     "turtledoves": [
       {
-        "active": false,
-        "color": "#000000",
-        "data": "data/saebelschnaebler/055T-2023.csv",
-        "name": "Levia",
-        "id": "(055T)",
-        "opacity": 1
-      },
-      {
         "active": true,
         "color": "#1CE6FF",
-        "data": "data/saebelschnaebler/056T-2023.csv",
+        "data": "data/saebelschnaebler/056T-2024-2025.csv",
         "name": "Gravius",
         "id": "(056T)",
         "opacity": 1
@@ -25,9 +17,59 @@
       {
         "active": true,
         "color": "#FF8C00",
-        "data": "data/saebelschnaebler/PIAV-5442644-Oland-2023.csv",
+        "data": "data/saebelschnaebler/PIAV-5442644-Oland-2024-2025.csv",
         "name": "Lenia",
         "id": "(PIAV-5442644-Oland)",
+        "opacity": 1
+      }
+    ]
+  },
+  {
+    "action": "mdi-crosshairs-gps",
+    "active": false,
+    "title": "2023/2024",
+    "defaultDaterangeDays": 60,
+    "daterange": [],
+    "turtledoves": [
+      {
+        "active": false,
+        "color": "#000000",
+        "data": "data/saebelschnaebler/055T-2023-2024.csv",
+        "name": "Levia",
+        "id": "(055T)",
+        "opacity": 1
+      },
+      {
+        "active": false,
+        "color": "#1CE6FF",
+        "data": "data/saebelschnaebler/056T-2023-2024.csv",
+        "name": "Gravius",
+        "id": "(056T)",
+        "opacity": 1
+      }
+    ]
+  },
+  {
+    "action": "mdi-crosshairs-gps",
+    "active": false,
+    "title": "2022/2023",
+    "defaultDaterangeDays": 60,
+    "daterange": [],
+    "turtledoves": [
+      {
+        "active": false,
+        "color": "#000000",
+        "data": "data/saebelschnaebler/055T-2022-2023.csv",
+        "name": "Levia",
+        "id": "(055T)",
+        "opacity": 1
+      },
+      {
+        "active": false,
+        "color": "#1CE6FF",
+        "data": "data/saebelschnaebler/056T-2022-2023.csv",
+        "name": "Gravius",
+        "id": "(056T)",
         "opacity": 1
       }
     ]
