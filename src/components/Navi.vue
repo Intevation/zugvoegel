@@ -25,48 +25,9 @@
         </template>
         <v-list-item>
           <v-list-item-content>
-            <v-dialog
-              ref="dialog"
-              v-model="modal"
-              persistent
-              width="290px">
-              <template v-slot:activator="{ on, attrs }">
-                <v-textarea
-                  v-model="dateRangeText"
-                  label="Zeitraum"
-                  prepend-icon="mdi-calendar"
-                  rows="2"
-                  readonly
-                  v-bind="attrs"
-                  v-on="on" />
-              </template>
-              <v-date-picker 
-                v-model="dates"
-                locale="de-DE"
-                range
-                no-title
-                scrollable>
-                <v-btn
-                  text
-                  color="primary"
-                  @click="resetDates(season)">
-                  {{ phrases.dialogReset }}
-                </v-btn>
-                <v-spacer />
-                <v-btn
-                  text
-                  color="primary"
-                  @click="modal = false">
-                  {{ phrases.dialogCancel }}
-                </v-btn>
-                <v-btn
-                  text
-                  color="primary"
-                  @click="$refs.dialog[0].save(dates); setDateRange(season)">
-                  {{ phrases.dialogOk }}
-                </v-btn>
-              </v-date-picker>
-            </v-dialog>
+            <Daterangepicker
+              :season="season"
+              :phrases="phrases" />
           </v-list-item-content>
         </v-list-item>
         <v-list-item>
@@ -170,8 +131,10 @@
 </template>
 
 <script>
+import Daterangepicker from './Daterangepicker';
 
 export default {
+  components: { Daterangepicker },
   props: {
     seasons: {type: Array, default(){return []}},
     turtledoves: {type: Array, default(){return []}},
@@ -181,14 +144,7 @@ export default {
   },
   data: () => ({
     menu: false,
-    modal: false,
-    dates: [],
   }),
-  computed: {
-      dateRangeText () {
-        return this.dates.join(' ~ ')
-      }
-  },
   watch: {
     backgroundmap: {
       // function(newVal, oldVal)
@@ -210,12 +166,6 @@ export default {
       }
     },
   },
-  mounted() {
-    for (const season of this.seasons) {
-      this.resetDates(season)
-      this.setDateRange(season)
-    }
-  },
   methods: {
     openLink(link) {
       if (link){
@@ -229,27 +179,6 @@ export default {
       for (const bird of season.turtledoves) {
         bird.active = newState;
       }
-    },
-    setDateRange(season) {
-      if (this.dates.length != 2) {
-        // eslint-disable-next-line
-        console.error("Range does not consist of two dates.");
-        return
-      }
-      let newDaterange = this.dates.sort().map(v => new Date(v));
-      newDaterange[1].setHours(23);
-      newDaterange[1].setMinutes(59);
-      newDaterange[1].setSeconds(59);
-      // eslint-disable-next-line no-console
-      console.log("SETTING DATERANGE: " + newDaterange);
-      season.daterange = newDaterange;
-    },
-    
-    resetDates(season) {
-      let d2 = new Date();
-      let d1 = new Date(d2.valueOf() - (86400000 * season.defaultDaterangeDays));
-      this.dates = [d1.toISOString().substr(0, 10), d2.toISOString().substr(0, 10)];
-      return [d1, d2];
     }
   }
 };
