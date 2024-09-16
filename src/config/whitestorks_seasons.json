@@ -2,61 +2,133 @@
     {
         "action": "mdi-crosshairs-gps",
         "active": true,
+        "title": "2024 / 2025",
+        "defaultDaterangeDays": 90,
+        "daterange": [],
+        "turtledoves": [
+           {
+               "active": true,
+               "color": "#30ce3b",
+               "data": "data/whitestorks/sportie-2024_2025.csv",
+               "name": "Sportie",
+               "opacity": 1
+           },
+           {
+               "active": true,
+               "color": "#fdff44",
+               "data": "data/whitestorks/friederike-2024_2025.csv",
+               "name": "Friederike",
+               "opacity": 1
+           },
+           {
+               "active": true,
+               "color": "#e62a28",
+               "data": "data/whitestorks/sonja-2024_2025.csv",
+               "name": "Sonja",
+               "opacity": 1
+           },
+           {
+               "active": true,
+               "color": "#b9140e",
+               "data": "data/whitestorks/eva-2024_2025.csv",
+               "name": "Eva",
+               "opacity": 1
+           },
+           {
+               "active": true,
+               "color": "#03b4bf",
+               "data": "data/whitestorks/else-2024_2025.csv",
+               "name": "Else",
+               "opacity": 1
+           },
+           {
+               "active": true,
+               "color": "#2c4a0c",
+               "data": "data/whitestorks/fritziii-2024_2025.csv",
+               "name": "Fritzi II",
+               "opacity": 1
+           },
+           {
+               "active": true,
+               "color": "#de2c12",
+               "data": "data/whitestorks/max-2024_2025.csv",
+               "name": "Max",
+               "opacity": 1
+           },
+           {
+               "active": true,
+               "color": "#f7af0f",
+               "data": "data/whitestorks/ole-2024_2025.csv",
+               "name": "Ole Einar /\nPrzygódka",
+               "opacity": 1
+           },
+           {
+               "active": true,
+               "color": "#e35f00",
+               "data": "data/whitestorks/pauli-2024_2025.csv",
+               "name": "Pauli",
+               "opacity": 1
+           }
+        ]
+    },
+    {
+        "action": "mdi-crosshairs-gps",
+        "active": false,
         "title": "2023 / 2024",
         "defaultDaterangeDays": 90,
         "daterange": [],
         "turtledoves": [
             {
-                "active": true,
+                "active": false,
                 "color": "#7dc66c",
                 "data": "data/whitestorks/hans-2023_2024.csv",
                 "name": "Hans Albert",
                 "opacity": 1
             },
             {
-                "active": true,
+                "active": false,
                 "color": "#e62a28",
                 "data": "data/whitestorks/sonja-2023_2024.csv",
                 "name": "Sonja",
                 "opacity": 1
             },
             {
-                "active": true,
+                "active": false,
                 "color": "#b9140e",
                 "data": "data/whitestorks/eva-2023_2024.csv",
                 "name": "Eva",
                 "opacity": 1
             },
             {
-                "active": true,
+                "active": false,
                 "color": "#03b4bf",
                 "data": "data/whitestorks/else-2023_2024.csv",
                 "name": "Else",
                 "opacity": 1
             },
             {
-                "active": true,
+                "active": false,
                 "color": "#2c4a0c",
                 "data": "data/whitestorks/fritziii-2023_2024.csv",
                 "name": "Fritzi II",
                 "opacity": 1
             },
             {
-                "active": true,
+                "active": false,
                 "color": "#de2c12",
                 "data": "data/whitestorks/max-2023_2024.csv",
                 "name": "Max",
                 "opacity": 1
             },
             {
-                "active": true,
+                "active": false,
                 "color": "#f7af0f",
                 "data": "data/whitestorks/ole-2023_2024.csv",
                 "name": "Ole Einar /\nPrzygódka",
                 "opacity": 1
             },
             {
-                "active": true,
+                "active": false,
                 "color": "#e35f00",
                 "data": "data/whitestorks/pauli-2023_2024.csv",
                 "name": "Pauli",
