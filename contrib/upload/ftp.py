@@ -59,6 +59,7 @@ def validate(args: List[str]):
     # ATTENTION: SAMPLE_RULE must be set small enough such that the points that
     # are to be picked exist.
     SAMPLE_PICK = os.getenv("SAMPLE_PICK", '["00:00"]')
+    FILL_TILL_END = True if os.getenv("FILL_TILL_END", '0').lower() in ['1', 'true'] else False
     FILTER_RECTANGLES = os.getenv("FILTER_RECTANGLES", '[]')
 
     LOG_LAST_N = int(os.getenv("LOG_LAST_N", '3'))
@@ -130,7 +131,8 @@ def validate(args: List[str]):
             # df.drop_duplicates(inplace=True) doesn't work in this DataFrame because it's a DateTimeIndex
             df = df[~df.index.duplicated(keep='first')] 
             # make sure the resampling will reach until endtime by reinserting the last row at endtime
-            df.loc[endtime] = list(df.iloc[-1])
+            if FILL_TILL_END:
+                df.loc[endtime] = list(df.iloc[-1])
             # movebank returns UTC timestamps
             df = df.tz_localize('utc').tz_convert('Europe/Berlin')
             # sample records down
