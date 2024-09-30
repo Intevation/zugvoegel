@@ -133,5 +133,23 @@
         "individual-local-identifier": "2236608066",
         "name": "Pauli",
         "sender/tag": "213056"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks/friederike.png",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/friederike/",
+        "color": "#fdff44",
+        "individual-local-identifier": "4265005056",
+        "name": "Friederike",
+        "sender/tag": "213054"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks/sportie.png",
+        "blog": "https://blogs.nabu.de/stoerche-auf-reisen/category/sportie/",
+        "color": "#30ce3b",
+        "individual-local-identifier": "3667094981",
+        "name": "Sportie",
+        "sender/tag": "213055"
     }
 ]
