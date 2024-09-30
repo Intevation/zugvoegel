@@ -55,6 +55,8 @@
         "active": false,
         "title": "2022 / 2023",
         "defaultDaterangeDays": 60,
+        "defaultDaterangeStart": "2022-08-01",
+        "defaultDaterangeEnd": "2023-07-31",
         "daterange": [],
         "turtledoves": [
             {
@@ -113,6 +115,8 @@
         "active": false,
         "title": "2021 / 2022",
         "defaultDaterangeDays": 60,
+        "defaultDaterangeStart": "2021-08-01",
+        "defaultDaterangeEnd": "2022-07-31",
         "daterange": [],
         "turtledoves": [
             {
@@ -185,6 +189,8 @@
         "active": false,
         "title": "2020 / 2021",
         "defaultDaterangeDays": 60,
+        "defaultDaterangeStart": "2020-08-01",
+        "defaultDaterangeEnd": "2021-07-31",
         "daterange": [],
         "turtledoves": [
             {
@@ -278,6 +284,8 @@
         "active": false,
         "title": "2019 / 2020",
         "defaultDaterangeDays": 60,
+        "defaultDaterangeStart": "2019-08-01",
+        "defaultDaterangeEnd": "2020-07-31",
         "daterange": [],
         "turtledoves": [
             {

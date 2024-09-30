@@ -80,19 +80,19 @@ export default {
         },
         
         resetDates() {
-            let d2 = new Date();
-
-            const years = this.season.title.split("/");
-            let yearStart = Number(years[0]);
-            let yearEnd = Number(years[1]);
-            let yearNow = d2.getFullYear();
-
-            if (yearStart <= yearNow <= yearEnd) {
-              d2.setFullYear(yearStart);
-            }
+            let d1, d2
             
+            if (this.season.defaultDaterangeEnd) {
+                d2 = new Date(this.season.defaultDaterangeEnd)
+            } else {
+                d2 = new Date();
+            }
+            if (this.season.defaultDaterangeStart) {
+                d1 = new Date(this.season.defaultDaterangeStart)
+            } else {
+                d1 = new Date(d2.valueOf() - (86400000 * this.season.defaultDaterangeDays));
+            }
 
-            let d1 = new Date(d2.valueOf() - (86400000 * this.season.defaultDaterangeDays));
             this.dates = [d1.toISOString().substr(0, 10), d2.toISOString().substr(0, 10)];
             return [d1, d2];
         },
