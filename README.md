@@ -129,3 +129,8 @@ ncftp -u $FTP_USER -p $FTP_PASSWORD ftp://$FTP_SERVER/turteltauben
 5 0 */2 * * cd /home/intevation/ && python3_venv/bin/python WhiteStorks-Hamburg/ftp.py WhiteStorks-Hamburg/whitestorks-hamburg2020_2021.env > /tmp/cron_whitestorks-hamburg2020_2021.log 2>&1
 5 1 */2 * * cd /home/intevation/ && python3_venv/bin/python turteltauben/ftp.py turteltauben/turteltauben2020_2021.env > /tmp/cron_turteltauben2020_2021.log 2>&1
 ```
+
+## Use magick to resize an image and draw a colored circle on top of it
+```shell
+magick RAW-IN.jpg -sample '45x45!' -fill transparent -stroke '#COLORX' -strokewidth 4 -draw 'circle 22,22 22,0' OUT.jpg
+```

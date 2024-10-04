@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Zwergschwan FTP",
+            "name": "Python: FTP",
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/contrib/upload/ftp.py",

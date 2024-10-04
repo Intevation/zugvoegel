@@ -111,5 +111,59 @@
         "name": "Trunca",
         "sender/tag": "8056",
         "extraInfo": "Letztes Signal am 06.04.2021. In Frankreich, kurz vor der saarländischen Grenze vermutlich tödliche Kollision mit einer Windkraftanlage."
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks_hamburg/storch13_pepe.jpg",
+        "blog": "",
+        "color": "#DE2C12",
+        "individual-local-identifier": "WhiteStork-Hamburg-13",
+        "name": "Pepe",
+        "sender/tag": "8028"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks_hamburg/storch14_tobias.jpg",
+        "blog": "",
+        "color": "#7CDEFF",
+        "individual-local-identifier": "WhiteStork-Hamburg-14",
+        "name": "Tobias",
+        "sender/tag": "8020"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks_hamburg/storch15_volker.jpg",
+        "blog": "",
+        "color": "#6D6D6D",
+        "individual-local-identifier": "WhiteStork-Hamburg-15",
+        "name": "Volker",
+        "sender/tag": "8029"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks_hamburg/storch16_peter.jpg",
+        "blog": "",
+        "color": "#DF57B7",
+        "individual-local-identifier": "WhiteStork-Hamburg-16",
+        "name": "Peter",
+        "sender/tag": "8043"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks_hamburg/storch17_marco.jpg",
+        "blog": "",
+        "color": "#12E399",
+        "individual-local-identifier": "WhiteStork-Hamburg-17",
+        "name": "Marco",
+        "sender/tag": "8045"
+    },
+    {
+        "active": true,
+        "avatar": "images/whitestorks_hamburg/storch18_hermann.jpg",
+        "blog": "",
+        "color": "#514447",
+        "individual-local-identifier": "WhiteStork-Hamburg-18",
+        "name": "Hermann",
+        "sender/tag": "8052"
     }
 ]
