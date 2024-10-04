@@ -102,104 +102,107 @@ def validate(args: List[str]):
     filter_rectangles = json.loads(FILTER_RECTANGLES)
     birds = json.loads(BIRDS)
     for bird, individual_id in birds.items():
-        if bird in ['051T', '052T']: # special handling for late birds
-            times = TIMESTAMP_START_LATE
-        else:
-            times = TIMESTAMP_START
-        logger.info("PROCESSING: " + bird + "/" + str(individual_id))
-        logger.info("Start reading " + bird + " from movebank.org")
-        # Get csv data from movebank.org
-        r = requests.get(
-            "https://www.movebank.org/movebank/service/direct-read?entity_type=event&attributes=timestamp,location_lat,location_long,visible&study_id="
-            + STUDY_ID
-            + "&timestamp_start="
-            + times
-            + endstring
-            + "&individual_id="
-            + str(individual_id)
-            # handle with caution, 
-            + sensortypestring
-            ,
-            auth=HTTPBasicAuth(MOVEBANK_USER, MOVEBANK_PASSWORD),
-            verify=False,
-        )
-        # DEBUG: write movebank response data to file before processing
-        # with open(FILE_OUT + '/' + bird + ".raw", 'w') as f:
-        #     f.write(r.text)
-
-        # Read csv
-        df = pandas.read_csv(StringIO(r.text), index_col=0, parse_dates=True)
-        do_filtering = False
-        if not df.empty:
-            log_last_n(LOG_LAST_N, df, " returned by movebank")
-
-            # pandas DataFrame operations
-            # drop rows with empty fieds
-            df.dropna(axis=0, inplace=True)
-            last = df.iloc[-1]
-            if is_in_filter_rectangles(filter_rectangles, last['location_lat'],last['location_long']):
-                # clear all points within the filter rectangles later
-                do_filtering = True
-                logger.info(bird + " was last seen in one of the filter rectangles. Filtering out points ...")
-            # resampling cannot handle duplicates
-            # df.drop_duplicates(inplace=True) doesn't work in this DataFrame because it's a DateTimeIndex
-            df = df[~df.index.duplicated(keep='first')]
-            # make sure the resampling will reach until endtime by reinserting the last row at endtime
-            # -> but only if last location was recorded within the last day.
-            days_since = (date.today() - df.tail(1).index[0].date()).days
-            if days_since < 1:
-                df.loc[endtime] = list(df.iloc[-1])
-            # movebank returns UTC timestamps
-            df = df.tz_localize('utc').tz_convert('Europe/Berlin')
-            # sample records down
-            df = df.resample(SAMPLE_RULE).nearest().dropna(thresh=2)
-
-
-
-            # pick out desired data (SAMPLE_PICK)
-            picked_df = []
-            for t in sample_pick:
-                picked_df.append(df.at_time(t))
-            df = pandas.concat(picked_df).sort_index()
-            if df.empty:
-                logger.warn('No data could be sampled for ' + bird + '. Ensure SAMPLE_RULE provides enough data for SAMPLE_PICK')
-            if do_filtering:
-                df = df.apply(lambda x:
-                    None if
-                    is_in_filter_rectangles(filter_rectangles, x['location_lat'], x['location_long'])
-                    else x, axis=1, result_type='broadcast')
-            df.dropna(axis=0, inplace=True)
-            log_last_n(LOG_LAST_N, df, " after processing")
-        # output
-        output = StringIO()
-        # export to csv
-        df.to_csv(output)
-        # Retrieve file content
-        content = output.getvalue()
-        # Close object and discard memory buffer --
-        # .getvalue() will now raise an exception.
-        output.close()
-        # Create "csv file"
-        csv_file = io.BytesIO(str.encode(content))
-        # Store file on ftp
-        if ftp is not None:
-            ftp.storbinary("STOR " + bird + CSV_FILE_POSTFIX, csv_file)
-            logger.info(
-                "Stored "
-                + bird
-                + CSV_FILE_POSTFIX
-                + " on ftp://"
-                + FTP_USER
-                + ":PASSWORD@"
-                + FTP_HOST
-                + "/"
-                + FTP_PATH
+        try:
+            if bird in ['051T', '052T']: # special handling for late birds
+                times = TIMESTAMP_START_LATE
+            else:
+                times = TIMESTAMP_START
+            logger.info("PROCESSING: " + bird + "/" + str(individual_id))
+            logger.info("Start reading " + bird + " from movebank.org")
+            # Get csv data from movebank.org
+            r = requests.get(
+                "https://www.movebank.org/movebank/service/direct-read?entity_type=event&attributes=timestamp,location_lat,location_long,visible&study_id="
+                + STUDY_ID
+                + "&timestamp_start="
+                + times
+                + endstring
+                + "&individual_id="
+                + str(individual_id)
+                # handle with caution,
+                + sensortypestring
+                ,
+                auth=HTTPBasicAuth(MOVEBANK_USER, MOVEBANK_PASSWORD),
+                verify=False,
             )
-        if FILE_OUT is not None:
-            with open(FILE_OUT + '/' + bird + CSV_FILE_POSTFIX, 'w') as f:
-                f.write(content)
-                logger.info("Saved file " + FILE_OUT + '/' + bird + CSV_FILE_POSTFIX)
-        logger.info("-----------------")
+            # DEBUG: write movebank response data to file before processing
+            # with open(FILE_OUT + '/' + bird + ".raw", 'w') as f:
+            #     f.write(r.text)
+
+            # Read csv
+            df = pandas.read_csv(StringIO(r.text), index_col=0, parse_dates=True)
+            do_filtering = False
+            if not df.empty:
+                log_last_n(LOG_LAST_N, df, " returned by movebank")
+
+                # pandas DataFrame operations
+                # drop rows with empty fieds
+                df.dropna(axis=0, inplace=True)
+                last = df.iloc[-1]
+                if is_in_filter_rectangles(filter_rectangles, last['location_lat'],last['location_long']):
+                    # clear all points within the filter rectangles later
+                    do_filtering = True
+                    logger.info(bird + " was last seen in one of the filter rectangles. Filtering out points ...")
+                # resampling cannot handle duplicates
+                # df.drop_duplicates(inplace=True) doesn't work in this DataFrame because it's a DateTimeIndex
+                df = df[~df.index.duplicated(keep='first')]
+                # make sure the resampling will reach until endtime by reinserting the last row at endtime
+                # -> but only if last location was recorded within the last day.
+                days_since = (date.today() - df.tail(1).index[0].date()).days
+                if days_since < 1:
+                    df.loc[endtime] = list(df.iloc[-1])
+                # movebank returns UTC timestamps
+                df = df.tz_localize('utc').tz_convert('Europe/Berlin')
+                # sample records down
+                df = df.resample(SAMPLE_RULE).nearest().dropna(thresh=2)
+
+
+
+                # pick out desired data (SAMPLE_PICK)
+                picked_df = []
+                for t in sample_pick:
+                    picked_df.append(df.at_time(t))
+                df = pandas.concat(picked_df).sort_index()
+                if df.empty:
+                    logger.warn('No data could be sampled for ' + bird + '. Ensure SAMPLE_RULE provides enough data for SAMPLE_PICK')
+                if do_filtering:
+                    df = df.apply(lambda x:
+                        None if
+                        is_in_filter_rectangles(filter_rectangles, x['location_lat'], x['location_long'])
+                        else x, axis=1, result_type='broadcast')
+                df.dropna(axis=0, inplace=True)
+                log_last_n(LOG_LAST_N, df, " after processing")
+            # output
+            output = StringIO()
+            # export to csv
+            df.to_csv(output)
+            # Retrieve file content
+            content = output.getvalue()
+            # Close object and discard memory buffer --
+            # .getvalue() will now raise an exception.
+            output.close()
+            # Create "csv file"
+            csv_file = io.BytesIO(str.encode(content))
+            # Store file on ftp
+            if ftp is not None:
+                ftp.storbinary("STOR " + bird + CSV_FILE_POSTFIX, csv_file)
+                logger.info(
+                    "Stored "
+                    + bird
+                    + CSV_FILE_POSTFIX
+                    + " on ftp://"
+                    + FTP_USER
+                    + ":PASSWORD@"
+                    + FTP_HOST
+                    + "/"
+                    + FTP_PATH
+                )
+            if FILE_OUT is not None:
+                with open(FILE_OUT + '/' + bird + CSV_FILE_POSTFIX, 'w') as f:
+                    f.write(content)
+                    logger.info("Saved file " + FILE_OUT + '/' + bird + CSV_FILE_POSTFIX)
+            logger.info("-----------------")
+        except Exception as e:
+            logger.error("EXCEPTION: " + str (e))
     if ftp is not None:
         ftp.quit()
     logger.info("Done")
