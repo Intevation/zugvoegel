@@ -104,14 +104,6 @@
       },
       {
         "active": true,
-        "color": "#1B4400",
-        "data": "data/zwergschwan/030T-2425.csv",
-        "name": "Thor",
-        "id": "(030T)",
-        "opacity": 1
-      },
-      {
-        "active": true,
         "color": "#4FC601",
         "data": "data/zwergschwan/031T-2425.csv",
         "name": "Kopernikus",
@@ -184,14 +176,6 @@
       },
       {
         "active": true,
-        "color": "#000035",
-        "data": "data/zwergschwan/044T-2425.csv",
-        "name": "Rasputin",
-        "id": "(044T)",
-        "opacity": 1
-      },
-      {
-        "active": true,
         "color": "#7B4F4B",
         "data": "data/zwergschwan/045T-2425.csv",
         "name": "Tschaika",
@@ -252,22 +236,6 @@
         "data": "data/zwergschwan/055T-2425.csv",
         "name": "Johannes",
         "id": "(055T)",
-        "opacity": 1
-      },
-      {
-        "active": true,
-        "color": "#4A9E8A",
-        "data": "data/zwergschwan/056T-2425.csv",
-        "name": "Hans-Joachim",
-        "id": "(056T)",
-        "opacity": 1
-      },
-      {
-        "active": true,
-        "color": "#D39700",
-        "data": "data/zwergschwan/350E-2425.csv",
-        "name": "Rascha",
-        "id": "(350E)",
         "opacity": 1
       },
       {
@@ -376,14 +344,6 @@
       },
       {
         "active": true,
-        "color": "#BA3042",
-        "data": "data/zwergschwan/369E-2425.csv",
-        "name": "Heiko",
-        "id": "(369E)",
-        "opacity": 1
-      },
-      {
-        "active": true,
         "color": "#9909C1",
         "data": "data/zwergschwan/370E-2425.csv",
         "name": "Esther",
@@ -420,14 +380,6 @@
         "data": "data/zwergschwan/375E-2425.csv",
         "name": "Natalie",
         "id": "(375E)",
-        "opacity": 1
-      },
-      {
-        "active": true,
-        "color": "#E8BF68",
-        "data": "data/zwergschwan/376E-2425.csv",
-        "name": "Herrmann",
-        "id": "(376E)",
         "opacity": 1
       },
       {
