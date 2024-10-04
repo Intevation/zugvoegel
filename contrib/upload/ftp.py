@@ -11,7 +11,7 @@ from io import StringIO
 import io
 import pandas
 import urllib3
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, date
 
 
 urllib3.disable_warnings()
@@ -54,13 +54,12 @@ def validate(args: List[str]):
     TIMESTAMP_DELAY = int(os.getenv("TIMESTAMP_DELAY", '0'))
     # rule for sampling geo data (https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.resample.html)
     # default '24H' means "sample every 24 hours", i.e. one day
-    SAMPLE_RULE = os.getenv("SAMPLE_RULE", "24H")
+    SAMPLE_RULE = os.getenv("SAMPLE_RULE", "24h")
     # Sampling can only create evenly distributed datapoints in time. So we use
     # another array to pick from those.
     # ATTENTION: SAMPLE_RULE must be set small enough such that the points that
     # are to be picked exist.
     SAMPLE_PICK = os.getenv("SAMPLE_PICK", '["00:00"]')
-    FILL_TILL_END = True if os.getenv("FILL_TILL_END", '0').lower() in ['1', 'true'] else False
     FILTER_RECTANGLES = os.getenv("FILTER_RECTANGLES", '[]')
 
     LOG_LAST_N = int(os.getenv("LOG_LAST_N", '3'))
@@ -144,9 +143,11 @@ def validate(args: List[str]):
                 logger.info(bird + " was last seen in one of the filter rectangles. Filtering out points ...")
             # resampling cannot handle duplicates
             # df.drop_duplicates(inplace=True) doesn't work in this DataFrame because it's a DateTimeIndex
-            df = df[~df.index.duplicated(keep='first')] 
+            df = df[~df.index.duplicated(keep='first')]
             # make sure the resampling will reach until endtime by reinserting the last row at endtime
-            if FILL_TILL_END:
+            # -> but only if last location was recorded within the last day.
+            days_since = (date.today() - df.tail(1).index[0].date()).days
+            if days_since < 1:
                 df.loc[endtime] = list(df.iloc[-1])
             # movebank returns UTC timestamps
             df = df.tz_localize('utc').tz_convert('Europe/Berlin')
@@ -166,7 +167,7 @@ def validate(args: List[str]):
                 df = df.apply(lambda x:
                     None if
                     is_in_filter_rectangles(filter_rectangles, x['location_lat'], x['location_long'])
-                    else x, axis=1)
+                    else x, axis=1, result_type='broadcast')
             df.dropna(axis=0, inplace=True)
             log_last_n(LOG_LAST_N, df, " after processing")
         # output
@@ -203,7 +204,6 @@ def validate(args: List[str]):
         ftp.quit()
     logger.info("Done")
 
-
 def is_in_filter_rectangles(filter, lat, lon):
     if filter is None or len(filter) == 0:
         return False
@@ -226,7 +226,10 @@ def log_last_n(n, df, s):
         logger.info("Last " + str(n) + " locations" + s + ": ")
         for i in reversed(range(n)):
             d = df.iloc[-1 - i]
-            logger.info("  #(N-" + str(i) + "): " + str(d.name) + " (lat: " + str(d["location_lat"]) + " ,lon: " + str(d["location_long"]) + ")")
+            logger.info("  #(N-" + str(i) + "): " +
+                str(d.name or "name:error") +
+                " (lat: " + str(d["location_lat"] or "lat:error") +
+                " ,lon: " + str(d["location_long"] or "lon:error") + ")")
 
 
 def main() -> None:

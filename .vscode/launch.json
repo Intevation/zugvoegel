@@ -6,10 +6,10 @@
     "configurations": [
         {
             "name": "Python: Zwergschwan FTP",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/contrib/upload/ftp.py",
-            "args": [".env.local"],
+            "args": ["env.local"],
             "console": "integratedTerminal",
             "justMyCode": true
         }
