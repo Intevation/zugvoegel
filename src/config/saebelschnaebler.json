@@ -11,7 +11,7 @@
 
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "230487",
     "avatar": "images/saebelschnaebler/056T.png",
     "color": "#1CE6FF",
@@ -27,5 +27,14 @@
     "name": "Lenia",
     "id": "(PIAV-5442644-Oland)",
     "individual-local-identifier": "3691751554"
+  },
+  {
+    "active": true,
+    "sender/tag": "243447",
+    "avatar": "images/saebelschnaebler/PIAV-5378107-BHKoog.png",
+    "color": "#1CE6FF",
+    "name": "Gravidus",
+    "id": "(PIAV-5378107-BHKoog)",
+    "individual-local-identifier": "3817172371"
   }
 ]
