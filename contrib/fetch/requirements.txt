@@ -1,0 +1,5 @@
+requests[security]
+#pandas
+python-dateutil
+python-dotenv
+psycopg[binary]
