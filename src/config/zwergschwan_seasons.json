@@ -240,6 +240,182 @@
       },
       {
         "active": true,
+        "color": "#31BC7B",
+        "data": "data/zwergschwan/057T-2425.csv",
+        "name": "057T",
+        "id": "(057T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#5E5EE5",
+        "data": "data/zwergschwan/058T-2425.csv",
+        "name": "058T",
+        "id": "(058T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#2D369B",
+        "data": "data/zwergschwan/059T-2425.csv",
+        "name": "059T",
+        "id": "(059T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#C7D10E",
+        "data": "data/zwergschwan/061T-2425.csv",
+        "name": "061T",
+        "id": "(061T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#049312",
+        "data": "data/zwergschwan/062T-2425.csv",
+        "name": "062T",
+        "id": "(062T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#BF170B",
+        "data": "data/zwergschwan/063T-2425.csv",
+        "name": "063T",
+        "id": "(063T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#40F7C6",
+        "data": "data/zwergschwan/064T-2425.csv",
+        "name": "064T",
+        "id": "(064T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#BA3042",
+        "data": "data/zwergschwan/065T-2425.csv",
+        "name": "065T",
+        "id": "(065T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#9909C1",
+        "data": "data/zwergschwan/066T-2425.csv",
+        "name": "066T",
+        "id": "(066T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#BA4E3D",
+        "data": "data/zwergschwan/067T-2425.csv",
+        "name": "067T",
+        "id": "(067T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#35A6BA",
+        "data": "data/zwergschwan/068T-2425.csv",
+        "name": "068T",
+        "id": "(068T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#F70090",
+        "data": "data/zwergschwan/069T-2425.csv",
+        "name": "069T",
+        "id": "(069T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#400E82",
+        "data": "data/zwergschwan/300T-2425.csv",
+        "name": "300T",
+        "id": "(300T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#A912EA",
+        "data": "data/zwergschwan/301T-2425.csv",
+        "name": "301T",
+        "id": "(301T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#E8BF68",
+        "data": "data/zwergschwan/302T-2425.csv",
+        "name": "302T",
+        "id": "(302T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#204182",
+        "data": "data/zwergschwan/303T-2425.csv",
+        "name": "303T",
+        "id": "(303T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#E0D42A",
+        "data": "data/zwergschwan/304T-2425.csv",
+        "name": "304T",
+        "id": "(304T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#1EBC5A",
+        "data": "data/zwergschwan/305T-2425.csv",
+        "name": "305T",
+        "id": "(305T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#4E2D9B",
+        "data": "data/zwergschwan/306T-2425.csv",
+        "name": "306T",
+        "id": "(306T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#4E2D9B",
+        "data": "data/zwergschwan/307T-2425.csv",
+        "name": "307T",
+        "id": "(307T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#4E2D9B",
+        "data": "data/zwergschwan/308T-2425.csv",
+        "name": "308T",
+        "id": "(308T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
+        "color": "#4E2D9B",
+        "data": "data/zwergschwan/309T-2425.csv",
+        "name": "309T",
+        "id": "(309T)",
+        "opacity": 1
+      },
+      {
+        "active": true,
         "color": "#05ADAA",
         "data": "data/zwergschwan/351E-2425.csv",
         "name": "Jane",
