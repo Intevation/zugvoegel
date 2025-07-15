@@ -2,8 +2,8 @@
     {
         "action": "mdi-crosshairs-gps",
         "active": true,
-        "title": "2024 / 2025",
-        "defaultDaterangeStart": "2024-08-01",
+        "title": "2025 / 2026",
+        "defaultDaterangeStart": "2025-08-01",
         "daterange": [],
         "turtledoves": [
             {
@@ -78,6 +78,92 @@
             },
             {
                 "active": true,
+                "color": "#514447",
+                "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-18-2024_2025.csv",
+                "name": "Hermann",
+                "opacity": 1
+            }
+        ]
+    },
+    {
+        "action": "mdi-crosshairs-gps",
+        "active": false,
+        "title": "2024 / 2025",
+        "defaultDaterangeStart": "2024-08-01",
+        "daterange": [],
+        "turtledoves": [
+            {
+                "active": false,
+                "color": "#ffff01",
+                "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-02-2024_2025.csv",
+                "name": "Alexander",
+                "opacity": 1
+            },
+            {
+                "active": false,
+                "color": "#66642B",
+                "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-09-2024_2025.csv",
+                "name": "Christian-Eike",
+                "opacity": 1
+            },
+            {
+                "active": false,
+                "color": "#0b7ac1",
+                "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-05-2024_2025.csv",
+                "name": "Hanne",
+                "opacity": 1
+            },
+            {
+                "active": false,
+                "color": "#8102b3",
+                "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-03-2024_2025.csv",
+                "name": "Jan",
+                "opacity": 1
+            },
+            {
+                "active": false,
+                "color": "#CFCF63",
+                "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-08-2024_2025.csv",
+                "name": "Michael",
+                "opacity": 1
+            },
+            {
+                "active": false,
+                "color": "#de2c12",
+                "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-13-2024_2025.csv",
+                "name": "Pepe",
+                "opacity": 1
+            },
+            {
+                "active": false,
+                "color": "#7cdeff",
+                "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-14-2024_2025.csv",
+                "name": "Tobias",
+                "opacity": 1
+            },
+            {
+                "active": false,
+                "color": "#6d6d6d",
+                "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-15-2024_2025.csv",
+                "name": "Volker",
+                "opacity": 1
+            },
+            {
+                "active": false,
+                "color": "#df57b7",
+                "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-16-2024_2025.csv",
+                "name": "Peter",
+                "opacity": 1
+            },
+            {
+                "active": false,
+                "color": "#12e399",
+                "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-17-2024_2025.csv",
+                "name": "Marco",
+                "opacity": 1
+            },
+            {
+                "active": false,
                 "color": "#514447",
                 "data": "data/whitestorks-hamburg/WhiteStork-Hamburg-18-2024_2025.csv",
                 "name": "Hermann",
