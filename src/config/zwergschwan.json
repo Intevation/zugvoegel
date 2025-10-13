@@ -1,6 +1,6 @@
 [
   {
-    "active": true,
+    "active": false,
     "sender/tag": "214396",
     "avatar": "images/zwergschwan/011T.png",
     "color": "#000000",
@@ -18,7 +18,7 @@
     "individual-local-identifier": "1866842020"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "214399",
     "avatar": "images/zwergschwan/014T.png",
     "color": "#FF34FF",
@@ -54,7 +54,7 @@
     "individual-local-identifier": "1852469486"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "214403",
     "avatar": "images/zwergschwan/018T.png",
     "color": "#A30059",
@@ -72,7 +72,7 @@
     "individual-local-identifier": "1830850775"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "214405",
     "avatar": "images/zwergschwan/020T.png",
     "color": "#7A4900",
@@ -135,7 +135,7 @@
     "individual-local-identifier": "1830859600"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "214415",
     "avatar": "images/zwergschwan/030T.png",
     "color": "#1B4400",
@@ -171,7 +171,7 @@
     "individual-local-identifier": "1866832837"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "214420",
     "avatar": "images/zwergschwan/035T.png",
     "color": "#61615A",
@@ -225,7 +225,7 @@
     "individual-local-identifier": "1866836728"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "214426",
     "avatar": "images/zwergschwan/041T.png",
     "color": "#B903AA",
@@ -234,7 +234,7 @@
     "individual-local-identifier": "1866839937"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "214428",
     "avatar": "images/zwergschwan/043T.png",
     "color": "#DDEFFF",
@@ -243,7 +243,7 @@
     "individual-local-identifier": "1866831122"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "214429",
     "avatar": "images/zwergschwan/044T.png",
     "color": "#000035",
@@ -297,7 +297,7 @@
     "individual-local-identifier": "1866833095"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "214412",
     "avatar": "images/zwergschwan/027T.png",
     "color": "#5A0007",
@@ -342,7 +342,7 @@
     "individual-local-identifier": "2577413705"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "214417",
     "avatar": "images/zwergschwan/056T.jpg",
     "color": "#4A9E8A",
@@ -355,7 +355,7 @@
     "sender/tag": "248057",
     "avatar": "images/zwergschwan/057T.jpg",
     "color": "#31BC7B",
-    "name": "057T",
+    "name": "Beek",
     "id": "(057T)",
     "individual-local-identifier": "5409521210"
   },
@@ -364,7 +364,7 @@
     "sender/tag": "214403",
     "avatar": "images/zwergschwan/058T.jpg",
     "color": "#5E5EE5",
-    "name": "058T",
+    "name": "Faye",
     "id": "(058T)",
     "individual-local-identifier": "5483145481"
   },
@@ -373,7 +373,7 @@
     "sender/tag": "248059",
     "avatar": "images/zwergschwan/059T.jpg",
     "color": "#2D369B",
-    "name": "059T",
+    "name": "Nichola",
     "id": "(059T)",
     "individual-local-identifier": "5505453948"
   },
@@ -382,7 +382,7 @@
     "sender/tag": "248061",
     "avatar": "images/zwergschwan/061T.jpg",
     "color": "#C7D10E",
-    "name": "061T",
+    "name": "Lucy",
     "id": "(061T)",
     "individual-local-identifier": "5409510826"
   },
@@ -391,7 +391,7 @@
     "sender/tag": "248062",
     "avatar": "images/zwergschwan/062T.jpg",
     "color": "#049312",
-    "name": "062T",
+    "name": "Janina",
     "id": "(062T)",
     "individual-local-identifier": "5409525108"
   },
@@ -400,7 +400,7 @@
     "sender/tag": "248063",
     "avatar": "images/zwergschwan/063T.jpg",
     "color": "#BF170B",
-    "name": "063T",
+    "name": "Maryta",
     "id": "(063T)",
     "individual-local-identifier": "5409529240"
   },
@@ -409,7 +409,7 @@
     "sender/tag": "248064",
     "avatar": "images/zwergschwan/064T.jpg",
     "color": "#40F7C6",
-    "name": "064T",
+    "name": "Götz",
     "id": "(064T)",
     "individual-local-identifier": "5409516114"
   },
@@ -418,7 +418,7 @@
     "sender/tag": "248065",
     "avatar": "images/zwergschwan/065T.jpg",
     "color": "#BA3042",
-    "name": "065T",
+    "name": "Yvonne",
     "id": "(065T)",
     "individual-local-identifier": "5409546873"
   },
@@ -427,7 +427,7 @@
     "sender/tag": "248066",
     "avatar": "images/zwergschwan/066T.jpg",
     "color": "#9909C1",
-    "name": "066T",
+    "name": "Laura",
     "id": "(066T)",
     "individual-local-identifier": "5409559514"
   },
@@ -436,7 +436,7 @@
     "sender/tag": "248067",
     "avatar": "images/zwergschwan/067T.jpg",
     "color": "#BA4E3D",
-    "name": "067T",
+    "name": "Ira",
     "id": "(067T)",
     "individual-local-identifier": "5409553038"
   },
@@ -445,7 +445,7 @@
     "sender/tag": "248068",
     "avatar": "images/zwergschwan/068T.jpg",
     "color": "#35A6BA",
-    "name": "068T",
+    "name": "Andreas",
     "id": "(068T)",
     "individual-local-identifier": "5409572378"
   },
@@ -454,7 +454,7 @@
     "sender/tag": "248069",
     "avatar": "images/zwergschwan/069T.jpg",
     "color": "#F70090",
-    "name": "069T",
+    "name": "Nadine",
     "id": "(069T)",
     "individual-local-identifier": "5409564169"
   },
@@ -463,7 +463,7 @@
     "sender/tag": "248054",
     "avatar": "images/zwergschwan/300T.jpg",
     "color": "#400E82",
-    "name": "300T",
+    "name": "Agnieszka",
     "id": "(300T)",
     "individual-local-identifier": "5205204691"
   },
@@ -472,7 +472,7 @@
     "sender/tag": "248055",
     "avatar": "images/zwergschwan/301T.jpg",
     "color": "#A912EA",
-    "name": "301T",
+    "name": "Philip",
     "id": "(301T)",
     "individual-local-identifier": "5205223970"
   },
@@ -481,7 +481,7 @@
     "sender/tag": "248051",
     "avatar": "images/zwergschwan/302T.jpg",
     "color": "#E8BF68",
-    "name": "302T",
+    "name": "Svea",
     "id": "(302T)",
     "individual-local-identifier": "5409568780"
   },
@@ -490,7 +490,7 @@
     "sender/tag": "248052",
     "avatar": "images/zwergschwan/303T.jpg",
     "color": "#204182",
-    "name": "303T",
+    "name": "Lennart",
     "id": "(303T)",
     "individual-local-identifier": "5409537000"
   },
@@ -499,7 +499,7 @@
     "sender/tag": "248060",
     "avatar": "images/zwergschwan/304T.jpg",
     "color": "#E0D42A",
-    "name": "304T",
+    "name": "Jenke",
     "id": "(304T)",
     "individual-local-identifier": "5409487509"
   },
@@ -508,7 +508,7 @@
     "sender/tag": "248053",
     "avatar": "images/zwergschwan/305T.jpg",
     "color": "#1EBC5A",
-    "name": "305T",
+    "name": "Stefan",
     "id": "(305T)",
     "individual-local-identifier": "5483129158"
   },
@@ -517,7 +517,7 @@
     "sender/tag": "249710",
     "avatar": "images/zwergschwan/306T.jpg",
     "color": "#4E2D9B",
-    "name": "306T",
+    "name": "Jasmin",
     "id": "(306T)",
     "individual-local-identifier": "5483131415"
   },
@@ -526,7 +526,7 @@
     "sender/tag": "248049",
     "avatar": "images/zwergschwan/307T.jpg",
     "color": "#4E2D9B",
-    "name": "307T",
+    "name": "Kim",
     "id": "(307T)",
     "individual-local-identifier": "5483134343"
   },
@@ -535,7 +535,7 @@
     "sender/tag": "248058",
     "avatar": "images/zwergschwan/308T.jpg",
     "color": "#4E2D9B",
-    "name": "308T",
+    "name": "Bine",
     "id": "(308T)",
     "individual-local-identifier": "5483135329"
   },
@@ -544,12 +544,12 @@
     "sender/tag": "214436",
     "avatar": "images/zwergschwan/309T.jpg",
     "color": "#4E2D9B",
-    "name": "309T",
+    "name": "Nicole",
     "id": "(309T)",
     "individual-local-identifier": "5483136954"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "202927",
     "avatar": "images/zwergschwan/350E.png",
     "color": "#D39700",
@@ -558,7 +558,7 @@
     "individual-local-identifier": "1893526565"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "202928",
     "avatar": "images/zwergschwan/351E.png",
     "color": "#05ADAA",
@@ -567,7 +567,7 @@
     "individual-local-identifier": "1893527839"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "202930",
     "avatar": "images/zwergschwan/353E.png",
     "color": "#C10777",
@@ -594,7 +594,7 @@
     "individual-local-identifier": "1893535154"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "202934",
     "avatar": "images/zwergschwan/357E.png",
     "color": "#BA7500",
@@ -603,7 +603,7 @@
     "individual-local-identifier": "1893535282"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "202936",
     "avatar": "images/zwergschwan/359E.png",
     "color": "#E01D8B",
@@ -621,7 +621,7 @@
     "individual-local-identifier": "2585321342"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "202938",
     "avatar": "images/zwergschwan/361E.png",
     "color": "#5E5EE5",
@@ -675,7 +675,7 @@
     "individual-local-identifier": "1893536713"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "202946",
     "avatar": "images/zwergschwan/369E.png",
     "color": "#BA3042",
@@ -693,7 +693,7 @@
     "individual-local-identifier": "1911536182"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "215919",
     "avatar": "images/zwergschwan/371E.png",
     "color": "#BA4E3D",
@@ -738,7 +738,7 @@
     "individual-local-identifier": "1911537158"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "215924",
     "avatar": "images/zwergschwan/376E.png",
     "color": "#E8BF68",
@@ -747,7 +747,7 @@
     "individual-local-identifier": "1911537445"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "215927",
     "avatar": "images/zwergschwan/379E.png",
     "color": "#204182",
@@ -765,7 +765,7 @@
     "individual-local-identifier": "1922057789"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "215929",
     "avatar": "images/zwergschwan/381E.png",
     "color": "#1EBC5A",
