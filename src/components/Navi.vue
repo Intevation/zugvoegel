@@ -11,6 +11,17 @@
           <v-list-item-title>{{ phrases.routes }}</v-list-item-title>
         </v-list-item-content>
       </template>
+      <v-list-item class="lessPadding">
+        <v-list-item-content class="extraButton">
+          <v-list-item-title>{{ 'Visual routes' }}</v-list-item-title>
+        </v-list-item-content>
+        <v-list-item-action>
+          <v-switch 
+            v-model="dummy_showlines"
+            :color="'#f22411'"
+            inset />
+        </v-list-item-action>
+      </v-list-item>
       <v-list-group
         v-for="season in seasons"
         :key="season.title"
@@ -140,11 +151,24 @@ export default {
     turtledoves: {type: Array, default(){return []}},
     phrases: {type: Object, default(){return {}}},
     backgroundmap: {type: String, default(){return "osm"}},
-    language: {type: String, default(){return ""}}
+    language: {type: String, default(){return ""}},
+    showlines: Boolean,
   },
   data: () => ({
     menu: false,
   }),
+  computed: {
+    dummy_showlines: {
+      // getter
+      get: function () {
+        return this.showlines;
+      },
+      // setter
+      set: function (newValue) {
+        this.showlines = newValue
+      }
+    }
+  },
   watch: {
     backgroundmap: {
       // function(newVal, oldVal)
@@ -165,6 +189,9 @@ export default {
         this.$emit("update:language", "en");
       }
     },
+    showlines: function(newVal) {
+      this.$emit("update:showlines", newVal);
+    }
   },
   methods: {
     openLink(link) {
@@ -200,5 +227,13 @@ export default {
 }
 .v-list-item__subtitle {
     font-size: small;
+}
+.extraButton {
+  margin-left: 25px;
+  font-weight: thin;
+  color: black;
+}
+.lessPadding {
+  padding-left: 10px !important;
 }
 </style>
