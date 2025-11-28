@@ -19,5 +19,6 @@
     "dialogOk": "OK",
     "dialogCancel": "Abbrechen",
     "dialogReset": "Standard",
-    "snackbarText": "Keine Daten in diesem Zeitraum"
+    "snackbarText": "Keine Daten in diesem Zeitraum",
+    "visualroutes": "Routen anzeigen"
 }

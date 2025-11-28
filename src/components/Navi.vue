@@ -13,7 +13,7 @@
       </template>
       <v-list-item class="lessPadding">
         <v-list-item-content class="extraButton">
-          <v-list-item-title>{{ 'Visual routes' }}</v-list-item-title>
+          <v-list-item-title>{{ phrases.visualroutes }}</v-list-item-title>
         </v-list-item-content>
         <v-list-item-action>
           <v-switch 
