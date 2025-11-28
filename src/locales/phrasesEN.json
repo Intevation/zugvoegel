@@ -19,5 +19,6 @@
     "dialogOk": "OK",
     "dialogCancel": "Cancel",
     "dialogReset": "Reset",
-    "snackbarText": "No data in this timespan"
+    "snackbarText": "No data in this timespan",
+    "visualroutes": "Show routes"
 }

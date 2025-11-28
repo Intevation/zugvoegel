@@ -112,14 +112,6 @@
       },
       {
         "active": true,
-        "color": "#DDEFFF",
-        "data": "data/zwergschwan/043T-2526.csv",
-        "name": "Doro",
-        "id": "(043T)",
-        "opacity": 1
-      },
-      {
-        "active": true,
         "color": "#7B4F4B",
         "data": "data/zwergschwan/045T-2526.csv",
         "name": "Tschaika",
@@ -215,7 +207,7 @@
         "opacity": 1
       },
       {
-        "active": true,
+        "active": false,
         "color": "#BF170B",
         "data": "data/zwergschwan/063T-2526.csv",
         "name": "Maryta",
