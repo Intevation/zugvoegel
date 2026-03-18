@@ -12,6 +12,7 @@
         :seasons.sync="seasons"
         :turtledoves.sync="turtledoves"
         :backgroundmap.sync="backgroundmap"
+        :showlines.sync="showlines"
         :language.sync="language" />
     </v-navigation-drawer>
 
@@ -23,6 +24,7 @@
         :turtledoves.sync="turtledoves"
         :phrases="phrases"
         :backgroundmap.sync="backgroundmap"
+        :showlines.sync="showlines"
         :mini.sync="mini" />
     </v-content>
   </v-app>
@@ -48,8 +50,21 @@ export default {
     backgroundmap: "osm",
     seasons: seasons,
     turtledoves: turtledoves,
+    showlines: false,
     language: ""
   }),
+  computed: {
+    dummy_showlines: {
+      // getter
+      get: function () {
+        return this.data.showlines;
+      },
+      // setter
+      set: function (newValue) {
+        this.showlines = newValue
+      }
+    }
+  },
   watch: {
     // function(newVal, oldVal)
     language: function(newVal) {

@@ -33,6 +33,7 @@ export default {
     turtledoves: {type: Array, default(){return []}},
     phrases: {type: Object, default(){return {}}},
     backgroundmap: {type: String, default(){return "osm"}},
+    showlines: Boolean,
     mini: Boolean
   },
   data: () => ({
@@ -68,6 +69,10 @@ export default {
       },
       immediate: false
     },
+    showlines: function(newVal) {
+      this.$emit("update:showlines", newVal);
+      this.updateAllBirds(true)
+    },
     //// Layertree logic
     //layerGroups: {
     //  // function(newVal, oldVal)
@@ -77,52 +82,7 @@ export default {
     //},
     seasons: {
       handler: function() {
-        for (const season of this.seasons) {
-          // skip initial paint, Navi will set the daterange on 'mounted' to trigger it
-          if (season.daterange.length == 0) {
-            continue;
-          }
-          let dateChanged = this.daterangeOld[season.title] != undefined &&
-              !(season.daterange.length == this.daterangeOld[season.title].length &&
-                season.daterange.every((v, i) => this.daterangeOld[season.title].indexOf(v) == i));
-          for (const bird of season.turtledoves) {
-            var layerGroupObject = this.layerGroups.filter(
-              e => e.data === bird.data
-            );
-            let currentlyPainted = layerGroupObject.length > 0;
-
-            if (dateChanged) {
-              // eslint-disable-next-line no-console
-              console.log("DATE CHANGED (season: " + season.title + ", bird: " + bird.name + ")");
-            }
-
-            // Clear bird layers
-            if (!bird.active || dateChanged) {
-              if (currentlyPainted) {
-                // eslint-disable-next-line no-console
-                console.log("CLEAR BIRD (season: " + season.title + ", bird: " + bird.name + ")");
-                var lg = this.layerGroups.filter(function(td) {
-                  return td.data == bird.data;
-                })[0];
-                lg.group.removeFrom(this.map);
-                lg.group.clearLayers();
-                this.layerGroups = this.layerGroups.filter(
-                  item => item !== layerGroupObject[0]
-                );
-                currentlyPainted = false;
-              }
-            }
-
-            // process and paint birds
-            if (bird.active && !currentlyPainted) {
-              // eslint-disable-next-line no-console
-              console.log("PAINT BIRD (season: " + season.title + ", bird: " + bird.name + ")");
-              this.processBird(bird, season.daterange);
-            }
-
-          }
-          this.daterangeOld[season.title] = season.daterange;
-        }
+        this.updateAllBirds()
       },
       // because of array
       deep: true,
@@ -239,7 +199,7 @@ export default {
         radius: 5,
         fillColor: bird.color,
         weight: 0,
-        fillOpacity: bird.opacity
+        fillOpacity: this.showlines ? bird.opacity : 0
       };
 
       csv2geojson.csv2geojson(
@@ -354,7 +314,7 @@ export default {
                     pixelSize: 10,
                     pathOptions: {
                       color: bird.color,
-                      fillOpacity: bird.opacity,
+                      fillOpacity: this.showlines ? bird.opacity : 0,
                       weight: 0
                     }
                   })
@@ -363,7 +323,7 @@ export default {
             };
             var decorator = L.polylineDecorator(polyline, decOptions);
             featuregroup.push(decorator);
-            var polyline = L.polyline(coords, {color: bird.color,weight: 1});
+            var polyline = L.polyline(coords, {color: bird.color, weight: this.showlines ? 1 : 0});
             featuregroup.push(polyline);
             featuregroup.push(L.polylineDecorator(polyline, decOptions));
             var group = L.featureGroup(featuregroup);
@@ -373,6 +333,55 @@ export default {
           }
         }
       );
+    },
+    updateAllBirds(lineChange = false) {
+      for (const season of this.seasons) {
+          // skip initial paint, Navi will set the daterange on 'mounted' to trigger it
+          if (season.daterange.length == 0) {
+            continue;
+          }
+          let dateChanged = lineChange ||
+              this.daterangeOld[season.title] != undefined &&
+              !(season.daterange.length == this.daterangeOld[season.title].length &&
+                season.daterange.every((v, i) => this.daterangeOld[season.title].indexOf(v) == i));
+          for (const bird of season.turtledoves) {
+            var layerGroupObject = this.layerGroups.filter(
+              e => e.data === bird.data
+            );
+            let currentlyPainted = layerGroupObject.length > 0;
+
+            if (dateChanged) {
+              // eslint-disable-next-line no-console
+              console.log("DATE CHANGED (season: " + season.title + ", bird: " + bird.name + ")");
+            }
+
+            // Clear bird layers
+            if (!bird.active || dateChanged) {
+              if (currentlyPainted) {
+                // eslint-disable-next-line no-console
+                //console.log("CLEAR BIRD (season: " + season.title + ", bird: " + bird.name + ")");
+                var lg = this.layerGroups.filter(function(td) {
+                  return td.data == bird.data;
+                })[0];
+                lg.group.removeFrom(this.map);
+                lg.group.clearLayers();
+                this.layerGroups = this.layerGroups.filter(
+                  item => item !== layerGroupObject[0]
+                );
+                currentlyPainted = false;
+              }
+            }
+
+            // process and paint birds
+            if (bird.active && !currentlyPainted) {
+              // eslint-disable-next-line no-console
+              //console.log("PAINT BIRD (season: " + season.title + ", bird: " + bird.name + ")");
+              this.processBird(bird, season.daterange);
+            }
+
+          }
+          this.daterangeOld[season.title] = season.daterange;
+        }
     }
   }
 };
