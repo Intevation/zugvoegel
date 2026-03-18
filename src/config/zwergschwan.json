@@ -9,7 +9,7 @@
     "individual-local-identifier": "1852475408"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "214398",
     "avatar": "images/zwergschwan/013T.png",
     "color": "#1CE6FF",
@@ -36,7 +36,7 @@
     "individual-local-identifier": "1830847744"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "214401",
     "avatar": "images/zwergschwan/016T.png",
     "color": "#008941",
@@ -90,7 +90,7 @@
     "individual-local-identifier": "1852471186"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "214407",
     "avatar": "images/zwergschwan/022T.png",
     "color": "#63FFAC",
@@ -189,7 +189,7 @@
     "individual-local-identifier": "1866832313"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "214422",
     "avatar": "images/zwergschwan/037T.png",
     "color": "#6B7900",
@@ -333,7 +333,7 @@
     "individual-local-identifier": "2577408374"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "214413",
     "avatar": "images/zwergschwan/055T.jpg",
     "color": "#933C41",
@@ -376,6 +376,15 @@
     "name": "Nichola",
     "id": "(059T)",
     "individual-local-identifier": "5505453948"
+  },
+  {
+    "active": true,
+    "sender/tag": "248063",
+    "avatar": "images/zwergschwan/060T.jpg",
+    "color": "#163E7D",
+    "name": "Michaela",
+    "id": "(060T)",
+    "individual-local-identifier": "7834955699"
   },
   {
     "active": true,
@@ -441,7 +450,7 @@
     "individual-local-identifier": "5409553038"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "248068",
     "avatar": "images/zwergschwan/068T.jpg",
     "color": "#35A6BA",
@@ -463,7 +472,7 @@
     "sender/tag": "248054",
     "avatar": "images/zwergschwan/300T.jpg",
     "color": "#400E82",
-    "name": "Agnieszka",
+    "name": "Philip",
     "id": "(300T)",
     "individual-local-identifier": "5205204691"
   },
@@ -472,7 +481,7 @@
     "sender/tag": "248055",
     "avatar": "images/zwergschwan/301T.jpg",
     "color": "#A912EA",
-    "name": "Philip",
+    "name": "Agnieszka",
     "id": "(301T)",
     "individual-local-identifier": "5205223970"
   },
@@ -549,6 +558,51 @@
     "individual-local-identifier": "5483136954"
   },
   {
+    "active": true,
+    "sender/tag": "376411",
+    "avatar": "images/zwergschwan/310T.jpg",
+    "color": "#32BFB3",
+    "name": "Martha",
+    "id": "(310T)",
+    "individual-local-identifier": "7825943857"
+  },
+  {
+    "active": true,
+    "sender/tag": "376404",
+    "avatar": "images/zwergschwan/311T.jpg",
+    "color": "#BF8232",
+    "name": "Carlotta",
+    "id": "(311T)",
+    "individual-local-identifier": "7825946660"
+  },
+  {
+    "active": true,
+    "sender/tag": "376405",
+    "avatar": "images/zwergschwan/312T.jpg",
+    "color": "#7132BF",
+    "name": "Ellen",
+    "id": "(312T)",
+    "individual-local-identifier": "7826948962"
+  },
+  {
+    "active": true,
+    "sender/tag": "376410",
+    "avatar": "images/zwergschwan/313T.jpg",
+    "color": "#320BBD",
+    "name": "Rina",
+    "id": "(313T)",
+    "individual-local-identifier": "7826950041"
+  },
+  {
+    "active": true,
+    "sender/tag": "376412",
+    "avatar": "images/zwergschwan/314T.jpg",
+    "color": "#AEDB91",
+    "name": "Aggi",
+    "id": "(314T)",
+    "individual-local-identifier": "7826953525"
+  },
+  {
     "active": false,
     "sender/tag": "202927",
     "avatar": "images/zwergschwan/350E.png",
@@ -612,7 +666,7 @@
     "individual-local-identifier": "2585320065"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "202936",
     "avatar": "images/zwergschwan/360E.png",
     "color": "#31BC7B",
@@ -666,7 +720,7 @@
     "individual-local-identifier": "1893536572"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "202944",
     "avatar": "images/zwergschwan/367E.png",
     "color": "#40F7C6",
@@ -783,7 +837,7 @@
     "individual-local-identifier": "1922058030"
   },
   {
-    "active": true,
+    "active": false,
     "sender/tag": "215931",
     "avatar": "images/zwergschwan/383E.png",
     "color": "#E59567",
